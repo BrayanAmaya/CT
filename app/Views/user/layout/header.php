@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
 <nav class="navbar is-link">
     <div class="navbar-brand">
         <a class="navbar-item" href="http://CT.test/">

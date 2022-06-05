@@ -19,6 +19,8 @@ Actualizar
         </div>
     </article>
     <?php endif; ?>
+
+<div class="container">
     <h1 class="title">Actualiza tu perfil</h1>
     <h2 class="subtitle">
         Modifica lo que quieras actualizar y presiona guardar.
@@ -106,5 +108,6 @@ Actualizar
 
         </div>
     </form>
+</div>
 </section>
 <?=$this->endSection()?>
