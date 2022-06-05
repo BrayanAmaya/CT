@@ -570,7 +570,7 @@ class Admin extends BaseController{
         $agregarEstado = (int)$valorRecibidoEstado;
 
         $data = [
-         'estado' => 0,
+         'estado' => 1,
          'idUsuario'  => $valorMostar,
         ];
         
