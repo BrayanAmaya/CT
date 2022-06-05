@@ -23,7 +23,7 @@ Actualizar
     <h2 class="subtitle">
         Modifica lo que quieras actualizar y presiona guardar.
     </h2>
-    <form action="<?=base_url('admin/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
+    <form class="border p-3 form "  action="<?=base_url('admin/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
         method="POST">
 
         <div class="form-row">
