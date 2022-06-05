@@ -8,7 +8,7 @@ class TblUsuarios extends Migration
 {
     public function up()
     {
-        //$this->db->disableForeignKeyChecks();
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'idUsuario'          => [
                 'type'           => 'INT',
@@ -79,9 +79,9 @@ class TblUsuarios extends Migration
             ],
         ]);
         $this->forge->addKey('idUsuario', true);
-        //$this->forge->addForeignKey('idRol','tbl_roles','idRol','CASCADE','SET NULL');
+        $this->forge->addForeignKey('idRol','tbl_roles','idRol','CASCADE','SET NULL');
         $this->forge->createTable('tbl_usuarios');
-        //$this->db->enableForeignKeyChecks();
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

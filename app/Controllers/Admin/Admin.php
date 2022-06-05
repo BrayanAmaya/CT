@@ -32,8 +32,9 @@ class Admin extends BaseController{
         }
 
         $model = model('UsuarioModel');
+
         return view ('admin/buscarUsuario',[
-            'usuarios' =>$model->where('estado', $estatus)->findAll()
+            'usuarios' => $model->where('estado', $estatus)->findAll()
         ]);
 
     }
@@ -76,6 +77,7 @@ class Admin extends BaseController{
         $usuario = trim($this->request->getVar('usuario'));
         $email = trim($this->request->getVar('email'));
         $telefono = trim($this->request->getVar('telefono'));
+        $password = trim($this->request->getVar('password'));
 
 
         if($usuario != $usuarioComparar){
@@ -125,34 +127,41 @@ class Admin extends BaseController{
 
 
         $validar->setRules([
-            'nombre'=>'required|alpha_space',
-            'apellido'=>'required|alpha_space',
-            'email'=>'required|valid_email',
-            'telefono'=>'required|numeric',
-            'password'=>'matches[c-password]'
+            'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
+            'apellido'=>'required|alpha_space|min_length[3]|max_length[32]',
+            'email'=>'required|valid_email|max_length[32]',
+            'telefono'=>'required|numeric|min_length[8]|max_length[8]',
+            'password'=>'matches[c-password]|min_length[8]|max_length[32]'
         ],
         [
             'nombre' => [
                     'required' => 'Digite un nombre',
-                    'alpha_space' => 'Caracteres no permitidos'
+                    'alpha_space' => 'Caracteres no permitidos',
+                    'min_length' => 'El nombre es muy corto',
+                    'max_length' => 'El nombre es demasiado largo'
             ],
             'apellido' => [
                 'required' => 'Digite un apellido',
-                'alpha_space' => 'Caracteres no permitidos'
+                'alpha_space' => 'Caracteres no permitidos',
+                'min_length' => 'El apellido es muy corto',
+                'max_length' => 'El apellido es demasiado largo'
             ],
             'email' => [
                 'required' => 'Digite un correo',
                 'valid_email' => 'Correo no valido',
-              
+                'max_length' => 'El correo es demasiado extenso'
             ],
             'telefono' => [
                 'required' => 'Digite un número de telefono',
                 'numeric' => 'Solo digite numeros',
+                'min_length' => 'El número de telefono debe tener 8 digítos',
+                'max_length' => 'El número de telefono debe tener 8 digítos'
                
             ],
             'password' => [
-                //'required' => 'Digite su contraseña',
-                'matches' => 'Las contraseñas no coinciden'
+                'matches' => 'Las contraseñas no coinciden',
+                'min_length' => 'La contraseña es muy corta',
+                'max_length' => 'La contraseña es demasiado extensa'
             ],
         ]
         );
@@ -160,19 +169,35 @@ class Admin extends BaseController{
         if(!$validar->withRequest($this->request)->run()){
             return redirect()->back()->withInput()->with('errors',$validar->getErrors());
         }
-        
-        $dataActualizada= [
-            'idUsuario' => $valorMostar,
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'usuario' => $usuario,
-            'email' => $email,
-            'telefono' => $telefono,
-        ];  
+
+        $dataActualizada=[];
+        if($password != null){
+            $insertarPassword = password_hash($password,PASSWORD_DEFAULT);
+            $dataActualizada= [
+                'idUsuario' => $valorMostar,
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'usuario' => $usuario,
+                'email' => $email,
+                'telefono' => $telefono,
+                'password' => $insertarPassword
+            ];
+        }else{
+            $dataActualizada= [
+                'idUsuario' => $valorMostar,
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'usuario' => $usuario,
+                'email' => $email,
+                'telefono' => $telefono,
+            ];  
+        }
 
         $model->save($dataActualizada);
 
-        return redirect()->route('updatePerfil');
+        return redirect()->route('perfil')->with('msg',[
+            'type'=>'success',
+            'body'=>'Datos del usuario actualizado correctamente.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function actualizarPerfil(){
@@ -191,40 +216,51 @@ class Admin extends BaseController{
         $validar = service('validation');
         
         $validar->setRules([
-            'nombre'=>'required|alpha_space',
-            'apellido'=>'required|alpha_space',
-            'email'=>'required|valid_email|is_unique[tbl_usuarios.email]',
-            'telefono'=>'required|numeric|is_unique[tbl_usuarios.telefono]',
-            'dui'=>'required|numeric|is_unique[tbl_usuarios.dui]',
-            'password'=>'required|matches[c-password]'
+            'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
+            'apellido'=>'required|alpha_space|min_length[3]|max_length[32]',
+            'email'=>'required|valid_email|is_unique[tbl_usuarios.email]|max_length[32]',
+            'telefono'=>'required|numeric|is_unique[tbl_usuarios.telefono]|min_length[8]|max_length[8]',
+            'dui'=>'required|numeric|is_unique[tbl_usuarios.dui]|min_length[9]|max_length[9]',
+            'password'=>'required|matches[c-password]|min_length[8]|max_length[32]'
         ],
         [
             'nombre' => [
                     'required' => 'Digite un nombre',
-                    'alpha_space' => 'Caracteres no permitidos'
+                    'alpha_space' => 'Caracteres no permitidos',
+                    'min_length' => 'El nombre es muy corto',
+                    'max_length' => 'El nombre es demasiado largo'
             ],
             'apellido' => [
                 'required' => 'Digite un apellido',
-                'alpha_space' => 'Caracteres no permitidos'
+                'alpha_space' => 'Caracteres no permitidos',
+                'min_length' => 'El apellido es muy corto',
+                'max_length' => 'El apellido es demasiado largo'
             ],
             'email' => [
                 'required' => 'Digite un correo',
                 'valid_email' => 'Correo no valido',
-                'is_unique' => 'Este correo ya existe'
+                'is_unique' => 'Este correo ya existe',
+                'max_length' => 'El correo es demasiado extenso'
             ],
             'telefono' => [
                 'required' => 'Digite un número de telefono',
                 'numeric' => 'Solo digite numeros',
-                'is_unique' => 'Este número de telefono ya existe'
+                'is_unique' => 'Este número de telefono ya existe',
+                'min_length' => 'El número de telefono debe tener 8 digítos',
+                'max_length' => 'El número de telefono debe tener 8 digítos'
             ],
             'dui' => [
                 'required' => 'Digite un número de Dui',
                 'numeric' => 'Solo digite numeros',
-                'is_unique' => 'Este número de dui ya existe'
+                'is_unique' => 'Este número de dui ya existe',
+                'min_length' => 'El número de DUI debe tener 9 digítos',
+                'max_length' => 'El número de DUI debe tener 9 digítos'
             ],
             'password' => [
                 'required' => 'Digite su contraseña',
-                'matches' => 'Las contraseñas no coinciden'
+                'matches' => 'Las contraseñas no coinciden',
+                'min_length' => 'La contraseña es muy corta',
+                'max_length' => 'La contraseña es demasiado extensa'
             ],
         ]
         );
@@ -325,6 +361,7 @@ class Admin extends BaseController{
         $email = trim($this->request->getVar('email'));
         $telefono = trim($this->request->getVar('telefono'));
         $dui = trim($this->request->getVar('dui'));
+        $password = trim($this->request->getVar('password'));
         $estado = trim($this->request->getVar('estado'));
         $idRol = trim($this->request->getVar('idRol'));
 
@@ -390,37 +427,49 @@ class Admin extends BaseController{
         }
 
         $validar->setRules([
-            'nombre'=>'required|alpha_space',
-            'apellido'=>'required|alpha_space',
-            'email'=>'required|valid_email',
-            'telefono'=>'required|numeric',
-            'dui'=>'required|numeric',
+            'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
+            'apellido'=>'required|alpha_space|min_length[3]|max_length[32]',
+            'email'=>'required|valid_email|max_length[32]',
+            'telefono'=>'required|numeric|min_length[8]|max_length[8]',
+            'dui'=>'required|numeric|min_length[9]|max_length[9]',
+            'password'=>'matches[c-password]|min_length[8]|max_length[32]',
             'estado'=>'required|in_list[0,1]',
             'idRol'=>'required|in_list[1,2]'
         ],
         [
             'nombre' => [
                     'required' => 'Digite un nombre',
-                    'alpha_space' => 'Caracteres no permitidos'
+                    'alpha_space' => 'Caracteres no permitidos',
+                    'min_length' => 'El nombre es muy corto',
+                    'max_length' => 'El nombre es demasiado largo'
             ],
             'apellido' => [
                 'required' => 'Digite un apellido',
-                'alpha_space' => 'Caracteres no permitidos'
+                'alpha_space' => 'Caracteres no permitidos',
+                'min_length' => 'El apellido es muy corto',
+                'max_length' => 'El apellido es demasiado largo'
             ],
             'email' => [
                 'required' => 'Digite un correo',
                 'valid_email' => 'Correo no valido',
-              
+                'max_length' => 'El correo es demasiado extenso'
             ],
             'telefono' => [
                 'required' => 'Digite un número de telefono',
                 'numeric' => 'Solo digite numeros',
-               
+                'min_length' => 'El número de telefono debe tener 8 digítos',
+                'max_length' => 'El número de telefono debe tener 8 digítos'
             ],
             'dui' => [
                 'required' => 'Digite un número de Dui',
                 'numeric' => 'Solo digite numeros',
-               
+                'min_length' => 'El número de DUI debe tener 9 digítos',
+                'max_length' => 'El número de DUI debe tener 9 digítos'
+            ],
+            'password' => [
+                'matches' => 'Las contraseñas no coinciden',
+                'min_length' => 'La contraseña es muy corta',
+                'max_length' => 'La contraseña es demasiado extensa'
             ],
             'estado' => [
                 'required' => 'Seleccione un estado valido',
@@ -439,23 +488,41 @@ class Admin extends BaseController{
         }
         $agregarEstado = (int)$estado;
 
-        //dd(old('nombre'));
-        
-        $dataActualizada= [
-            'idUsuario' => $valorMostar,
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'usuario' => $usuario,
-            'email' => $email,
-            'telefono' => $telefono,
-            'dui' => $dui,
-            'estado' => $agregarEstado,
-            'idRol' => $idRol
-        ];  
+        $dataActualizada=[];
+        if($password != null){
+            $insertarPassword = password_hash($password,PASSWORD_DEFAULT);
+            $dataActualizada= [
+                'idUsuario' => $valorMostar,
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'usuario' => $usuario,
+                'email' => $email,
+                'telefono' => $telefono,
+                'dui' => $dui,
+                'password' => $insertarPassword,
+                'estado' => $agregarEstado,
+                'idRol' => $idRol
+            ];
+        }else{
+            $dataActualizada= [
+                'idUsuario' => $valorMostar,
+                'nombre' => $nombre,
+                'apellido' => $apellido,
+                'usuario' => $usuario,
+                'email' => $email,
+                'telefono' => $telefono,
+                'dui' => $dui,
+                'password' => $insertarPassword,
+                'estado' => $agregarEstado,
+                'idRol' => $idRol
+            ];  
+        }
 
         $model->save($dataActualizada);
 
-        return redirect()->route('search');
+        return redirect()->route('search')->with('msg',[
+            'type'=>'success',
+            'body'=>'Usuario actualizado correctamente.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function darDeBaja(){
@@ -476,12 +543,14 @@ class Admin extends BaseController{
 
         $data = [
          'estado' => $agregarEstado,
-         'idUsuario'  => $valorMostar
+         'idUsuario'  => $valorMostar,
         ];
         
         $model->save($data);
 
-        return redirect()->route('search');
+        return redirect()->route('search')->with('msg',[
+            'type'=>'success',
+            'body'=>'El usuario se dio de baja.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function volverUsuario(){
@@ -501,13 +570,15 @@ class Admin extends BaseController{
         $agregarEstado = (int)$valorRecibidoEstado;
 
         $data = [
-         'estado' => $agregarEstado,
-         'idUsuario'  => $valorMostar
+         'estado' => 0,
+         'idUsuario'  => $valorMostar,
         ];
         
         $model->save($data);
 
-        return redirect()->route('search');
+        return redirect()->route('search')->with('msg',[
+            'type'=>'success',
+            'body'=>'El usuario se dio de alta.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function cerrar(){

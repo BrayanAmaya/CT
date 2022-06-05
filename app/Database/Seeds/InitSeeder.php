@@ -8,7 +8,7 @@ class InitSeeder extends Seeder
 {
     public function run()
     {
-        $this->call('RolesSeeder');
+        //$this->call('RolesSeeder');
         $this->call('UserSeeder');
     }
 }

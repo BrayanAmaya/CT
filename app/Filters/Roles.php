@@ -27,6 +27,13 @@ class Roles implements FilterInterface
                 'body' => 'Usuario no disponible'
             ]);
         }
+        if($usuario->estado == 0){
+            session()->destroy();
+            return redirect()->route('login')->with('msg',[
+                'type' => 'danger',
+                'body' => 'Usuario no disponible'
+            ]);
+        }
 
         $model->buscarRol($usuario->idRol);
         if(!in_array($model->asignarVistaRol,$arguments)){

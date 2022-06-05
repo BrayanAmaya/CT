@@ -8,7 +8,7 @@ class TblCt extends Migration
 {
     public function up()
     {
-        //$this->db->disableForeignKeyChecks();
+        $this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'idCt'          => [
                 'type'           => 'INT',
@@ -56,9 +56,9 @@ class TblCt extends Migration
             ],
         ]);
         $this->forge->addKey('idCt', true);
-        //$this->forge->addForeignKey('idUsuario','tbl_usuarios','idUsuario','CASCADE','SET NULL');
+        $this->forge->addForeignKey('idUsuario','tbl_usuarios','idUsuario','CASCADE','SET NULL');
         $this->forge->createTable('tbl_ct');
-        //$this->db->enableForeignKeyChecks();
+        $this->db->enableForeignKeyChecks();
     }
 
     public function down()

@@ -13,7 +13,7 @@ class UsuarioModel extends Model{
     protected $returnType     = Usuario::class;
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['usuario','password','nombre', 'apellido','estado','email','dui','telefono','idRol'];
+    protected $allowedFields = ['usuario','password','nombre', 'apellido','estado','email','dui','telefono','idRol','date_delete'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'date_create';

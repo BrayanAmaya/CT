@@ -5,25 +5,24 @@ Login
 <?=$this->endSection()?>
 <?=$this->section('css')?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="/assets/css/style.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
 
 <section class="section">
     <div class="vh-100 row m-0 text-center align-items-center justify-content-center">
-        <?php if(session('msg')):?>
-        <article class="message is-<?=session('msg.type')?>">
-            <div class="message-body">
-                <?=session('msg.body')?>
-            </div>
-        </article>
-        <?php endif; ?>
- 
- 
         <form class="border p-3 form " action="<?=base_url(route_to('signin'))?>" method="POST">
-        <h1 class="title">Login</h1>
-        <h2 class="subtitle">Inicia sesión, antes de empezar.</h2>
+            <?php if(session('msg')):?>
+            <article class="message is-<?=session('msg.type')?>">
+                <div class="message-body">
+                    <?= session('msg.body')?>
+                </div>
+            </article>
+            <?php endif; ?>
+            <h1 class="title">Login</h1>
+            <h2 class="subtitle">Inicia sesión, antes de empezar.</h2>
             <div class="col-auto">
                 <p class="control has-icons-left has-icons-right">
                     <input class="input" name="usuario" value='<?=old('usuario')?>' type="" placeholder="Usuario">

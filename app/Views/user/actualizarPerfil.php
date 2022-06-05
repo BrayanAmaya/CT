@@ -1,4 +1,4 @@
-<?=$this->extend('admin/main')?>
+<?=$this->extend('user/main')?>
 
 <?=$this->section('title')?>
 Actualizar
@@ -7,7 +7,7 @@ Actualizar
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-<link rel="stylesheet" href="/assets/css/style_admin.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
 
@@ -23,7 +23,7 @@ Actualizar
     <h2 class="subtitle">
         Modifica lo que quieras actualizar y presiona guardar.
     </h2>
-    <form action="<?=base_url('admin/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
+    <form action="<?=base_url('user/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
         method="POST">
 
         <div class="form-row">
@@ -66,6 +66,9 @@ Actualizar
                     <span class="icon is-small is-left">
                         <i class="fas fa-envelope"></i>
                     </span>
+                    <span class="icon is-small is-right">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </span>
                 </div>
                 <p class="is-danger help"><?=session('errors.email')?></p>
             </div>
@@ -80,8 +83,7 @@ Actualizar
                 <p class="is-danger help"><?=session('errors.telefono')?></p>
             </div>
 
-            <br>
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label class="label">Contraseña</label>
                 <div class="control">
                     <input name='password' class="input" type="password" placeholder="Contraseña">
@@ -89,7 +91,7 @@ Actualizar
                 <p class="is-danger help"><?=session('errors.password')?></p>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
                 <label class="label">Confirma tu contraseña</label>
                 <div class="control">
                     <input name='c-password' class="input" type="password" placeholder="Repite contraseña">

@@ -46,7 +46,6 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->get('reportes', 'Admin::report',['as'=>'report']);
     $routes->get('buscar-usuario', 'Admin::buscarUsuario',['as'=>'search']);
     $routes->get('agregar-dispositivo', 'Admin::agregarDispositivo',['as'=>'addDispositivo']);
-    //$routes->get('configuracion', 'Admin::configuracion',['as'=>'config']);
     $routes->get('perfil', 'Admin::miPerfil',['as'=>'perfil']);
     $routes->get('actualizar-perfil', 'Admin::actualizarPerfil',['as'=>'updatePerfil']);
     $routes->post('actualizarPerfil', 'Admin::updatePerfil');
@@ -57,11 +56,13 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->post('actualizarUsuario', 'Admin::actualizarUsuario');
     $routes->get('deleteUsuario', 'Admin::darDeBaja',['as'=>'delete']);
     $routes->get('backUsuario', 'Admin::volverUsuario',['as'=>'back']);
-   // $routes->get('buscar-usuario', 'Admin::estatus',['as'=>'estatus']);
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){
     $routes->get('home', 'User::index', ['as'=>'user']);
+    $routes->get('perfil', 'User::miPerfil',['as'=>'perfilUser']);
+    $routes->get('actualizar-perfil', 'User::actualizarPerfil',['as'=>'updatePerfilUser']);
+    $routes->post('actualizarPerfil', 'User::updatePerfil');
     $routes->get('cerrar', 'User::cerrarS',['as'=>'logoutU']);
 });
 

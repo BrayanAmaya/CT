@@ -65,9 +65,6 @@ Actualizar usuario
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
-                        <span class="icon is-small is-right">
-                            <i class="fas fa-exclamation-triangle"></i>
-                        </span>
                     </div>
                     <p class="is-danger help"><?=session('errors.email')?></p>
                 </div>
@@ -119,6 +116,21 @@ Actualizar usuario
                     <p class="is-danger help"><?=session('errors.idiomaPrimario')?></p>
                 </div>
 
+                <br>
+                <div class="col-md-5">
+                    <label class="label">Contraseña</label>
+                    <div class="control">
+                        <input name='password' class="input" type="password" placeholder="Contraseña">
+                    </div>
+                    <p class="is-danger help"><?=session('errors.password')?></p>
+                </div>
+
+                <div class="col-md-5">
+                    <label class="label">Repetir contraseña</label>
+                    <div class="control">
+                        <input name='c-password' class="input" type="password" placeholder="Repite contraseña">
+                    </div>
+                </div>
 
                 <div class="col-md-8 col-md-offset-3">
                     <div class="control">
