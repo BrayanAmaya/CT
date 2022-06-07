@@ -53,6 +53,7 @@ Buscar usuario
         </thead>
         <tbody>
             <?php foreach ($usuarios as $key): ?>
+            <?php if($key->idUsuario != session('idUsuario')): ?>
             <tr>
                 <td>
                     <?= $key->nombre ?>
@@ -98,6 +99,7 @@ Buscar usuario
 
                 </td>
             </tr>
+            <?php endif; ?>
             <?php endforeach; ?>
 
         </tbody>

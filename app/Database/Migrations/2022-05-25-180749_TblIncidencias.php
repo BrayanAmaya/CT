@@ -8,7 +8,7 @@ class TblIncidencias extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
+        //$this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'idIncidencia'          => [
                 'type'           => 'INT',
@@ -76,11 +76,11 @@ class TblIncidencias extends Migration
             ],
         ]);
         $this->forge->addKey('idIncidencia', true);
-        $this->forge->addForeignKey('idUsuario','tbl_usuarios','idUsuario','CASCADE','SET NULL');
-        $this->forge->addForeignKey('idTipoIncidencia','tbl_tipos_de_incidencia','idTipoIncidencia','CASCADE','SET NULL');
-        $this->forge->addForeignKey('idCt','tbl_ct','idCt','CASCADE','SET NULL');
+        //$this->forge->addForeignKey('idUsuario','tbl_usuarios','idUsuario','CASCADE','SET NULL');
+        //$this->forge->addForeignKey('idTipoIncidencia','tbl_tipos_de_incidencia','idTipoIncidencia','CASCADE','SET NULL');
+        //$this->forge->addForeignKey('idCt','tbl_ct','idCt','CASCADE','SET NULL');
         $this->forge->createTable('tbl_incidencias');
-        $this->db->enableForeignKeyChecks();
+        //$this->db->enableForeignKeyChecks();
     }
 
     public function down()

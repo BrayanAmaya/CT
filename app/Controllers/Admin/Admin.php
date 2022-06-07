@@ -39,6 +39,18 @@ class Admin extends BaseController{
 
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
+    public function buscarCt(){
+        $estatus = trim($this->request->getVar('estado'));
+        if($estatus == null) {
+            $estatus = 1;
+        }
+        $modelCt = model('CtModel');
+        return view ('admin/buscarCt',[
+            'cts' => $modelCt->where('estado',$estatus)->findAll()
+        ]);
+
+}
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function agregarDispositivo(){
         return view ('admin/agregarDispositivo');
     }
@@ -125,13 +137,30 @@ class Admin extends BaseController{
             }
         }
 
+        if($password != null){
+            $validar->setRules([
+                'password'=>'matches[c-password]|min_length[8]|max_length[32]'
+            ],
+            [
+                'password' => [
+                    'matches' => 'Las contraseñas no coinciden',
+                    'min_length' => 'La contraseña es muy corta',
+                    'max_length' => 'La contraseña es demasiado extensa'
+                ],
+            ]
+            );
+            if(!$validar->withRequest($this->request)->run()){
+                return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+            }
+        }
+
 
         $validar->setRules([
             'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
             'apellido'=>'required|alpha_space|min_length[3]|max_length[32]',
             'email'=>'required|valid_email|max_length[32]',
             'telefono'=>'required|numeric|min_length[8]|max_length[8]',
-            'password'=>'matches[c-password]|min_length[8]|max_length[32]'
+            'password'=>'matches[c-password]'
         ],
         [
             'nombre' => [
@@ -160,8 +189,6 @@ class Admin extends BaseController{
             ],
             'password' => [
                 'matches' => 'Las contraseñas no coinciden',
-                'min_length' => 'La contraseña es muy corta',
-                'max_length' => 'La contraseña es demasiado extensa'
             ],
         ]
         );
@@ -208,7 +235,17 @@ class Admin extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registerCt(){
-        return view ('admin/registrarCt');
+        $modelCt =model('CtModel');
+        $model=model('UsuarioModel');
+        $ct = $modelCt->findColumn('idUsuario');
+
+        if($ct==null){
+            $ct = ['vacio'];
+        }
+        return view ('admin/registrarCt',[
+            'usuarios' => $model->where('estado',1)->findAll(),
+            'ct' => $ct
+        ]);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registrarUsuario(){
@@ -288,22 +325,25 @@ class Admin extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registrarCentroTecnologia(){
+        $modelCt = model('CtModel');
         $validar = service('validation');
         
         $validar->setRules([
-            'nombreCt'=>'required',
+            'nombreCt'=>'required|is_unique[tbl_ct.nombreCt]',
             'encargado'=>'required',
-            'descripcion'=>'required',
+            'descripcion'=>'required|alpha_numeric_space',
         ],
         [
             'nombreCt' => [
-                    'required' => 'Digite un nombre'
+                'required' => 'Digite un nombre',
+                'is_unique' => 'El nombre del centro de tecnología ya existe.'
             ],
             'encargado' => [
-                'required' => 'Digite un encargado'
+                'required' => 'Seleccione un encargado',
             ],
             'descripcion' => [
-                'required' => 'Digite una descripcion'
+                'required' => 'Digite una descripcion',
+                'alpha_numeric_space'=> 'Caracteres no permitidos o uso de «Enter»'
             ]
         ]
         ); 
@@ -311,6 +351,54 @@ class Admin extends BaseController{
         if(!$validar->withRequest($this->request)->run()){
             return redirect()->back()->withInput()->with('errors',$validar->getErrors());
         }
+
+        $modelUsuario = model('UsuarioModel');
+
+        $idUsuario = trim($this->request->getVar('encargado'));
+        $nombreCt = trim($this->request->getVar('nombreCt'));
+        $descripcion = trim($this->request->getVar('descripcion'));
+
+        $buscar = $modelUsuario->findAll();
+        $valorMostar= null;
+        
+        foreach ($buscar as $key) {
+            if(password_verify($key->idUsuario,$idUsuario)){
+                $valorMostar = $key->idUsuario;
+                break;
+            }
+        }
+
+        //$data = $this->request->getPost(['nombreCt','descripcion']);
+        $data = [
+            'nombreCt' => $nombreCt,
+            'descripcion' => $descripcion,
+            'idUsuario' => $valorMostar
+        ];
+
+        if($valorMostar == null){
+            return redirect()->back()->withInput()->with('errors',[
+                'encargado'=>'Encargado no valido'
+            ]);
+        }
+        $modelCt->agregarUnEncargado($valorMostar);
+        $modelCt->agregarUnEstado();
+
+        if(!$modelCt->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al guardar el centro de tecnología.'
+            ]);
+        }
+
+
+        
+        //dd($valorMostar);
+        //dd($modelCt->agregarUnEncargado($valorMostar));
+
+        return redirect()->route('registerCt')->with('msg',[
+            'type'=>'success',
+            'body'=>'Centro de tecnología agregado correctamente.']);
+        
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function actualizar(){
@@ -330,6 +418,39 @@ class Admin extends BaseController{
             'mostrar' => $model->find($valorMostar)
         ]);
     }
+/*-------------------------------------------------------------------------------------------------------------------*/
+public function actualizarCts(){
+    $valorRecibido = $_GET['id'];
+    $model = model('CtModel');
+    $modelUsuario=model('UsuarioModel');
+    $valorMostar = null;
+    $valorQuitar= null;
+    $buscar = $model->findAll();
+    foreach ($buscar as $key) {
+        if(password_verify($key->idCt,$valorRecibido)){
+            $valorMostar = $key->idCt;
+            $valorQuitar = $key->idUsuario;
+            break;
+        }
+    }
+
+    $ct = $model->findColumn('idUsuario');
+
+    //dd($ct);
+
+    $ct = array_diff($ct,array($valorQuitar));
+    if($ct==null){
+        $ct = ['vacio'];
+    }
+
+    //dd($valorMostar);
+    //dd($model->find($valorMostar));
+    return view ('admin/actualizarCt',[
+        'mostrar' => $model->find($valorMostar),
+        'ct' => $ct,
+        'usuarios' => $modelUsuario->where('estado',1)->findAll()
+    ]);
+}
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function actualizarUsuario(){
 
@@ -425,6 +546,22 @@ class Admin extends BaseController{
                 return redirect()->back()->withInput()->with('errors',$validar->getErrors());
             }
         }
+        if($password != null){
+            $validar->setRules([
+                'password'=>'matches[c-password]|min_length[8]|max_length[32]'
+            ],
+            [
+                'password' => [
+                    'matches' => 'Las contraseñas no coinciden',
+                    'min_length' => 'La contraseña es muy corta',
+                    'max_length' => 'La contraseña es demasiado extensa'
+                ],
+            ]
+            );
+            if(!$validar->withRequest($this->request)->run()){
+                return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+            }
+        }
 
         $validar->setRules([
             'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
@@ -432,7 +569,7 @@ class Admin extends BaseController{
             'email'=>'required|valid_email|max_length[32]',
             'telefono'=>'required|numeric|min_length[8]|max_length[8]',
             'dui'=>'required|numeric|min_length[9]|max_length[9]',
-            'password'=>'matches[c-password]|min_length[8]|max_length[32]',
+            'password'=>'matches[c-password]',
             'estado'=>'required|in_list[0,1]',
             'idRol'=>'required|in_list[1,2]'
         ],
@@ -468,8 +605,6 @@ class Admin extends BaseController{
             ],
             'password' => [
                 'matches' => 'Las contraseñas no coinciden',
-                'min_length' => 'La contraseña es muy corta',
-                'max_length' => 'La contraseña es demasiado extensa'
             ],
             'estado' => [
                 'required' => 'Seleccione un estado valido',
@@ -525,6 +660,71 @@ class Admin extends BaseController{
             'body'=>'Usuario actualizado correctamente.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
+    public function actualizarCt(){
+        $valorRecibido = $_GET['id'];
+
+
+        $model = model('CtModel');
+        $valorMostar = null;
+        $ctComparar = null;
+        $buscar = $model->findAll();
+        
+        foreach ($buscar as $key) {
+            if(password_verify($key->idCt,$valorRecibido)){
+                $valorMostar = $key->idCt;
+                $ctComparar = $key->nombreCt;
+                break;
+            }
+        }
+
+        $validar = service('validation');
+
+        $nombreCt = trim($this->request->getVar('nombreCt'));
+        $idUsuario = trim($this->request->getVar('encargado'));
+
+        if($nombreCt != $ctComparar){
+            $validar->setRules([
+                'nombreCt'=>'is_unique[tbl_ct.nombreCt]'
+            ],
+            [
+                'nombreCt' => [
+                        'is_unique' => 'El nombre del centro de tecnología ya existe.'
+                ],
+            ]
+            );
+            if(!$validar->withRequest($this->request)->run()){
+                return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+            }
+        }
+        
+        $validar->setRules([
+            'nombreCt'=>'required',
+            'encargado'=>'required',
+            'descripcion'=>'required|alpha_numeric_space',
+        ],
+        [
+            'nombreCt' => [
+                'required' => 'Digite un nombre'
+            ],
+            'encargado' => [
+                'required' => 'Seleccione un encargado',
+            ],
+            'descripcion' => [
+                'required' => 'Digite una descripcion',
+                'alpha_numeric_space'=> 'Caracteres no permitidos o uso de «Enter»'
+            ]
+        ]
+        ); 
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        
+
+        echo $valorMostar;
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function darDeBaja(){
 
         $valorRecibidoEstado = $_GET['estado'];
@@ -553,6 +753,34 @@ class Admin extends BaseController{
             'body'=>'El usuario se dio de baja.']);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
+    public function darDeBajaCt(){
+
+        $valorRecibidoEstado = $_GET['estado'];
+        $valorRecibidoId = $_GET['id'];
+        $model = model('CtModel');
+        $valorMostar = null;
+        $buscar = $model->findAll();
+
+        foreach ($buscar as $key) {
+            if(password_verify($key->idUsuario,$valorRecibidoId)){
+                $valorMostar = $key->idUsuario;
+                break;
+            }
+        }
+        $agregarEstado = (int)$valorRecibidoEstado;
+
+        $data = [
+         'estado' => $agregarEstado,
+         'idCt'  => $valorMostar,
+        ];
+        
+        $model->save($data);
+
+        return redirect()->route('searchCt')->with('msg',[
+            'type'=>'success',
+            'body'=>'El centro de tecnología se dio de baja.']);
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function volverUsuario(){
 
         $valorRecibidoEstado = $_GET['estado'];
@@ -570,7 +798,7 @@ class Admin extends BaseController{
         $agregarEstado = (int)$valorRecibidoEstado;
 
         $data = [
-         'estado' => 1,
+         'estado' => 0,
          'idUsuario'  => $valorMostar,
         ];
         
@@ -580,6 +808,34 @@ class Admin extends BaseController{
             'type'=>'success',
             'body'=>'El usuario se dio de alta.']);
     }
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function volverCt(){
+
+        $valorRecibidoEstado = $_GET['estado'];
+        $valorRecibidoId = $_GET['id'];
+        $model = model('CtModel');
+        $valorMostar = null;
+        $buscar = $model->findAll();
+
+        foreach ($buscar as $key) {
+            if(password_verify($key->idUsuario,$valorRecibidoId)){
+                $valorMostar = $key->idUsuario;
+                break;
+            }
+        }
+        $agregarEstado = (int)$valorRecibidoEstado;
+
+        $data = [
+        'estado' => $agregarEstado,
+        'idCt'  => $valorMostar,
+        ];
+        
+        $model->save($data);
+
+        return redirect()->route('searchCt')->with('msg',[
+            'type'=>'success',
+            'body'=>'El centro de tecnología se dio de alta.']);
+}
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function cerrar(){
         session()->destroy();

@@ -1,0 +1,506 @@
+CRITICAL - 2022-06-06 11:49:01 --> Use of undefined constant idUsuario - assumed 'idUsuario' (this will throw an Error in a future version of PHP)
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarUsuario.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'C:\\laragon\\www\\...', 56, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarUsu...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(37): view('admin/buscarUsu...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarUsuario()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 14:14:59 --> password_hash() expects at least 2 parameters, 1 given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'password_hash()...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(41): password_hash('8')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#5 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(228): view('admin/registrar...', Array)
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-06 14:24:25 --> Undefined variable: valorRecibido
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(341): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 341, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:24:49 --> Undefined variable: valorMostar
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(347): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 347, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 14:25:14 --> Argument 1 passed to App\Models\CtModel::agregarUnEncargado() must be of the type string, null given, called in C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php on line 348
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(348): App\Models\CtModel->agregarUnEncargado(NULL)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-06-06 14:41:14 --> Duplicate entry 'asda' for key 'nombreCt'
+CRITICAL - 2022-06-06 14:41:14 --> Duplicate entry 'asda' for key 'nombreCt'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CT_prueba\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CT_prueba\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(359): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#10 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#11 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-06-06 14:41:29 -->  route cannot be found while reverse-routing.
+#0 C:\laragon\www\CT_prueba\system\HTTP\RedirectResponse.php(56): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(364): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}
+ERROR - 2022-06-06 14:41:59 --> Duplicate entry 'asdaasd' for key 'nombreCt'
+CRITICAL - 2022-06-06 14:42:00 --> Duplicate entry 'asdaasd' for key 'nombreCt'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1771): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(239): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#6 C:\laragon\www\CT_prueba\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#7 C:\laragon\www\CT_prueba\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#8 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(359): CodeIgniter\BaseModel->save(Array)
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#10 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#11 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-06-06 14:51:44 --> syntax error, unexpected 'endif' (T_ENDIF)
+#0 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#2 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): view('admin/registrar...', Array)
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-06 14:52:02 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 42, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 14:53:56 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 42, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-06-06 14:56:34 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 14:56:34 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-06-06 14:56:57 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 14:56:58 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-06-06 14:57:15 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 14:57:16 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-06-06 14:57:42 --> Cannot redeclare App\Models\CtModel::$updatedField
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+ERROR - 2022-06-06 14:58:05 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 14:58:06 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-06-06 14:59:15 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 14:59:15 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `idUsuar...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `idUsuar...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `idUsuar...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `idUsuar...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(145): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(523): CodeIgniter\Model->doFind(false, NULL)
+#6 C:\laragon\www\CT_prueba\system\Model.php(161): CodeIgniter\BaseModel->find()
+#7 C:\laragon\www\CT_prueba\system\BaseModel.php(554): CodeIgniter\Model->doFindColumn('idUsuario')
+#8 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(230): CodeIgniter\BaseModel->findColumn('idUsuario')
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#10 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#11 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#13 {main}
+CRITICAL - 2022-06-06 14:59:35 --> Undefined variable: ct
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(41): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(229): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-06-06 15:00:40 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+CRITICAL - 2022-06-06 15:00:40 --> Unknown column 'tbl_ct.deleted_at' in 'where clause'
+#0 C:\laragon\www\CT_prueba\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT_prueba\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT_prueba\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT_prueba\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT_prueba\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(229): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#9 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-06-06 15:02:38 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 42, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(232): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 15:03:53 --> Cannot declare class App\Entities\Usuario, because the name is already in use
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-06 15:04:10 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 42, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(232): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 15:04:38 --> syntax error, unexpected 'foreach' (T_FOREACH)
+#0 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#2 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(232): view('admin/registrar...', Array)
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-06 15:05:51 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(42): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 42, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(232): view('admin/registrar...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 15:12:22 --> in_array() expects parameter 2 to be array, string given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'in_array() expe...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(41): in_array(Array, '8')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#5 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(232): view('admin/registrar...', Array)
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-06 15:26:41 --> in_array() expects parameter 2 to be array, null given
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'in_array() expe...', 'C:\\laragon\\www\\...', 41, Array)
+#1 C:\laragon\www\CT_prueba\app\Views\admin\registrarCt.php(41): in_array('8', NULL)
+#2 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#3 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#4 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/registrar...', Array, true)
+#5 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(233): view('admin/registrar...', Array)
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registerCt()
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#8 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-06 15:32:04 --> syntax error, unexpected '}'
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 15:47:53 --> syntax error, unexpected ''is_unique'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 15:47:56 --> syntax error, unexpected ''is_unique'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 16:17:34 --> Argument 1 passed to App\Models\CtModel::agregarUnEncargado() must be of the type string, null given, called in C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php on line 366
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(366): App\Models\CtModel->agregarUnEncargado(NULL)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 16:18:47 --> Argument 1 passed to App\Models\CtModel::agregarUnEncargado() must be of the type string, null given, called in C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php on line 366
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(366): App\Models\CtModel->agregarUnEncargado(NULL)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 16:18:47 --> Argument 1 passed to App\Models\CtModel::agregarUnEncargado() must be of the type string, null given, called in C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php on line 366
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(366): App\Models\CtModel->agregarUnEncargado(NULL)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->registrarCentroTecnologia()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 16:20:12 --> syntax error, unexpected 'return' (T_RETURN)
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 22:51:34 --> Cannot redeclare App\Controllers\Admin\Admin::buscarUsuario()
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-06 23:02:09 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 48, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 23:04:14 --> Undefined variable: array_push
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(49): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 49, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 23:06:10 --> Array to string conversion
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(44): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\laragon\\www\\...', 44, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:09:51 --> Array to string conversion
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(45): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\laragon\\www\\...', 45, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:13:18 --> Undefined offset: 1
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\laragon\\www\\...', 46, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:13:29 --> Undefined offset: 1
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\laragon\\www\\...', 46, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:13:53 --> Undefined offset: 1
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined offse...', 'C:\\laragon\\www\\...', 46, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:26:32 --> Trying to get property 'usuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(47): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 47, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:27:09 --> Trying to get property 'usuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\buscarCt.php(47): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 47, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarCt', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(57): view('admin/buscarCt', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->buscarCt()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:42:38 --> Undefined variable: buscar
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(653): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 653, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizarCts()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 23:47:32 --> syntax error, unexpected 'break' (T_BREAK)
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 23:47:37 --> syntax error, unexpected 'break' (T_BREAK)
+#0 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT_prueba\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT_prueba\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-06 23:50:43 --> Undefined variable: usuarios
+#0 C:\laragon\www\CT_prueba\app\Views\admin\actualizarCt.php(47): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 47, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(436): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizarCts()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:53:09 --> Undefined variable: modelCt
+#0 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(429): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 429, Array)
+#1 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizarCts()
+#2 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#3 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-06 23:53:23 --> Undefined variable: ct
+#0 C:\laragon\www\CT_prueba\app\Views\admin\actualizarCt.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 48, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(444): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizarCts()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-06 23:53:44 --> Trying to get property 'idUsuario' of non-object
+#0 C:\laragon\www\CT_prueba\app\Views\admin\actualizarCt.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\laragon\\www\\...', 48, Array)
+#1 C:\laragon\www\CT_prueba\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT_prueba\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT_prueba\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT_prueba\app\Controllers\Admin\Admin.php(444): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT_prueba\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizarCts()
+#6 C:\laragon\www\CT_prueba\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#7 C:\laragon\www\CT_prueba\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT_prueba\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

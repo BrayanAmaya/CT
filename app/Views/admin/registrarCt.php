@@ -1,7 +1,7 @@
 <?=$this->extend('admin/main')?>
 
 <?=$this->section('title')?>
-Registrar usuario
+Registrar CT
 <?=$this->endSection()?>
 <?=$this->section('css')?>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css
@@ -31,11 +31,19 @@ Registrar usuario
             <p class="is-danger help"><?=session('errors.nombreCt')?></p>
         </div>
 
-        <div class="field">
-            <label class="label">Encargado</label>
-            <div class="control">
-                <input name='encargado' value='<?=old('encargado')?>' class="input" type="text"
-                    placeholder="Ej: Quintanilla Saldivar">
+
+        <div class="field control">
+            <label class="label">Selecciona un encargado</label>
+            <div class="control select is-link">
+                <select name='encargado'>
+                    <option value="">...</option>
+                    <?php foreach ($usuarios as $key): ?>
+                    <?php if(!in_array($key->idUsuario,$ct)):?>
+                    <option value="<?=password_hash($key->idUsuario,PASSWORD_DEFAULT)?>">
+                        <?=$key->nombre." ".$key->apellido?></option>
+                    <?php endif;?>
+                    <?php endforeach;?>
+                </select>
             </div>
             <p class="is-danger help"><?=session('errors.encargado')?></p>
         </div>
@@ -43,8 +51,8 @@ Registrar usuario
         <div class="field">
             <label class="label">Descripción</label>
             <div class="control">
-                <input name='descripcion' value='<?=old('descripcion')?>' class="input" type="text"
-                    placeholder="75757575">
+                <textarea class="textarea" name='descripcion' class="input" type="text"
+                    placeholder="Una breve descripcion" row="10"><?=old('descripcion')?></textarea>
             </div>
             <p class="is-danger help"><?=session('errors.descripcion')?></p>
         </div>

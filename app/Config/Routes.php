@@ -41,21 +41,31 @@ $routes->group('/',['namespace'=>'App\Controllers\Auth','filter' => 'auth'],func
 
 $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:Admin'],function($routes){
     $routes->get('incidencias', 'Admin::index',['as'=>'incidencia']);
+    
     $routes->get('registrar-usuario', 'Admin::register',['as'=>'register']);
     $routes->post('registrar', 'Admin::registrarUsuario');
-    $routes->get('reportes', 'Admin::report',['as'=>'report']);
+    $routes->get('registrar-ct', 'Admin::registerCt',['as'=>'registerCt']);
+    $routes->post('registrarCt', 'Admin::registrarCentroTecnologia');
+
     $routes->get('buscar-usuario', 'Admin::buscarUsuario',['as'=>'search']);
+    $routes->get('buscar-ct', 'Admin::buscarCt',['as'=>'searchCt']);
+    
     $routes->get('agregar-dispositivo', 'Admin::agregarDispositivo',['as'=>'addDispositivo']);
+    
     $routes->get('perfil', 'Admin::miPerfil',['as'=>'perfil']);
     $routes->get('actualizar-perfil', 'Admin::actualizarPerfil',['as'=>'updatePerfil']);
     $routes->post('actualizarPerfil', 'Admin::updatePerfil');
-    $routes->get('registrar-ct', 'Admin::registerCt',['as'=>'registerCt']);
-    $routes->post('registrarCt', 'Admin::registrarCentroTecnologia');
-    $routes->get('cerrar', 'Admin::cerrar',['as'=>'logout']);
     $routes->get('actualizar-usuario', 'Admin::actualizar',['as'=>'update']);
     $routes->post('actualizarUsuario', 'Admin::actualizarUsuario');
     $routes->get('deleteUsuario', 'Admin::darDeBaja',['as'=>'delete']);
     $routes->get('backUsuario', 'Admin::volverUsuario',['as'=>'back']);
+    $routes->get('actualizar-ct', 'Admin::actualizarCts',['as'=>'updateCt']);
+    $routes->post('actualizarCt', 'Admin::actualizarCt');
+    $routes->get('deleteCt', 'Admin::darDeBajaCt',['as'=>'deleteCt']);
+    $routes->get('backCt', 'Admin::volverCt',['as'=>'backCt']);
+    
+    $routes->get('reportes', 'Admin::report',['as'=>'report']);
+    $routes->get('cerrar', 'Admin::cerrar',['as'=>'logout']);
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){

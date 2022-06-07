@@ -19,13 +19,11 @@ Actualizar
         </div>
     </article>
     <?php endif; ?>
-
-<div class="container">
     <h1 class="title">Actualiza tu perfil</h1>
     <h2 class="subtitle">
         Modifica lo que quieras actualizar y presiona guardar.
     </h2>
-    <form class="border p-3 form" action="<?=base_url('user/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
+    <form action="<?=base_url('user/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
         method="POST">
 
         <div class="form-row">
@@ -108,6 +106,5 @@ Actualizar
 
         </div>
     </form>
-</div>
 </section>
 <?=$this->endSection()?>

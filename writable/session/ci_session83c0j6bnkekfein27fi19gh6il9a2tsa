@@ -1,0 +1,7 @@
+__ci_last_regenerate|i:1654583548;_ci_previous_url|s:111:"http://ct_prueba.test/admin/actualizar-ct?id=%242y%2410%24LD8loME.y946plpmGWUpQ.raVhyEsa2ySlaR5s90KU4KayA14tBCK";idUsuario|s:2:"17";usuario|s:13:"dtdimasamaya1";idRol|s:1:"1";rol|s:5:"Admin";email|s:15:"dimas@gmail.com";is_logged|b:1;nombre|s:5:"Dimas";apellido|s:5:"Amaya";_ci_old_input|a:2:{s:3:"get";a:1:{s:2:"id";s:60:"$2y$10$mumvBwawmXZ/.X./YPl0zePh92AoLalG2rleNfX1e6BQ39loCgZ1W";}s:4:"post";a:3:{s:8:"nombreCt";s:7:"Centro1";s:9:"encargado";s:60:"$2y$10$KXXIZWhYnAyucX4RuDB09u/56iK35XbuvgwFh8I4QKYwlxy9mHQdW";s:11:"descripcion";s:20:"adsdadsa
+
+
+
+
+
+";}}__ci_vars|a:3:{s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";s:6:"errors";s:3:"old";}_ci_validation_errors|s:76:"a:1:{s:11:"descripcion";s:43:"Caracteres no permitidos o uso de «Enter»";}";errors|a:1:{s:11:"descripcion";s:43:"Caracteres no permitidos o uso de «Enter»";}

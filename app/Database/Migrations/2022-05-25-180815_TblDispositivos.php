@@ -8,7 +8,7 @@ class TblDispositivos extends Migration
 {
     public function up()
     {
-        $this->db->disableForeignKeyChecks();
+        //$this->db->disableForeignKeyChecks();
         $this->forge->addField([
             'idDispositivo'          => [
                 'type'           => 'INT',
@@ -62,10 +62,10 @@ class TblDispositivos extends Migration
             ],
         ]);
         $this->forge->addKey('idDispositivo', true);
-        $this->forge->addForeignKey('idTipoDispositivo','tbl_tipos_de_dispositivo','idTipoDispositivo','CASCADE','SET NULL');
-        $this->forge->addForeignKey('idCt','tbl_ct','idCt','CASCADE','SET NULL');
+        //$this->forge->addForeignKey('idTipoDispositivo','tbl_tipos_de_dispositivo','idTipoDispositivo','CASCADE','SET NULL');
+        //$this->forge->addForeignKey('idCt','tbl_ct','idCt','CASCADE','SET NULL');
         $this->forge->createTable('tbl_dispositivos');
-        $this->db->enableForeignKeyChecks();
+        //$this->db->enableForeignKeyChecks();
     }
 
     public function down()

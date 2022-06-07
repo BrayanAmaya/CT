@@ -1,9 +1,8 @@
-
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <nav class="navbar is-link">
     <div class="navbar-brand">
-        <a class="navbar-item" href="http://CT.test/">
+        <a class="navbar-item" href="http://ct_prueba.test/">
             <img src="/assets/img/DigiTechLogo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112"
                 height="28">
         </a>
@@ -47,8 +46,8 @@
                         <span class="icon"><i class="fas fa-address-card" aria-hidden="true"></i></span>
                         <span>Usuarios</span>
                     </a>
-                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/registrar-ct' ? 'is-active' : '' ?>"
-                        href="#">
+                    <a class="navbar-item <?=service('request')->uri->getPath() == 'admin/buscar-ct' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('searchCt'))?>">
                         <span class="icon"><i class="fas fa-tv" aria-hidden="true"></i></span>
                         <span>Ct</span>
                     </a>
