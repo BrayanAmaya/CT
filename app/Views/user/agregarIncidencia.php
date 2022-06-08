@@ -21,7 +21,7 @@ Agregar incidencia
     <h2 class="subtitle">
         Llena los siguientes datos para reportar una incidencia.
     </h2>
-    <form action="<?=base_url('user/reportar-incidencia')?>" method="POST" enctype="multipart/form-data">
+    <form class="border p-3 form" action="<?=base_url('user/reportar-incidencia')?>" method="POST" enctype="multipart/form-data">
 
         <div class="field control">
             <label class="label">¿Qué tipo de incidencia es?</label>

@@ -80,7 +80,7 @@ class Login extends BaseController{
                  'body'=>'Bienvenido '.$usuario->usuario]);
          }
 
-         if($model->asignarVistaRol == $this->configs->defaultRolAdmin){
+        /* if($model->asignarVistaRol == $this->configs->defaultRolAdmin){
              $log = model('LogModel');
              $data = [
                  'descripcion' => 'Inicio sesión',
@@ -90,6 +90,6 @@ class Login extends BaseController{
             return redirect()->route('incidencia')->with('msg',[
                 'type'=>'success',
                 'body'=>'Bienvenido '.$usuario->usuario]);
-        }
+        }*/
     }
 }

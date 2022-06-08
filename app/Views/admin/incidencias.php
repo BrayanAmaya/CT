@@ -17,7 +17,6 @@ Incidencias
 <?php endif; ?>
 <br>
 <div class="container">
-
     <div class="row">
         <div class="col-10">
             <a href="#" class="btn btn-primary">Filtrar</a>
@@ -29,7 +28,7 @@ Incidencias
             </a>
         </div><br><br>
         <?php foreach($incidencias as $key):?>
-        <div class="col-3">
+        <div class="col-3"><br>
             <div class="card">
                 <div class="card" style="width: 22rem;">
                     <img src="<?=$key->imagen?>" class="card-img-top">
@@ -41,7 +40,7 @@ Incidencias
                         <div class="content">
                             <?=$key->descripcion?>
                             <br>
-                            <time datetime="2016-1-1"><?=$key->date_create->humanize()?></time>
+                            <time datetime=" "><?=$key->date_create->humanize()?></time>
                             <br><br>
                             <a href="#" class="btn btn-primary">Resolver</a>
                         </div>
