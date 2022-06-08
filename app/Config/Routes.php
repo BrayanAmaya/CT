@@ -71,7 +71,10 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){
-    $routes->get('home', 'User::index', ['as'=>'user']);
+    $routes->get('incidencia', 'User::index', ['as'=>'user']);
+    $routes->get('agregar-incidencia', 'User::incidencia',['as'=>'addIncidenciaUser']);
+    $routes->post('reportar-incidencia','User::reportarIncidencia');
+
     $routes->get('perfil', 'User::miPerfil',['as'=>'perfilUser']);
     $routes->get('actualizar-perfil', 'User::actualizarPerfil',['as'=>'updatePerfilUser']);
     $routes->post('actualizarPerfil', 'User::updatePerfil');

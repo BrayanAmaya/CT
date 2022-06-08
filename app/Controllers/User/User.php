@@ -6,15 +6,140 @@ use App\Controllers\BaseController;
 
 class User extends BaseController
 {
-    public function index()
-    {
-        return view ('user/home');
+    public function index(){
+        $modelIncidencia = model('IncidenciaModel');
+        return view ('user/incidencias',[
+            'incidencias' => $modelIncidencia->where('idUsuario',session('idUsuario'))->findAll()
+        ]);
     }
     public function miPerfil(){
         $model=model('UsuarioModel');
         return view ('user/perfil',[
             'usuario' => $model->find(session('idUsuario'))
         ]);
+    }
+    public function incidencia(){
+        $modelIncidencia = model('TipoIncidenciaModel');
+        $modelCt = model('CtModel');
+
+        return view ('user/agregarIncidencia',[
+            'incidencia' => $modelIncidencia->findAll(),
+            'ct' => $modelCt->findAll()
+        ]);
+    }
+    public function reportarIncidencia(){
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'incidencia'=>'required',
+            'ct'=>'required',
+            'descripcion'=>'required|alpha_numeric_punct',
+        ],
+        [
+            'incidencia' => [
+                    'required' => 'Seleccione una incidencia',
+            ],
+            'ct' => [
+                'required' => 'Seleccione un centro de tecnología',
+            ],
+            'descripcion' => [
+                'required' => 'Digite una descripción',
+                'alpha_numeric_punct'=>'Caracteres no permitidos'
+            ],
+        ]
+        );
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        
+        
+        $imageFile = $this->request->getFile('imagen');
+        $validationRules = [
+            'imagen' => [
+                'rules' => [
+                    'uploaded[imagen]',
+                    'mime_in[imagen,image/png,image/jpg,image/jpeg]',
+                   /* 'max_size[imagePerfil,100]',
+                    'max_dims[imagePerfil,1024,768]',*/
+                ],
+                'errors' => [
+                    'uploaded' => 'No ha subido imagen',
+                    'mime_in' => 'Tipo de imagen no disponible'
+                ],
+            ]
+        ];
+        if (! $this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errorImg',$this->validator->getErrors());
+        }
+
+        if(!$imageFile->isValid() && $imageFile->hasMoved()){
+            return redirect()->back()->withInput()->with('errorImg',$this->validator->getErrors());
+        }
+        
+        $imagen = \Config\Services::image()->withFile($imageFile)->fit(250,250)->save($imageFile);
+        //$imageFile->fit(250,250);
+        //$imagen->withFile($imageFile)->fit(250,250);
+        //dd($imageFile->getRandomName());
+        $newName=$imageFile->getRandomName();
+       // $nameDirectorio=session('email');
+        $direccion='C:/laragon/www/ct/public/img/imagesIncidencias/';
+        $direccionGuardado='http://ct.test/img/imagesIncidencias/'.$newName;
+
+        $modelIncidencia = model('IncidenciaModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $modelCt = model('CtModel');
+
+        $idTipoIncidencia = trim($this->request->getVar('incidencia'));
+        $idCt = trim($this->request->getVar('ct'));
+        $descripcion = trim($this->request->getVar('descripcion'));
+        
+        $tipoIncidencia = null;
+        $ct = null;
+
+        $buscarTipoIncidencia = $modelTipoIncidencia->findAll();
+        $buscarCt = $modelCt->findAll();
+
+        foreach ($buscarTipoIncidencia as $key) {
+            if(password_verify($key->idTipoIncidencia,$idTipoIncidencia)){
+                $tipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        foreach ($buscarCt as $key) {
+            if(password_verify($key->idCt,$idCt)){
+                $ct = $key->idCt;
+                break;
+            }
+        }
+       // dd($tipoIncidencia);
+        //dd($tipoIncidencia == '1' || $tipoIncidencia == '2' || $tipoIncidencia == '3');
+        $agregar = (int)$tipoIncidencia;
+
+        $modelIncidencia->agregarUnEstado();
+        $modelIncidencia->agregarUnNivel($tipoIncidencia);
+
+        if(!$imageFile->move($direccion,$newName)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'Danger',
+                'body'=>'Imagen no se pudo guardar.']);
+        }
+        
+        $data = [
+            'descripcion' => $descripcion,
+            'imagen' => $direccionGuardado,
+            'idUsuario' => session('idUsuario'),
+            'idTipoIncidencia'=>$tipoIncidencia,
+            'idCt'=>$ct
+        ];
+
+        $modelIncidencia->save($data);
+        
+        return redirect()->route('user')->with('msg',[
+            'type'=>'success',
+            'body'=>'Incidencia reportada correctamente.']
+        );
     }
 
     public function updatePerfil(){
@@ -90,13 +215,29 @@ class User extends BaseController
                 return redirect()->back()->withInput()->with('errors',$validar->getErrors());
             }
         }
+        if($password!=null){
+            $validar->setRules([
+                'password'=>'matches[c-password]|min_length[8]|max_length[32]'
+            ],
+            [
+                'password' => [
+                    'matches' => 'Las contraseñas no coinciden',
+                    'min_length' => 'La contraseña es muy corta',
+                    'max_length' => 'La contraseña es demasiado extensa'
+                ],
+            ]
+            );
+            if(!$validar->withRequest($this->request)->run()){
+                return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+            }
+        }
 
         $validar->setRules([
             'nombre'=>'required|alpha_space|min_length[3]|max_length[25]',
             'apellido'=>'required|alpha_space|min_length[3]|max_length[32]',
             'email'=>'required|valid_email|max_length[32]',
             'telefono'=>'required|numeric|min_length[8]|max_length[8]',
-            'password'=>'matches[c-password]|min_length[8]|max_length[32]'
+            'password'=>'matches[c-password]'
         ],
         [
             'nombre' => [
@@ -125,8 +266,6 @@ class User extends BaseController
             ],
             'password' => [
                 'matches' => 'Las contraseñas no coinciden',
-                'min_length' => 'La contraseña es muy corta',
-                'max_length' => 'La contraseña es demasiado extensa'
             ],
         ]
         );

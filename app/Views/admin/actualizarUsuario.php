@@ -10,7 +10,6 @@ Actualizar usuario
 <link rel="stylesheet" href="/assets/css/style_admin.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
-
 <section class="section">
     <?php if(session('msg')):?>
     <article class="message is-<?=session('msg.type')?>">
@@ -33,8 +32,9 @@ Actualizar usuario
                 <div class="form-group col-md-4">
                     <label class="label">Nombres</label>
                     <div class="control">
-                        <input name='nombre' value="<?= $mostrar->nombre ?>" class="input" type="text"
-                            placeholder="Ej: Melvin Marvin">
+                        <input name='nombre'
+                            value="<?php if(old('nombre') != null): ?><?=old('nombre')?><?php else: ?><?= $mostrar->nombre ?><?php endif;?>"
+                            class="input" type="text" placeholder="Ej: Melvin Marvin">
                     </div>
                     <p class="is-danger help"><?=session('errors.nombre')?></p>
                 </div>
@@ -42,8 +42,9 @@ Actualizar usuario
                 <div class="form-group col-md-4">
                     <label class="label">Apellidos</label>
                     <div class="control">
-                        <input name='apellido' value="<?= $mostrar->apellido ?>" class="input" type="text"
-                            placeholder="Ej: Quintanilla Saldivar">
+                        <input name='apellido'
+                            value="<?php if(old('apellido') != null): ?><?=old('apellido')?><?php else: ?><?= $mostrar->apellido ?><?php endif;?>"
+                            class="input" type="text" placeholder="Ej: Quintanilla Saldivar">
                     </div>
                     <p class="is-danger help"><?=session('errors.apellido')?></p>
                 </div>
@@ -51,8 +52,9 @@ Actualizar usuario
                 <div class="form-group col-md-4">
                     <label class="label">Usuario</label>
                     <div class="control">
-                        <input name='usuario' value="<?= $mostrar->usuario ?>" class="input" type="text"
-                            placeholder="Ej: Quintanilla Saldivar">
+                        <input name='usuario'
+                            value="<?php if(old('usuario') != null): ?><?=old('usuario')?><?php else: ?><?= $mostrar->usuario ?><?php endif;?>"
+                            class="input" type="text" placeholder="Ej: Quintanilla Saldivar">
                     </div>
                     <p class="is-danger help"><?=session('errors.apellido')?></p>
                 </div>
@@ -60,8 +62,9 @@ Actualizar usuario
                 <div class="form-group col-md-4">
                     <label class="label">Correo Electronico</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input name='email' value="<?= $mostrar->email?>" class="input" type=""
-                            placeholder="email@gmail.com" value="">
+                        <input name='email'
+                            value="<?php if(old('email') != null): ?><?=old('email')?><?php else: ?><?= $mostrar->email ?><?php endif;?>"
+                            class="input" type="" placeholder="email@gmail.com" value="">
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -72,8 +75,9 @@ Actualizar usuario
                 <div class="form-group col-md-2">
                     <label class="label">Número de telefono</label>
                     <div class="control">
-                        <input name='telefono' value='<?= $mostrar->telefono ?>' class="input" type="text"
-                            placeholder="75757575">
+                        <input name='telefono'
+                            value='<?php if(old('telefono') != null): ?><?=old('telefono')?><?php else: ?><?= $mostrar->telefono ?><?php endif;?>'
+                            class="input" type="text" placeholder="75757575">
                     </div>
                     <p class="is-danger help"><?=session('errors.telefono')?></p>
                 </div>
@@ -81,8 +85,9 @@ Actualizar usuario
                 <div class="col-md-2">
                     <label class="label">Número de DUI</label>
                     <div class="control">
-                        <input name='dui' value='<?= $mostrar->dui ?>' class="input" type="text"
-                            placeholder="00000000-0">
+                        <input name='dui'
+                            value='<?php if(old('dui') != null): ?><?=old('dui')?><?php else: ?><?= $mostrar->dui ?><?php endif;?>'
+                            class="input" type="text" placeholder="00000000-0">
                     </div>
                     <p class="is-danger help"><?=session('errors.dui')?></p>
                 </div>
@@ -91,11 +96,17 @@ Actualizar usuario
                     <label class="label">Asignar estado del empleado</label>
                     <div class="control select is-link">
                         <select name='estado'>
-
+                            <?php if(old('estado')!=null):?>
+                            <option value="1" <?php if(old('estado') == 1): ?>selected<?php endif;?>>
+                                Activo</option>
+                            <option value="0" <?php if(old('estado') == 0): ?>selected<?php endif;?>>
+                                No activo</option>
+                            <?php else:?>
                             <option value="1" <?php if($mostrar->estado == 1): ?>selected<?php endif;?>>
                                 Activo</option>
                             <option value="0" <?php if($mostrar->estado == 0): ?>selected<?php endif;?>>
                                 No activo</option>
+                            <?php endif;?>
                         </select>
                     </div>
                     <p class="is-danger help"><?=session('errors.idiomaPrimario')?></p>
@@ -105,12 +116,18 @@ Actualizar usuario
                     <label class="label">Asignar un rol</label>
                     <div class="control select is-link">
                         <select name='idRol'>
-
+                            <?php if(old('idRol')!=null):?>
+                            <option value="1" <?php if(old('idRol') == 1): ?>selected<?php endif;?>>
+                                Admin</option>
+                            <option value="2" <?php if(old('idRol') == 2): ?>selected<?php endif;?>>
+                                Usuario</option>
+                            <?php else:?>
                             <option value="1" <?php if($mostrar->idRol == 1): ?>selected<?php endif;?>>
                                 Admin</option>
 
                             <option value="2" <?php if($mostrar->idRol == 2): ?>selected<?php endif;?>>
                                 Usuario</option>
+                            <?php endif;?>
                         </select>
                     </div>
                     <p class="is-danger help"><?=session('errors.idiomaPrimario')?></p>

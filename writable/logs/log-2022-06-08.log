@@ -181,3 +181,41 @@ CRITICAL - 2022-06-08 14:42:52 --> Object of class stdClass could not be convert
 #6 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #7 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #8 {main}
+CRITICAL - 2022-06-08 14:51:26 --> syntax error, unexpected ':'
+#0 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Admin.php(551): view('admin/actualiza...', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizar()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 14:58:21 --> syntax error, unexpected ';', expecting ')'
+#0 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Admin.php(551): view('admin/actualiza...', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Admin->actualizar()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Admin))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 15:13:58 --> Invalid file: user/incidencia.php
+#0 C:\laragon\www\CT\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('user/incidencia...')
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('user/incidencia', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\User\User.php(11): view('user/incidencia')
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\User\User->index()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\User))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-08 15:28:27 --> Undefined variable: incidencias
+#0 C:\laragon\www\CT\app\Views\user\incidencias.php(32): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 32, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('user/incidencia...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\User\User.php(11): view('user/incidencia...')
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\User\User->index()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\User\User))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
