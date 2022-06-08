@@ -4,8 +4,7 @@
 Registrar CT
 <?=$this->endSection()?>
 <?=$this->section('css')?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css
-">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <link rel="stylesheet" href="/assets/css/style_admin.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
@@ -17,11 +16,13 @@ Registrar CT
         </div>
     </article>
     <?php endif; ?>
+
+<div class="container">
     <h1 class="title">Registrar un nuevo centro de tecnología</h1>
     <h2 class="subtitle">
         Llena los siguientes datos para agregar un nuevo centro de tecnología.
     </h2>
-    <form action="<?=base_url('admin/registrarCt')?>" method="POST">
+    <form class="border p-3 form"  action="<?=base_url('admin/registrarCt')?>" method="POST">
         <div class="field">
             <label class="label">Nombre del centro de tecnología</label>
             <div class="control">
@@ -63,5 +64,6 @@ Registrar CT
             </div>
         </div>
     </form>
+</div>
 </section>
 <?=$this->endSection()?>

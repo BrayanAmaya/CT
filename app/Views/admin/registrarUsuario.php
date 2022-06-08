@@ -26,7 +26,7 @@ Registrar usuario
         <h2 class="subtitle">
             Llena los siguientes datos para agregar un nuevo usuario.
         </h2>
-        <form class="border p-3 form " action="<?=base_url('admin/registrar')?>" method="POST">
+        <form class="border p-3 form" action="<?=base_url('admin/registrar')?>" method="POST">
             <div class=" form-row ">
                 <div class="form-group col-md-4">
                     <label class="label">Nombres</label>

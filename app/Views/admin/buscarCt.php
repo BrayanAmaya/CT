@@ -28,12 +28,12 @@ Buscar CT
     <h5>Centro de tecnología</h5>
     <div class="field is-grouped has-text-centered">
         <p class="control">
-            <a class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=1">
+            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=1">
                 <span class="has-text-white">Avtivos</span>
             </a>
         </p>
         <p class="control">
-            <a class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=0">
+            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=0">
                 <span class="has-text-white">Inactivos</span>
             </a>
         </p>
