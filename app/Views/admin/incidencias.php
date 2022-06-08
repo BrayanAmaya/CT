@@ -15,10 +15,18 @@ Incidencias
     </div>
 </article>
 <?php endif; ?>
-
+<br>
 <div class="container">
-  <div class="row">
-      
+
+  <div class="row">  
+  <div class="col-10">
+  <a href="#" class="btn btn-primary">Filtrar</a>  
+  </div> 
+  <div class="col-2">
+  <a href="#" class="btn btn-primary"> <span class="icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+   Nueva Incidencia
+</a>  
+  </div><br><br>    
   <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
@@ -29,7 +37,7 @@ Incidencias
       </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
+        <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
     </div>
 
@@ -58,7 +66,7 @@ Incidencias
       </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
+        <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
     </div>
 
@@ -86,7 +94,7 @@ Incidencias
       </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
+        <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
     </div>
 
@@ -115,7 +123,7 @@ Incidencias
       </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@johnsmith</p>
+        <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
     </div>
 
@@ -132,6 +140,7 @@ Incidencias
 </div>
     </div>
   </div>
+</div>
 </div>
 
 <?=$this->endSection()?>
