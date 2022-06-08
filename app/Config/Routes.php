@@ -41,6 +41,8 @@ $routes->group('/',['namespace'=>'App\Controllers\Auth','filter' => 'auth'],func
 
 $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:Admin'],function($routes){
     $routes->get('incidencias', 'Admin::index',['as'=>'incidencia']);
+    $routes->get('agregar-incidencia', 'Admin::incidencia',['as'=>'addIncidencia']);
+    $routes->post('reportar-incidencia','Admin::reportarIncidencia');
     
     $routes->get('registrar-usuario', 'Admin::register',['as'=>'register']);
     $routes->post('registrar', 'Admin::registrarUsuario');

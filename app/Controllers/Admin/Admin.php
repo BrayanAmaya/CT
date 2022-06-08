@@ -16,6 +16,133 @@ class Admin extends BaseController{
         return view ('admin/incidencias');
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
+    public function incidencia(){
+        $modelIncidencia = model('TipoIncidenciaModel');
+        $modelCt = model('CtModel');
+
+        return view ('admin/agregarIncidencia',[
+            'incidencia' => $modelIncidencia->findAll(),
+            'ct' => $modelCt->findAll()
+        ]);
+    }
+
+    public function reportarIncidencia(){
+
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'incidencia'=>'required',
+            'ct'=>'required',
+            'descripcion'=>'required|alpha_numeric_punct',
+        ],
+        [
+            'incidencia' => [
+                    'required' => 'Seleccione una incidencia',
+            ],
+            'ct' => [
+                'required' => 'Seleccione un centro de tecnología',
+            ],
+            'descripcion' => [
+                'required' => 'Digite una descripción',
+                'alpha_numeric_punct'=>'Caracteres no permitidos'
+            ],
+        ]
+        );
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        
+        
+        $imageFile = $this->request->getFile('imagen');
+        $validationRules = [
+            'imagen' => [
+                'rules' => [
+                    'uploaded[imagen]',
+                    'mime_in[imagen,image/png]',
+                   /* 'max_size[imagePerfil,100]',
+                    'max_dims[imagePerfil,1024,768]',*/
+                ],
+                'errors' => [
+                    'uploaded' => 'No ha subido imagen',
+                    'mime_in' => 'Tipo de imagen no disponible'
+                ],
+            ]
+        ];
+        if (! $this->validate($validationRules)) {
+            return redirect()->back()->withInput()->with('errorImg',$this->validator->getErrors());
+        }
+
+        if(!$imageFile->isValid() && $imageFile->hasMoved()){
+            return redirect()->back()->withInput()->with('errorImg',$this->validator->getErrors());
+        }
+        
+        $imagen = \Config\Services::image()->withFile($imageFile)->fit(250,250)->save($imageFile);
+        //$imageFile->fit(250,250);
+        //$imagen->withFile($imageFile)->fit(250,250);
+        //dd($imageFile->getRandomName());
+        $newName=$imageFile->getRandomName();
+       // $nameDirectorio=session('email');
+        $direccion='C:/laragon/www/ct_prueba/public/img/imagesIncidencias/';
+        $direccionGuardado='/img/imagenIncidencias/'.$newName;
+
+        $modelIncidencia = model('IncidenciaModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $modelCt = model('CtModel');
+
+        $idTipoIncidencia = trim($this->request->getVar('incidencia'));
+        $idCt = trim($this->request->getVar('ct'));
+        $descripcion = trim($this->request->getVar('descripcion'));
+        
+        $tipoIncidencia = null;
+        $ct = null;
+
+        $buscarTipoIncidencia = $modelTipoIncidencia->findAll();
+        $buscarCt = $modelCt->findAll();
+
+        foreach ($buscarTipoIncidencia as $key) {
+            if(password_verify($key->idTipoIncidencia,$idTipoIncidencia)){
+                $tipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        foreach ($buscarCt as $key) {
+            if(password_verify($key->idCt,$idCt)){
+                $ct = $key->idCt;
+                break;
+            }
+        }
+       // dd($tipoIncidencia);
+        //dd($tipoIncidencia == '1' || $tipoIncidencia == '2' || $tipoIncidencia == '3');
+        $agregar = (int)$tipoIncidencia;
+
+        $modelIncidencia->agregarUnEstado();
+        $modelIncidencia->agregarUnNivel($tipoIncidencia);
+
+        if(!$imageFile->move($direccion,$newName)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'Danger',
+                'body'=>'Imagen no se pudo guardar.']);
+        }
+        
+        $data = [
+            'descripcion' => $descripcion,
+            'imagen' => $direccionGuardado,
+            'idUsuario' => session('idUsuario'),
+            'idTipoIncidencia'=>$tipoIncidencia,
+            'idCt'=>$ct
+        ];
+
+        $modelIncidencia->save($data);
+        
+        return redirect()->route('incidencia')->with('msg',[
+            'type'=>'success',
+            'body'=>'Incidencia reportada correctamente.']
+        );
+        
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function register(){
         return view ('admin/registrarUsuario');
     }
@@ -32,7 +159,10 @@ class Admin extends BaseController{
         }
 
         $model = model('UsuarioModel');
-
+        //$buscar = $model->onlyDeleted()->findAll();
+        //$model->where('estado', $estatus)->findAll()
+        //dd($buscar = $model->where('email','pedro@gmail.com')->findAll());
+        $buscar = $model->findAll(27);
         return view ('admin/buscarUsuario',[
             'usuarios' => $model->where('estado', $estatus)->findAll()
         ]);
@@ -331,7 +461,7 @@ class Admin extends BaseController{
         $validar->setRules([
             'nombreCt'=>'required|is_unique[tbl_ct.nombreCt]',
             'encargado'=>'required',
-            'descripcion'=>'required|alpha_numeric_space',
+            'descripcion'=>'required|alpha_numeric_punct',
         ],
         [
             'nombreCt' => [
@@ -343,7 +473,7 @@ class Admin extends BaseController{
             ],
             'descripcion' => [
                 'required' => 'Digite una descripcion',
-                'alpha_numeric_space'=> 'Caracteres no permitidos o uso de «Enter»'
+                'alpha_numeric_punct'=> 'Caracteres no permitidos o uso de «Enter»'
             ]
         ]
         ); 
@@ -647,7 +777,6 @@ public function actualizarCts(){
                 'email' => $email,
                 'telefono' => $telefono,
                 'dui' => $dui,
-                'password' => $insertarPassword,
                 'estado' => $agregarEstado,
                 'idRol' => $idRol
             ];  
@@ -665,6 +794,7 @@ public function actualizarCts(){
 
 
         $model = model('CtModel');
+        $modelUsuario = model('UsuarioModel');
         $valorMostar = null;
         $ctComparar = null;
         $buscar = $model->findAll();
@@ -681,6 +811,8 @@ public function actualizarCts(){
 
         $nombreCt = trim($this->request->getVar('nombreCt'));
         $idUsuario = trim($this->request->getVar('encargado'));
+        $descripcion = trim($this->request->getVar('descripcion'));
+        $estado = trim($this->request->getVar('estado'));
 
         if($nombreCt != $ctComparar){
             $validar->setRules([
@@ -720,9 +852,32 @@ public function actualizarCts(){
             return redirect()->back()->withInput()->with('errors',$validar->getErrors());
         }
 
+        $agregarUsuario = null;
+        $buscarUsuario = $modelUsuario->findAll();
         
+        foreach ($buscarUsuario as $key) {
+            if(password_verify($key->idUsuario,$idUsuario)){
+                $agregarUsuario = $key->idUsuario;
+                break;
+            }
+        }
+        $agregarEstado = (int)$estado;
 
-        echo $valorMostar;
+        $dataActualizada= [
+            'idCt' => $valorMostar,
+            'nombreCt' => $nombreCt,
+            'descripcion' => $descripcion,
+            'idUsuario' => $agregarUsuario,
+            'estado' => 1,
+        ];  
+
+        $model->save($dataActualizada);
+
+        return redirect()->route('searchCt')->with('msg',[
+            'type'=>'success',
+            'body'=>'Centro de tecnología actualizado correctamente.']);
+
+       // echo $valorMostar;
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function darDeBaja(){
@@ -798,7 +953,7 @@ public function actualizarCts(){
         $agregarEstado = (int)$valorRecibidoEstado;
 
         $data = [
-         'estado' => 1,
+         'estado' => 0,
          'idUsuario'  => $valorMostar,
         ];
         

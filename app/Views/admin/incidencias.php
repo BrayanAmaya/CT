@@ -18,107 +18,108 @@ Incidencias
 <br>
 <div class="container">
 
-  <div class="row">  
-  <div class="col-10">
-  <a href="#" class="btn btn-primary">Filtrar</a>  
-  </div> 
-  <div class="col-2">
-  <a href="#" class="btn btn-primary"> <span class="icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
-   Nueva Incidencia
-</a>  
-  </div><br><br>    
-  <div class="col-3">
-    <div class="card">
-    <div class="card" style="width: 22rem;">
-  <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-  <div class="card-content">
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@Encargado - Alto</p>
-      </div>
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      <br><br>
-      <a href="#" class="btn btn-primary">Resolver</a>  
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
+    <div class="row">
+        <div class="col-10">
+            <a href="#" class="btn btn-primary">Filtrar</a>
+        </div>
+        <div class="col-2">
+            <a href="<?=base_url(route_to('addIncidencia'))?>" class="btn btn-primary"> <span class="icon"><i
+                        class="fas fa-plus" aria-hidden="true"></i></span>
+                Nueva Incidencia
+            </a>
+        </div><br><br>
+        <div class="col-3">
+            <div class="card">
+                <div class="card" style="width: 22rem;">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@Encargado - Alto</p>
+                        </div>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <br><br>
+                            <a href="#" class="btn btn-primary">Resolver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <div class="col-3">
-    <div class="card">
-    <div class="card" style="width: 22rem;">
-  <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-  <div class="card-content">
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@Encargado - Alto</p>
-      </div>
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      <br><br>
-      <a href="#" class="btn btn-primary">Resolver</a>  
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card" style="width: 22rem;">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@Encargado - Alto</p>
+                        </div>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <br><br>
+                            <a href="#" class="btn btn-primary">Resolver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <div class="col-3">
-    <div class="card">
-    <div class="card" style="width: 22rem;">
-  <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-  <div class="card-content">
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@Encargado - Alto</p>
-      </div>
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      <br><br>
-      <a href="#" class="btn btn-primary">Resolver</a>  
-    </div>
-  </div>
-</div>
-    </div>
-  </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card" style="width: 22rem;">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@Encargado - Alto</p>
+                        </div>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <br><br>
+                            <a href="#" class="btn btn-primary">Resolver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-  <div class="col-3">
-    <div class="card">
-    <div class="card" style="width: 22rem;">
-  <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-  <div class="card-content">
-      <div class="media-content">
-        <p class="title is-4">John Smith</p>
-        <p class="subtitle is-6">@Encargado - Alto</p>
-      </div>
-    <div class="content">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-      <a href="#">#css</a> <a href="#">#responsive</a>
-      <br>
-      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-      <br><br>
-      <a href="#" class="btn btn-primary">Resolver</a>  
+        <div class="col-3">
+            <div class="card">
+                <div class="card" style="width: 22rem;">
+                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
+                    <div class="card-content">
+                        <div class="media-content">
+                            <p class="title is-4">John Smith</p>
+                            <p class="subtitle is-6">@Encargado - Alto</p>
+                        </div>
+                        <div class="content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <br>
+                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <br><br>
+                            <a href="#" class="btn btn-primary">Resolver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
-    </div>
-  </div>
-</div>
 
-<?=$this->endSection()?>
+    <?=$this->endSection()?>
