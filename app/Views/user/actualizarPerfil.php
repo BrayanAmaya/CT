@@ -4,8 +4,6 @@
 Actualizar
 <?=$this->endSection()?>
 <?=$this->section('css')?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <link rel="stylesheet" href="/assets/css/style.css">
 <?=$this->endSection()?>
@@ -19,11 +17,12 @@ Actualizar
         </div>
     </article>
     <?php endif; ?>
+<div class="container">
     <h1 class="title">Actualiza tu perfil</h1>
     <h2 class="subtitle">
         Modifica lo que quieras actualizar y presiona guardar.
     </h2>
-    <form action="<?=base_url('user/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
+    <form class="border p-3 form" action="<?=base_url('user/actualizarPerfil')?>?id=<?= password_hash($usuario->idUsuario,PASSWORD_DEFAULT)?>"
         method="POST">
 
         <div class="form-row">
@@ -106,5 +105,6 @@ Actualizar
 
         </div>
     </form>
+</div>
 </section>
 <?=$this->endSection()?>
