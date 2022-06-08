@@ -18,7 +18,6 @@ Mis incidencias
 
 <br>
 <div class="container">
-
   <div class="row">  
   <div class="col-10">
   <h4>Tus incidencias reportadas</h4>
@@ -33,15 +32,10 @@ Mis incidencias
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -56,21 +50,15 @@ Mis incidencias
     </div>
   </div>
 
-
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -85,20 +73,15 @@ Mis incidencias
     </div>
   </div>
 
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -114,20 +97,15 @@ Mis incidencias
   </div>
 
 
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -141,7 +119,6 @@ Mis incidencias
 </div>
     </div>
   </div>
-</div>
 </div>
                   
 <?=$this->endSection()?>

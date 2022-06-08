@@ -32,15 +32,10 @@ Incidencias
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -55,21 +50,15 @@ Incidencias
     </div>
   </div>
 
-
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -84,20 +73,15 @@ Incidencias
     </div>
   </div>
 
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -113,20 +97,15 @@ Incidencias
   </div>
 
 
-    <div class="col-3">
+  <div class="col-3">
     <div class="card">
     <div class="card" style="width: 22rem;">
   <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
   <div class="card-content">
-    <div class="media">
-      <div class="media-left">
-      </div>
       <div class="media-content">
         <p class="title is-4">John Smith</p>
         <p class="subtitle is-6">@Encargado - Alto</p>
       </div>
-    </div>
-
     <div class="content">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       Phasellus nec iaculis mauris. <a>@bulmaio</a>.
@@ -140,7 +119,6 @@ Incidencias
 </div>
     </div>
   </div>
-</div>
 </div>
 
 <?=$this->endSection()?>
