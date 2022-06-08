@@ -28,21 +28,20 @@ Incidencias
                 Nueva Incidencia
             </a>
         </div><br><br>
+        <?php foreach($incidencias as $key):?>
         <div class="col-3">
             <div class="card">
                 <div class="card" style="width: 22rem;">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
+                    <img src="<?=$key->imagen?>" class="card-img-top">
                     <div class="card-content">
                         <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@Encargado - Alto</p>
+                            <p class="title is-4"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></p>
+                            <p class="subtitle is-6">@<?=$key->mostrarUsuario($key->idUsuario)?> - <?=$key->nivel?></p>
                         </div>
                         <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
+                            <?=$key->descripcion?>
                             <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+                            <time datetime="2016-1-1"><?=$key->date_create->humanize()?></time>
                             <br><br>
                             <a href="#" class="btn btn-primary">Resolver</a>
                         </div>
@@ -50,76 +49,7 @@ Incidencias
                 </div>
             </div>
         </div>
-
-        <div class="col-3">
-            <div class="card">
-                <div class="card" style="width: 22rem;">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@Encargado - Alto</p>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            <br><br>
-                            <a href="#" class="btn btn-primary">Resolver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3">
-            <div class="card">
-                <div class="card" style="width: 22rem;">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@Encargado - Alto</p>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            <br><br>
-                            <a href="#" class="btn btn-primary">Resolver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="col-3">
-            <div class="card">
-                <div class="card" style="width: 22rem;">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" class="card-img-top" alt="...">
-                    <div class="card-content">
-                        <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@Encargado - Alto</p>
-                        </div>
-                        <div class="content">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-                            <a href="#">#css</a> <a href="#">#responsive</a>
-                            <br>
-                            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-                            <br><br>
-                            <a href="#" class="btn btn-primary">Resolver</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 
     <?=$this->endSection()?>

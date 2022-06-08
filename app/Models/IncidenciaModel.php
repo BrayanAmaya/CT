@@ -2,7 +2,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
-use App\Entities\Usuario;
+use App\Entities\Incidencia;
 
 class IncidenciaModel extends Model{
     protected $table      = 'tbl_incidencias';
@@ -10,7 +10,7 @@ class IncidenciaModel extends Model{
 
     protected $useAutoIncrement = true;
 
-    protected $returnType     = 'object';
+    protected $returnType     = Incidencia::class;
     protected $useSoftDeletes = true;
 
     protected $allowedFields = [
@@ -51,6 +51,18 @@ class IncidenciaModel extends Model{
 
     public function agregarUnEstado(){
         $this->asignarEstado = 1;
+    }
+
+    public function mostrarTipoIncidencia(string $id){
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $row = $modelTipoIncidencia->where('idTipoIncidencia',$id)->first();
+        return $row->incidencia;
+    }
+
+    public function mostrarUsuario(string $idUsuario){
+        //$modelUsuario = model('UsuarioModel');
+        $row = $this->db()->table('tbl_usuarios')->where('idUsuario',$idUsuario)->get()->getFirstRow();
+        return $row->usuario;
     }
 
 }

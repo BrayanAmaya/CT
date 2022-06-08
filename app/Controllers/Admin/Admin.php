@@ -13,7 +13,10 @@ class Admin extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function index(){
-        return view ('admin/incidencias');
+        $modelIncidencia = model('IncidenciaModel');
+        return view ('admin/incidencias',[
+            'incidencias' => $modelIncidencia->findAll()
+        ]);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function incidencia(){
@@ -60,7 +63,7 @@ class Admin extends BaseController{
             'imagen' => [
                 'rules' => [
                     'uploaded[imagen]',
-                    'mime_in[imagen,image/png]',
+                    'mime_in[imagen,image/png,image/jpg,image/jpeg]',
                    /* 'max_size[imagePerfil,100]',
                     'max_dims[imagePerfil,1024,768]',*/
                 ],
@@ -84,8 +87,8 @@ class Admin extends BaseController{
         //dd($imageFile->getRandomName());
         $newName=$imageFile->getRandomName();
        // $nameDirectorio=session('email');
-        $direccion='C:/laragon/www/ct_prueba/public/img/imagesIncidencias/';
-        $direccionGuardado='/img/imagenIncidencias/'.$newName;
+        $direccion='C:/laragon/www/ct/public/img/imagesIncidencias/';
+        $direccionGuardado='http://ct.test/img/imagesIncidencias/'.$newName;
 
         $modelIncidencia = model('IncidenciaModel');
         $modelTipoIncidencia = model('TipoIncidenciaModel');
