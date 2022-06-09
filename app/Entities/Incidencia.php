@@ -18,4 +18,9 @@ class Incidencia extends Entity{
         $row = $modelUsuario->where('idUsuario',$idUsuario)->get()->getFirstRow();
         return $row->usuario;
     }
+    public function mostrarCt(string $idCt){
+        $modelCt = model('CtModel');
+        $row = $modelCt->where('idCt',$idCt)->get()->getFirstRow();
+        return $row->nombreCt;
+    }
 }

@@ -17,6 +17,7 @@ Incidencias
 <?php endif; ?>
 <br>
 <div class="container">
+
     <div class="row">
         <div class="col-10">
             <a href="#" class="btn btn-primary">Filtrar</a>
@@ -28,10 +29,14 @@ Incidencias
             </a>
         </div><br><br>
         <?php foreach($incidencias as $key):?>
-        <div class="col-3"><br>
+        <div class="col-3">
             <div class="card">
                 <div class="card" style="width: 22rem;">
+                    <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
                     <img src="<?=$key->imagen?>" class="card-img-top">
+                    <?php else: ?>
+                    <img src="/img/imagesIncidencias/default.jpg" class="card-img-top">
+                    <?php endif;?>
                     <div class="card-content">
                         <div class="media-content">
                             <p class="title is-4"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></p>
@@ -40,9 +45,16 @@ Incidencias
                         <div class="content">
                             <?=$key->descripcion?>
                             <br>
-                            <time datetime=" "><?=$key->date_create->humanize()?></time>
-                            <br><br>
-                            <a href="#" class="btn btn-primary">Resolver</a>
+                            <time datetime="2016-1-1"><?=$key->date_create->humanize()?></time>
+                            <br>
+                            <?php if($key->estado == 0): ?>
+                            <p>Resuelto por <?=$key->mostrarUsuario($key->resueltoPor)?> <time
+                                    datetime="2016-1-1"><?=$key->date_update->humanize()?></time></p>
+                            <?php endif;?>
+                            <?php if($key->estado == 1): ?>
+                            <a href="<?=base_url(route_to('viewIncidencia'))?>?id=<?=password_hash($key->idIncidencia,PASSWORD_DEFAULT)?>"
+                                class="btn btn-primary">Resolver</a>
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>

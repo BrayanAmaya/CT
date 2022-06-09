@@ -40,45 +40,54 @@ $routes->group('/',['namespace'=>'App\Controllers\Auth','filter' => 'auth'],func
 });
 
 $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:Admin'],function($routes){
-    $routes->get('incidencias', 'Admin::index',['as'=>'incidencia']);
-    $routes->get('agregar-incidencia', 'Admin::incidencia',['as'=>'addIncidencia']);
-    $routes->post('reportar-incidencia','Admin::reportarIncidencia');
+    $routes->get('incidencias', 'Vistas::index',['as'=>'incidencia']);
+    $routes->get('agregar-incidencia', 'Vistas::incidencia',['as'=>'addIncidencia']);
+    $routes->post('reportar-incidencia','Registro::reportarIncidencia');
+    $routes->get('resolver-incidencia', 'Vistas::resolverIncidencia',['as'=>'viewIncidencia']);
+    $routes->post('resuelveIncidencia','UpdateDelete::resuelveIncidencia');
     
-    $routes->get('registrar-usuario', 'Admin::register',['as'=>'register']);
-    $routes->post('registrar', 'Admin::registrarUsuario');
-    $routes->get('registrar-ct', 'Admin::registerCt',['as'=>'registerCt']);
-    $routes->post('registrarCt', 'Admin::registrarCentroTecnologia');
+    $routes->get('registrar-usuario', 'Vistas::register',['as'=>'register']);
+    $routes->post('registrar', 'Registro::registrarUsuario');
+    $routes->get('registrar-ct', 'Vistas::registerCt',['as'=>'registerCt']);
+    $routes->post('registrarCt', 'Registro::registrarCentroTecnologia');
 
-    $routes->get('buscar-usuario', 'Admin::buscarUsuario',['as'=>'search']);
-    $routes->get('buscar-ct', 'Admin::buscarCt',['as'=>'searchCt']);
+    $routes->get('buscar-usuario', 'Vistas::buscarUsuario',['as'=>'search']);
+    $routes->get('buscar-ct', 'Vistas::buscarCt',['as'=>'searchCt']);
     
-    $routes->get('agregar-dispositivo', 'Admin::agregarDispositivo',['as'=>'addDispositivo']);
+    $routes->get('agregar-dispositivo', 'Vistas::agregarDispositivo',['as'=>'addDispositivo']);
     
-    $routes->get('perfil', 'Admin::miPerfil',['as'=>'perfil']);
-    $routes->get('actualizar-perfil', 'Admin::actualizarPerfil',['as'=>'updatePerfil']);
-    $routes->post('actualizarPerfil', 'Admin::updatePerfil');
-    $routes->get('actualizar-usuario', 'Admin::actualizar',['as'=>'update']);
-    $routes->post('actualizarUsuario', 'Admin::actualizarUsuario');
-    $routes->get('deleteUsuario', 'Admin::darDeBaja',['as'=>'delete']);
-    $routes->get('backUsuario', 'Admin::volverUsuario',['as'=>'back']);
-    $routes->get('actualizar-ct', 'Admin::actualizarCts',['as'=>'updateCt']);
-    $routes->post('actualizarCt', 'Admin::actualizarCt');
-    $routes->get('deleteCt', 'Admin::darDeBajaCt',['as'=>'deleteCt']);
-    $routes->get('backCt', 'Admin::volverCt',['as'=>'backCt']);
+    $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfil']);
+    $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfil']);
+    $routes->post('actualizarPerfil', 'UpdateDelete::updatePerfil');
+    $routes->get('actualizar-usuario', 'Vistas::actualizar',['as'=>'update']);
+    $routes->post('actualizarUsuario', 'UpdateDelete::actualizarUsuario');
+    $routes->get('deleteUsuario', 'UpdateDelete::darDeBaja',['as'=>'delete']);
+    $routes->get('backUsuario', 'UpdateDelete::volverUsuario',['as'=>'back']);
+    $routes->get('actualizar-ct', 'Vistas::actualizarCts',['as'=>'updateCt']);
+    $routes->post('actualizarCt', 'UpdateDelete::actualizarCt');
+    $routes->get('deleteCt', 'UpdateDelete::darDeBajaCt',['as'=>'deleteCt']);
+    $routes->get('backCt', 'UpdateDelete::volverCt',['as'=>'backCt']);
     
-    $routes->get('reportes', 'Admin::report',['as'=>'report']);
-    $routes->get('cerrar', 'Admin::cerrar',['as'=>'logout']);
+    $routes->get('reportes', 'Vistas::report',['as'=>'report']);
+    $routes->get('cerrar', 'Registro::cerrar',['as'=>'logout']);
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){
-    $routes->get('incidencia', 'User::index', ['as'=>'user']);
-    $routes->get('agregar-incidencia', 'User::incidencia',['as'=>'addIncidenciaUser']);
-    $routes->post('reportar-incidencia','User::reportarIncidencia');
+    //$routes->get('incidencia', 'User::index', ['as'=>'user']);
+    $routes->get('incidencia', 'Vistas::index', ['as'=>'user']);
+    //$routes->get('agregar-incidencia', 'User::incidencia',['as'=>'addIncidenciaUser']);
+    $routes->get('agregar-incidencia', 'Vistas::incidencia',['as'=>'addIncidenciaUser']);
+    //$routes->post('reportar-incidencia','User::reportarIncidencia');
+    $routes->post('reportar-incidencia','Registro::reportarIncidencia');
 
-    $routes->get('perfil', 'User::miPerfil',['as'=>'perfilUser']);
-    $routes->get('actualizar-perfil', 'User::actualizarPerfil',['as'=>'updatePerfilUser']);
-    $routes->post('actualizarPerfil', 'User::updatePerfil');
-    $routes->get('cerrar', 'User::cerrarS',['as'=>'logoutU']);
+    //$routes->get('perfil', 'User::miPerfil',['as'=>'perfilUser']);
+    $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfilUser']);
+    //$routes->get('actualizar-perfil', 'User::actualizarPerfil',['as'=>'updatePerfilUser']);
+    $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfilUser']);
+    //$routes->post('actualizarPerfil', 'User::updatePerfil');
+    $routes->post('actualizarPerfil', 'Registro::updatePerfil');
+    //$routes->get('cerrar', 'User::cerrar',['as'=>'logoutU']);
+    $routes->get('cerrar', 'Vistas::cerrar',['as'=>'logoutU']);
 });
 
 /*

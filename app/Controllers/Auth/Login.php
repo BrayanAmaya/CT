@@ -50,7 +50,6 @@ class Login extends BaseController{
                          'body'=>'Credenciales invalidas']);
          }
  
-        // $model->buscarRol('2');
         if($usuario->idRol != null){
         }else{
             return redirect()
@@ -73,23 +72,23 @@ class Login extends BaseController{
              'nombre' => $usuario->nombre,
              'apellido' => $usuario->apellido,
          ]);
+         $log = model('LogModel');
+         $data = [
+            'descripcion' => 'Inicio sesión',
+            'idUsuario' => $usuario->idUsuario
+        ];
 
+        $log->save($data);
          if($model->asignarVistaRol == $this->configs->defaultRolUsuario){
              return redirect()->route('user')->with('msg',[
                  'type'=>'success',
                  'body'=>'Bienvenido '.$usuario->usuario]);
          }
 
-        /* if($model->asignarVistaRol == $this->configs->defaultRolAdmin){
-             $log = model('LogModel');
-             $data = [
-                 'descripcion' => 'Inicio sesión',
-                 'idUsuario' => $usuario->idUsuario
-             ];
-             $log->save($data);
+         if($model->asignarVistaRol == $this->configs->defaultRolAdmin){
             return redirect()->route('incidencia')->with('msg',[
                 'type'=>'success',
                 'body'=>'Bienvenido '.$usuario->usuario]);
-        }*/
+        }
     }
 }

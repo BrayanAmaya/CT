@@ -45,7 +45,6 @@ Mis Incidencias
                                 <br>
                                 <time datetime="2016-1-1"><?=$key->date_create->humanize()?></time>
                                 <br><br>
-                                <a href="#" class="btn btn-primary">Resolver</a>
                             </div>
                         </div>
                     </div>

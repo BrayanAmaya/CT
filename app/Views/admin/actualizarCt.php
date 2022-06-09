@@ -11,7 +11,6 @@ Actualizar CT
 <?=$this->endSection()?>
 <?=$this->section('content')?>
 
-<?php //dd(old('encargado')); ?>
 
 <section class="section">
     <?php if(session('msg')):?>
@@ -76,6 +75,27 @@ Actualizar CT
                         row="10"><?php if(old('descripcion') != null): ?><?=old('descripcion')?><?php else: ?><?= $mostrar->descripcion ?><?php endif; ?></textarea>
                 </div>
                 <p class="is-danger help"><?=session('errors.descripcion')?></p>
+            </div>
+
+
+            <div class="form-group col-md-5 col-md-offset-8">
+                <label class="label">Estado del centro de tecnologías</label>
+                <div class="control select is-link">
+                    <select name='estado'>
+                        <?php if(old('estado')!=null):?>
+                        <option value="1" <?php if(old('estado') == 1): ?>selected<?php endif;?>>
+                            Activo</option>
+                        <option value="0" <?php if(old('estado') == 0): ?>selected<?php endif;?>>
+                            No activo</option>
+                        <?php else:?>
+                        <option value="1" <?php if($mostrar->estado == 1): ?>selected<?php endif;?>>
+                            Activo</option>
+                        <option value="0" <?php if($mostrar->estado == 0): ?>selected<?php endif;?>>
+                            No activo</option>
+                        <?php endif;?>
+                    </select>
+                </div>
+                <p class="is-danger help"><?=session('errors.idiomaPrimario')?></p>
             </div>
 
             <div class="col-md-8 col-md-offset-3">

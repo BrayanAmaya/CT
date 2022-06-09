@@ -28,12 +28,14 @@ Buscar CT
     <h5>Centro de tecnología</h5>
     <div class="field is-grouped has-text-centered">
         <p class="control">
-            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=1">
+            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed"
+                href="<?=base_url(route_to('searchCt'))?>?estado=1">
                 <span class="has-text-white">Avtivos</span>
             </a>
         </p>
         <p class="control">
-            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed" href="<?=base_url(route_to('searchCt'))?>?estado=0">
+            <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed"
+                href="<?=base_url(route_to('searchCt'))?>?estado=0">
                 <span class="has-text-white">Inactivos</span>
             </a>
         </p>
@@ -57,16 +59,17 @@ Buscar CT
                     <?=  $usuario->usuario ?>
                 </td>
                 <td>
-                    <a href="<?=base_url(route_to('updateCt'))?>?id=<?= password_hash($key->idCt,PASSWORD_DEFAULT)?>">
+                    <a style=" text-decoration: none;"
+                        href="<?=base_url(route_to('updateCt'))?>?id=<?= password_hash($key->idCt,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-warning"><i class="fas fa-sync" aria-hidden="true"></i></span>
                     </a>
                     <?php if($key->estado == 1): ?>
-                    <a
+                    <a style=" text-decoration: none;"
                         href="<?=base_url(route_to('deleteCt'))?>?estado=0&id=<?= password_hash($key->idCt,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-danger"><i class="fas fa-eraser" aria-hidden="true"></i></span>
                     </a>
                     <?php else: ?>
-                    <a
+                    <a style=" text-decoration: none;"
                         href="<?=base_url(route_to('backCt'))?>?estado=1&id=<?= password_hash($key->idCt,PASSWORD_DEFAULT)?>">
                         <span class="icon has-text-success"><i class="fas fa-file-upload" aria-hidden="true"></i></span>
                     </a>
