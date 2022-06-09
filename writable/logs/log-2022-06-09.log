@@ -174,3 +174,25 @@ Main connection [MySQLi]: Access denied for user '****'@'localhost' (using passw
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
+CRITICAL - 2022-06-09 16:07:54 --> Undefined variable: usuario
+#0 C:\laragon\www\CT\app\Views\admin\resolverIncidencias.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 66, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/resolverI...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(215): view('admin/resolverI...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->resolverIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-09 16:20:18 --> Undefined variable: usuario
+#0 C:\laragon\www\CT\app\Views\admin\resolverIncidencias.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/resolverI...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(215): view('admin/resolverI...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->resolverIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
