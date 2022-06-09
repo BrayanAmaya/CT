@@ -53,9 +53,7 @@ Resolver la incidencia
                
                 <label class="label"><?= $incidencia->mostrarCt($incidencia->idCt) ?></label>
                 </div>
-
-
-               
+                 
                 <div class="form-group col-md-12">
                 <div class="field">
                     <label class="label">Comenta la resolución:</label>
