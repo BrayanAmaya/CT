@@ -160,39 +160,3 @@ CRITICAL - 2022-06-09 13:32:53 --> Undefined variable: validar
 #3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
-ERROR - 2022-06-09 15:16:22 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
-CRITICAL - 2022-06-09 15:16:22 --> Unable to connect to the database.
-Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
-#0 C:\laragon\www\CT\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
-#1 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#2 C:\laragon\www\CT\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
-#3 C:\laragon\www\CT\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
-#4 C:\laragon\www\CT\app\Models\UsuarioModel.php(51): CodeIgniter\BaseModel->first()
-#5 C:\laragon\www\CT\app\Controllers\Auth\Login.php(37): App\Models\UsuarioModel->buscarUsuario('usuario', 'DTbryanamaya1')
-#6 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Auth\Login->signin()
-#7 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Login))
-#8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#10 {main}
-CRITICAL - 2022-06-09 16:07:54 --> Undefined variable: usuario
-#0 C:\laragon\www\CT\app\Views\admin\resolverIncidencias.php(66): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 66, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/resolverI...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(215): view('admin/resolverI...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->resolverIncidencia()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-09 16:20:18 --> Undefined variable: usuario
-#0 C:\laragon\www\CT\app\Views\admin\resolverIncidencias.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/resolverI...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(215): view('admin/resolverI...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->resolverIncidencia()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}

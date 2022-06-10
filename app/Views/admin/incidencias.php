@@ -20,8 +20,71 @@ Incidencias
 
     <div class="row">
         <div class="col-10">
-            <a href="#" class="btn btn-primary">Filtrar</a>
+            <form action="<?=base_url('admin/filtroIncidencia')?>" method="POST">
+                <label for="start">Fecha: de</label>
+
+                <input type="date" id="start" name="fechaInicio" value="<?= date('Y-m-d')?>" min="2018-01-01"
+                    max="2022-12-12">
+                <label for="start"> hasta </label>
+                <input type="date" id="start" name="fechaFinal"
+                    value="<?= date('Y-m-d',strtotime(date('Y-m-d').'+1 days'))?>" min="2018-01-01" max="2022-12-12">
+                <div class="field control">
+                    <label class="label">Estado: </label>
+                    <div class="control select is-link">
+                        <select name='filtroEstado'>
+                            <option value="all" selected>Ambos</option>
+                            <option value="1">Pendientes</option>
+                            <option value="0">Resueltas</option>
+                        </select>
+                    </div>
+                    <p class="is-danger help"><?=session('errors.filtroEstado')?></p>
+                </div>
+                <div class="field control">
+                    <label class="label">Usuarios: </label>
+                    <div class="control select is-link">
+                        <select name='filtroUsuario'>
+                            <?php if(old('filtroUsuario')!=null):?>
+                            <option value="all" selected>Todos</option>
+                            <?php foreach($usuarios as $key): ?>
+                            <option value="<?=password_hash($key->idUsuario,PASSWORD_DEFAULT)?>"
+                                <?php if(password_verify($key->idUsuario, old('filtroUsuario'))):?>selected
+                                <?php endif;?>>
+                                <?=$key->usuario?>
+                            </option>
+                            <?php endforeach;?>
+                            <?php else: ?>
+                            <option value="all" selected>Todos</option>
+                            <?php foreach($usuarios as $key): ?>
+                            <option value="<?=password_hash($key->idUsuario,PASSWORD_DEFAULT)?>"><?=$key->usuario?>
+                            </option>
+                            <?php endforeach;?>
+                            <?php endif; ?>
+                        </select>
+                    </div>
+                    <p class="is-danger help"><?=session('errors.filtroUsuario')?></p>
+                </div>
+
+                <div class="field control">
+                    <label class="label">Tipo de incidencia: </label>
+                    <div class="control select is-link">
+                        <select name='filtroTipoIncidencia'>
+                            <option value="all" selected>Todas</option>
+                            <?php foreach($tipoIncidencia as $key): ?>
+                            <option value="<?=password_hash($key->idTipoIncidencia,PASSWORD_DEFAULT)?>">
+                                <?=$key->incidencia?>
+                            </option>
+                            <?php endforeach;?>
+                        </select>
+                    </div>
+                    <p class="is-danger help"><?=session('errors.filtroTipoIncidencia')?></p>
+                </div>
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-info">Filtrar</button>
+                    </div>
+                </div>
         </div>
+        </form>
         <div class="col-2">
             <a href="<?=base_url(route_to('addIncidencia'))?>" class="btn btn-primary"> <span class="icon"><i
                         class="fas fa-plus" aria-hidden="true"></i></span>

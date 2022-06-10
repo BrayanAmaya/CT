@@ -67,14 +67,15 @@ Actualizar CT
                 <p class="is-danger help"><?=session('errors.encargado')?></p>
             </div>
 
+
             <div class="field">
                 <label class="label">Descripción</label>
                 <div class="control">
-                    <textarea class="textarea" name='descripcion' class="input" type="text"
-                        placeholder="Una breve descripcion"
-                        row="10"><?php if(old('descripcion') != null): ?><?=old('descripcion')?><?php else: ?><?= $mostrar->descripcion ?><?php endif; ?></textarea>
+                    <input name='descripcion'
+                        value='<?php if(old('descripcion') != null): ?><?=old('descripcion')?><?php else: ?><?= $mostrar->descripcion ?><?php endif; ?>'
+                        class="input" type="text" placeholder="Ej: Una breve descripción">
                 </div>
-                <p class="is-danger help"><?=session('errors.descripcion')?></p>
+                <p class="is-danger help"><?=session('errors.nombreCt')?></p>
             </div>
 
 

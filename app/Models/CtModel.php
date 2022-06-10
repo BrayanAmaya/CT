@@ -13,19 +13,19 @@ class CtModel extends Model{
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['nombreCt','encargado','descripcion','estado','idUsuario'];
+    protected $allowedFields = ['nombreCt','descripcion','estado','idUsuario'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'date_create';
     protected $updatedField  = 'date_update';
     protected $deletedField  = 'date_delete';
 
-    protected $beforeInsert = ['agregarEncargado','agregarEstado'];
+    protected $beforeInsert = ['agregarEstado'];
 
-    protected $asignarEncargado;
+    //protected $asignarEncargado;
     protected $asignarEstado;
 
-    protected function agregarEncargado($data){
+    /*protected function agregarEncargado($data){
         $data['data']['encargado'] = $this->asignarEncargado;
         return $data;
     }
@@ -35,7 +35,7 @@ class CtModel extends Model{
         if($row !== null){
             $this->asignarEncargado = $row->usuario;
         }
-    }
+    }*/
 
     protected function agregarEstado($data){
         $data['data']['estado'] = $this->asignarEstado;

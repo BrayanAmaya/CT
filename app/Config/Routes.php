@@ -45,6 +45,8 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->post('reportar-incidencia','Registro::reportarIncidencia');
     $routes->get('resolver-incidencia', 'Vistas::resolverIncidencia',['as'=>'viewIncidencia']);
     $routes->post('resuelveIncidencia','UpdateDelete::resuelveIncidencia');
+    $routes->get('filtro-incidencia', 'Vistas::filtrarIncidencia',['as'=>'filtrarIncidencia']);
+    $routes->post('filtroIncidencia','Registro::filtrarIncidencias');
     
     $routes->get('registrar-usuario', 'Vistas::register',['as'=>'register']);
     $routes->post('registrar', 'Registro::registrarUsuario');

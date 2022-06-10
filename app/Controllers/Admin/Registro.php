@@ -97,7 +97,24 @@ class Registro extends BaseController{
 
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registrarCentroTecnologia(){
-        $modelCt = model('CtModel');
+        $dispositivos = $_POST['dispositivos'];
+        $chekeado = $_POST['check'];
+
+        //dd($chekeado);
+
+        foreach ($chekeado as $key) {
+            if($key == null){
+            echo $key."<br>";
+            }
+        }
+        //dd($dispositivos);
+        for ($i=0; $i < count($dispositivos) ; $i++) { 
+            //if(isset($chekeado[$i])){
+                echo ("Si es ".$i." ".$dispositivos[$i]."<br>"); 
+            //}
+        }
+        
+        /*$modelCt = model('CtModel');
         $validar = service('validation');
         //alpha_numeric_punct
         $validar->setRules([
@@ -152,7 +169,7 @@ class Registro extends BaseController{
                 'encargado'=>'Encargado no valido'
             ]);
         }
-        $modelCt->agregarUnEncargado($valorMostar);
+        //$modelCt->agregarUnEncargado($valorMostar);
         $modelCt->agregarUnEstado();
 
         if(!$modelCt->save($data)){
@@ -164,7 +181,7 @@ class Registro extends BaseController{
 
         return redirect()->route('registerCt')->with('msg',[
             'type'=>'success',
-            'body'=>'Centro de tecnología agregado correctamente.']);
+            'body'=>'Centro de tecnología agregado correctamente.']);*/
         
     }
 
@@ -287,6 +304,72 @@ class Registro extends BaseController{
             'body'=>'Incidencia reportada correctamente.']
         );
         
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function filtrarIncidencias(){
+        $fechaInicio = trim($this->request->getVar('fechaInicio'));
+        $fechaFinal = trim($this->request->getVar('fechaFinal'));
+        $filtroEstado = trim($this->request->getVar('filtroEstado'));
+        $filtroUsuario = trim($this->request->getVar('filtroUsuario'));
+        $filtroTipoIncidencia = trim($this->request->getVar('filtroTipoIncidencia'));
+
+        $modelUsuario = model('UsuarioModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+
+        $buscarUsuario = $modelUsuario->findAll();
+        $buscarTipoIncidencia = $modelTipoIncidencia->findAll();
+
+        $valorUsuario= $filtroUsuario;
+        $valorTipoIncidencia = $filtroTipoIncidencia;
+        $estados = ['0','1','all']; 
+        
+        if(!in_array($filtroEstado,$estados)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!.'
+            ]);
+        }
+
+        foreach ($buscarUsuario as $key) {
+            if(password_verify($key->idUsuario,$filtroUsuario)){
+                $valorUsuario = $key->idUsuario;
+                break;
+            }
+        }
+        if($valorUsuario == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+
+        foreach ($buscarTipoIncidencia as $key) {
+            if(password_verify($key->idTipoIncidencia,$filtroTipoIncidencia)){
+                $valorTipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        if($valorUsuario == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+
+        if($fechaInicio > $fechaFinal){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Fecha inicio no puede ser mayor a la fecha final!'
+            ]);
+        }
+        return redirect()->route('filtrarIncidencia')->with('data',[
+            'fechaInicio'=> $fechaInicio,
+            'fechaFinal'=> $fechaFinal,
+            'filtroEstado' => $filtroEstado,
+            'filtroUsuario' => $valorUsuario,
+            'filtroTipoIncidencia'=>$valorTipoIncidencia
+        ]);
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/
