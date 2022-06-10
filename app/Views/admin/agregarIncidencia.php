@@ -23,7 +23,8 @@ Agregar incidencia
     </h2>
     <form class="border p-3 form" action="<?=base_url('admin/reportar-incidencia')?>" method="POST" enctype="multipart/form-data">
 
-        <div class="field control">
+ <div class="form-row">  
+        <div class="form-group col-md-5">
             <label class="label">¿Qué tipo de incidencia es?</label>
             <div class="control select is-link">
                 <select name='incidencia'>
@@ -37,7 +38,7 @@ Agregar incidencia
             <p class="is-danger help"><?=session('errors.incidencia')?></p>
         </div>
 
-        <div class="field control">
+        <div class="form-group col-md-4">
             <label class="label">¿En dondé es?</label>
             <div class="control select is-link">
                 <select name='ct'>
@@ -51,16 +52,7 @@ Agregar incidencia
             <p class="is-danger help"><?=session('errors.ct')?></p>
         </div>
 
-
-        <div class="field">
-            <label class="label">¿Cuál es la incidencia?</label>
-            <div class="control">
-                <input name='descripcion' value='<?=old('descripcion')?>' class="input" type="text"
-                    placeholder="Ej: Melvin Marvin">
-            </div>
-            <p class="is-danger help"><?=session('errors.descripcion')?></p>
-        </div>
-
+     <div class="form-group col-md-3">
         <div class="file has-name is-boxed">
             <label class="file-label">
                 <input class="file-input" type="file" name="imagen" id="seleccionArchivos">
@@ -72,9 +64,19 @@ Agregar incidencia
                         Subir imagen…
                     </span>
                 </span>
-                <img width="200" height="50" id="imagenPrevisualizacion">
+                <img style="border: none;"  id="imagenPrevisualizacion">
                 <p class="is-danger help"><?=session('errorImg.imagen')?></p>
             </label>
+        </div>
+    </div>
+
+        <div class="form-group col-md-12">
+            <label class="label">¿Cuál es la incidencia?</label>
+            <div class="control">
+                <input name='descripcion' value='<?=old('descripcion')?>' class="input" type="text"
+                    placeholder="Ej: Melvin Marvin">
+            </div>
+            <p class="is-danger help"><?=session('errors.descripcion')?></p>
         </div>
 
         <div class="field is-grouped">
@@ -82,6 +84,7 @@ Agregar incidencia
                 <button class="button is-primary">Reportar</button>
             </div>
         </div>
+</div>  
     </form>
 </section>
 

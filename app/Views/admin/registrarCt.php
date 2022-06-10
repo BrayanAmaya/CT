@@ -23,7 +23,8 @@ Registrar CT
             Llena los siguientes datos para agregar un nuevo centro de tecnología.
         </h2>
         <form class="border p-3 form" action="<?=base_url('admin/registrarCt')?>" method="POST">
-            <div class="field">
+<div class="form-row">     
+            <div class="form-group col-md-4">
                 <label class="label">Nombre del centro de tecnología</label>
                 <div class="control">
                     <input name='nombreCt' value='<?=old('nombreCt')?>' class="input" type="text"
@@ -33,7 +34,7 @@ Registrar CT
             </div>
 
 
-            <div class="field control">
+            <div class="form-group col-md-4">
                 <label class="label">Selecciona un encargado</label>
                 <div class="control select is-link">
                     <select name='encargado'>
@@ -59,11 +60,11 @@ Registrar CT
                 <p class="is-danger help"><?=session('errors.encargado')?></p>
             </div>
 
-            <div class="field">
+            <div class="form-group col-md-12">
                 <label class="label">Descripción</label>
                 <div class="control">
-                    <textarea class="textarea" name='descripcion' class="input" type="text"
-                        placeholder="Una breve descripcion" row="10"><?=old('descripcion')?></textarea>
+                    <input class="input" name='descripcion' class="input" type="text"
+                        placeholder="Una breve descripcion" row="10"><?=old('descripcion')?></input>
                 </div>
                 <p class="is-danger help"><?=session('errors.descripcion')?></p>
             </div>
@@ -73,6 +74,7 @@ Registrar CT
                     <button class="button is-primary">Registrar</button>
                 </div>
             </div>
+        </div>   
         </form>
     </div>
 </section>

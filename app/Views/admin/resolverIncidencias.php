@@ -49,10 +49,16 @@ Resolver la incidencia
                 </div>
 
                 <label>Centro de computo:</label>
-                <div class="form-group col-md-1">
-               
+                <div class="form-group col-md-2">
                 <label class="label"><?= $incidencia->mostrarCt($incidencia->idCt) ?></label>
                 </div>
+
+               
+                <div  style="text-align: center;" class="form-group col-md-12">
+                <label>Descripcion:<label class="label"><?= $incidencia->descripcion ?></label></label>
+               
+                </div>
+
                  
                 <div class="form-group col-md-12">
                 <div class="field">
