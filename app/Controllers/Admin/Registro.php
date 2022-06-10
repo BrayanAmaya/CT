@@ -97,7 +97,7 @@ class Registro extends BaseController{
 
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registrarCentroTecnologia(){
-        $dispositivos = $_POST['dispositivos'];
+        /*$dispositivos = $_POST['dispositivos'];
         $chekeado = $_POST['check'];
 
         //dd($chekeado);
@@ -112,9 +112,9 @@ class Registro extends BaseController{
             //if(isset($chekeado[$i])){
                 echo ("Si es ".$i." ".$dispositivos[$i]."<br>"); 
             //}
-        }
+        }*/
         
-        /*$modelCt = model('CtModel');
+        $modelCt = model('CtModel');
         $validar = service('validation');
         //alpha_numeric_punct
         $validar->setRules([
@@ -181,7 +181,7 @@ class Registro extends BaseController{
 
         return redirect()->route('registerCt')->with('msg',[
             'type'=>'success',
-            'body'=>'Centro de tecnología agregado correctamente.']);*/
+            'body'=>'Centro de tecnología agregado correctamente.']);
         
     }
 
