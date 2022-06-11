@@ -43,21 +43,21 @@ class Vistas extends BaseController{
             if(session('data.filtroUsuario') == 'all'){
                 if(session('data.filtroTipoIncidencia') =='all'){
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }else{
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }
             }else{
                 if(session('data.filtroTipoIncidencia') =='all'){
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idUsuario',session('data.filtroUsuario'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idUsuario',session('data.filtroUsuario'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }else{
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('idUsuario',session('data.filtroUsuario'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('idUsuario',session('data.filtroUsuario'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }
             }
@@ -65,21 +65,21 @@ class Vistas extends BaseController{
             if(session('data.filtroUsuario') == 'all'){
                 if(session('data.filtroTipoIncidencia') =='all'){
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }else{
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }
             }else{
                 if(session('data.filtroTipoIncidencia') =='all'){
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idUsuario',session('data.filtroUsuario'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idUsuario',session('data.filtroUsuario'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }else{
                     return view ('admin/filtrarIncidencia',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('idUsuario',session('data.filtroUsuario'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_update <',session('data.fechaFinal'))->findAll()
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',session('data.filtroTipoIncidencia'))->where('idUsuario',session('data.filtroUsuario'))->where('estado',session('data.filtroEstado'))->where('date_create >',session('data.fechaInicio'))->where('date_create <',session('data.fechaFinal'))->findAll()
                     ]);
                 }
             }
