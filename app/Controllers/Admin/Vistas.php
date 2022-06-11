@@ -38,7 +38,7 @@ class Vistas extends BaseController{
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function filtrarIncidencia(){
         $modelIncidencia = model('IncidenciaModel');
-        
+
         if(session('data.filtroEstado') == 'all'){
             if(session('data.filtroUsuario') == 'all'){
                 if(session('data.filtroTipoIncidencia') =='all'){

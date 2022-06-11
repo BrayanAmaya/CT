@@ -4,7 +4,8 @@
 Agregar incidencia
 <?=$this->endSection()?>
 <?=$this->section('css')?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css
+">
 <link rel="stylesheet" href="/assets/css/style_admin.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
@@ -64,7 +65,7 @@ Agregar incidencia
                                 Subir imagen…
                             </span>
                         </span>
-                        <img style="border: none;" id="imagenPrevisualizacion">
+                        <img style="border: none;" width="210" height="50" id="imagenPrevisualizacion">
                         <p class="is-danger help"><?=session('errorImg.imagen')?></p>
                     </label>
                 </div>
@@ -74,7 +75,7 @@ Agregar incidencia
                 <label class="label">¿Cuál es la incidencia?</label>
                 <div class="control">
                     <input name='descripcion' value='<?=old('descripcion')?>' class="input" type="text"
-                        placeholder="Ej: Una breve descripción">
+                        placeholder="Una breve descripción">
                 </div>
                 <p class="is-danger help"><?=session('errors.descripcion')?></p>
             </div>

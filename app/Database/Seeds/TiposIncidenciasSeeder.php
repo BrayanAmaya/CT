@@ -10,55 +10,35 @@ class TiposIncidenciasSeeder extends Seeder
     {
         $tipoIncidencia=[
             [
-                'incidencia'=>'Incidencia 1',
+                'incidencia'=>'Daño de equipo',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'incidencia'=>'Incidencia 2',
+                'incidencia'=>'Extavió de equipo',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'incidencia'=>'Incidencia 3',
+                'incidencia'=>'Limpieza de hardware',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'incidencia'=>'Incidencia 4',
+                'incidencia'=>'Falta de equipo',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'incidencia'=>'Incidencia 5',
+                'incidencia'=>'Mantenimiento de software',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'incidencia'=>'Incidencia 6',
+                'incidencia'=>'Otros',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
-            [
-                'incidencia'=>'Incidencia 7',
-                'date_create'=>date('Y-m-d H:i:s'),
-                'date_update'=>date('Y-m-d H:i:s')
-            ],
-            [
-                'incidencia'=>'Incidencia 8',
-                'date_create'=>date('Y-m-d H:i:s'),
-                'date_update'=>date('Y-m-d H:i:s')
-            ],
-            [
-                'incidencia'=>'Incidencia 9',
-                'date_create'=>date('Y-m-d H:i:s'),
-                'date_update'=>date('Y-m-d H:i:s')
-            ],
-            [
-                'incidencia'=>'Incidencia 10',
-                'date_create'=>date('Y-m-d H:i:s'),
-                'date_update'=>date('Y-m-d H:i:s')
-            ]
         ];
         $builder = $this->db->table('tbl_tipos_de_incidencia');
         $builder->insertBatch($tipoIncidencia);

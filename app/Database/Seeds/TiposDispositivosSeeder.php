@@ -10,52 +10,52 @@ class TiposDispositivosSeeder extends Seeder
     {
         $tipoDispositivo=[
             [
-                'dispositivo'=>'Dispositivo 1',
+                'dispositivo'=>'Mouse',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 2',
+                'dispositivo'=>'Teclado',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 3',
+                'dispositivo'=>'Bocina',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 4',
+                'dispositivo'=>'Pantalla',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 5',
+                'dispositivo'=>'Impresora',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 6',
+                'dispositivo'=>'Proyector de vídeo',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 7',
+                'dispositivo'=>'Microfono',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 8',
+                'dispositivo'=>'Escaner',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 9',
+                'dispositivo'=>'Cámara web',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ],
             [
-                'dispositivo'=>'Dispositivo 10',
+                'dispositivo'=>'Panel táctil',
                 'date_create'=>date('Y-m-d H:i:s'),
                 'date_update'=>date('Y-m-d H:i:s')
             ]

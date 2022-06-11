@@ -23,11 +23,6 @@ class TblCt extends Migration
                 'null' => false,
                 'unique'  => true,
             ],
-            'encargado'       => [
-                'type'       => 'VARCHAR',
-                'constraint' => '100',
-                'null' => false,
-            ],
             'descripcion'       => [
                 'type'       => 'TEXT',
                 'null' => false,

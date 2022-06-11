@@ -25,7 +25,7 @@ return [
     'hours'          => '{0, plural, =1{# hora} other{# horas}}',
     'minutes'        => '{0, plural, =1{# minuto} other{# minutos}}',
     'seconds'        => '{0, plural, =1{# segundo} other{# segundos}}',
-    'ago'            => 'hace {0}',
+    'ago'            => 'Hace {0}',
     'inFuture'       => 'En {0}',
     'yesterday'      => 'Ayer',
     'tomorrow'       => 'Mañana',
