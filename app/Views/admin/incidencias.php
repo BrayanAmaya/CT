@@ -98,21 +98,21 @@ Incidencias
             </form>
             <?php foreach($incidencias as $key):?>
 
-            <div class="col-3"><br>
+            <div  class="col-3"><br>
                 <div class="card">
-                    <div class="card" style="width: 22rem;">
+                    <div  class="card" style="width: 22rem;">
                         <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
                         <img src="<?=$key->imagen?>" class="card-img-top">
                         <?php else: ?>
                         <img src="/img/imagesIncidencias/default.jpg" class="card-img-top">
                         <?php endif;?>
-                        <div class="card-content">
+                        <div  class="card-content">
                             <div class="media-content">
                                 <p class="title is-4"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></p>
                                 <p class="subtitle is-6">@<?=$key->mostrarUsuario($key->idUsuario)?> - <?=$key->nivel?>
                                 </p>
                             </div>
-                            <div class="content">
+                            <div  class="content">
                                 <time datetime="2016-1-1"><?=$key->date_create->humanize()?></time>
                                 <br>
                                 <?php if($key->estado == 0): ?>
