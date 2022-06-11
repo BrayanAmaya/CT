@@ -30,7 +30,8 @@ Actualizar CT
         <form class="border p-3 form "
             action="<?=base_url('admin/actualizarCt')?>?id=<?= password_hash($mostrar->idCt,PASSWORD_DEFAULT)?>"
             method="POST">
-            <div class="field">
+<div class="form-row">      
+            <div class="form-group col-md-5">
                 <label class="label">Nombre del centro de tecnología</label>
                 <div class="control">
                     <input name='nombreCt'
@@ -41,7 +42,7 @@ Actualizar CT
             </div>
 
 
-            <div class="field control">
+            <div class="form-group col-md-4">
                 <label class="label">Selecciona un encargado</label>
                 <div class="control select is-link">
                     <select name='encargado'>
@@ -67,19 +68,8 @@ Actualizar CT
                 <p class="is-danger help"><?=session('errors.encargado')?></p>
             </div>
 
-
-            <div class="field">
-                <label class="label">Descripción</label>
-                <div class="control">
-                    <input name='descripcion'
-                        value='<?php if(old('descripcion') != null): ?><?=old('descripcion')?><?php else: ?><?= $mostrar->descripcion ?><?php endif; ?>'
-                        class="input" type="text" placeholder="Ej: Una breve descripción">
-                </div>
-                <p class="is-danger help"><?=session('errors.nombreCt')?></p>
-            </div>
-
-
-            <div class="form-group col-md-5 col-md-offset-8">
+            
+            <div class="form-group col-md-3">
                 <label class="label">Estado del centro de tecnologías</label>
                 <div class="control select is-link">
                     <select name='estado'>
@@ -99,11 +89,23 @@ Actualizar CT
                 <p class="is-danger help"><?=session('errors.idiomaPrimario')?></p>
             </div>
 
+
+            <div class="form-group col-md-12">
+                <label class="label">Descripción</label>
+                <div class="control">
+                    <input name='descripcion'
+                        value='<?php if(old('descripcion') != null): ?><?=old('descripcion')?><?php else: ?><?= $mostrar->descripcion ?><?php endif; ?>'
+                        class="input" type="text" placeholder="Ej: Una breve descripción">
+                </div>
+                <p class="is-danger help"><?=session('errors.nombreCt')?></p>
+            </div>
+
             <div class="col-md-8 col-md-offset-3">
                 <div class="control">
                     <button class="button is-primary">Actualizar</button>
                 </div>
             </div>
+        </div>
         </form>
     </div>
 </section>

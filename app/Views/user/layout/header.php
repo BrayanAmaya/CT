@@ -2,7 +2,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <nav class="navbar is-link">
     <div class="navbar-brand">
-        <a class="navbar-item" href="http://ct_prueba.test/">
+        <a class="navbar-item" href="http://ct.test/">
             <img src="/assets/img/DigiTechLogo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112"
                 height="28">
         </a>

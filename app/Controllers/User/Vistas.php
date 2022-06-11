@@ -28,7 +28,7 @@ class Vistas extends BaseController{
 
         return view ('user/agregarIncidencia',[
             'incidencia' => $modelIncidencia->findAll(),
-            'ct' => $modelCt->findAll()
+            'ct' => $modelCt->where('estado',1)->findAll()
         ]);
     }
 /*-------------------------------------------------------------------------------------------------------------------*/

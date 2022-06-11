@@ -60,7 +60,7 @@ class Registro extends BaseController{
         $newName=$imageFile->getRandomName();
         
         $direccion='C:/laragon/www/ct/public/img/imagesIncidencias/';
-        $direccionGuardado='http://ct.test/img/imagesIncidencias/'.$newName;
+        $direccionGuardado='/img/imagesIncidencias/'.$newName;
 
         $modelIncidencia = model('IncidenciaModel');
         $modelTipoIncidencia = model('TipoIncidenciaModel');

@@ -17,7 +17,6 @@ Mis Incidencias
     </article>
     <?php endif; ?>
 
-    <br>
     <div class="container">
         <div class="row">
             <div class="col-10">
@@ -33,7 +32,11 @@ Mis Incidencias
             <div class="col-3">
                 <div class="card">
                     <div class="card" style="width: 22rem;">
+                    <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
                         <img src="<?=$key->imagen?>" class="card-img-top">
+                        <?php else: ?>
+                        <img src="/img/imagesIncidencias/default.jpg" class="card-img-top">
+                        <?php endif;?>
                         <div class="card-content">
                             <div class="media-content">
                                 <p class="title is-4"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></p>
@@ -53,6 +56,4 @@ Mis Incidencias
             <?php endforeach; ?>
         </div>
 </section>
-
-
-<?= $this->endSection() ?>
+<?= $this->endSection()?>

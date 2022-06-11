@@ -8,6 +8,7 @@ Incidencias
 <link rel="stylesheet" href="/assets/css/style_admin.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
+<section class="section">
 <?php if(session('msg')):?>
 <article class="message is-<?=session('msg.type')?>">
     <div class="message-body">
@@ -15,20 +16,21 @@ Incidencias
     </div>
 </article>
 <?php endif; ?>
-<br>
 <div class="container">
+<div class="row">
+<form action="<?=base_url('admin/filtroIncidencia')?>" method="POST">
+<div class="form-row">       
 
-    <div class="row">
-        <div class="col-10">
-            <form action="<?=base_url('admin/filtroIncidencia')?>" method="POST">
+            <div class="form-group col-md-4">
                 <label for="start">Fecha: de</label>
-
                 <input type="date" id="start" name="fechaInicio" value="<?= date('Y-m-d')?>" min="2018-01-01"
                     max="2022-12-12">
                 <label for="start"> hasta </label>
-                <input type="date" id="start" name="fechaFinal"
-                    value="<?= date('Y-m-d',strtotime(date('Y-m-d').'+1 days'))?>" min="2018-01-01" max="2022-12-12">
-                <div class="field control">
+                <input type="date" id="start" name="fechaFinal" value="<?= date('Y-m-d',strtotime(date('Y-m-d').'+1 days'))?>" min="2018-01-01" 
+                max="2022-12-12">
+            </div>
+
+                <div class="form-group col-md-2">
                     <label class="label">Estado: </label>
                     <div class="control select is-link">
                         <select name='filtroEstado'>
@@ -39,7 +41,8 @@ Incidencias
                     </div>
                     <p class="is-danger help"><?=session('errors.filtroEstado')?></p>
                 </div>
-                <div class="field control">
+
+                <div class="form-group col-md-2">
                     <label class="label">Usuarios: </label>
                     <div class="control select is-link">
                         <select name='filtroUsuario'>
@@ -64,7 +67,7 @@ Incidencias
                     <p class="is-danger help"><?=session('errors.filtroUsuario')?></p>
                 </div>
 
-                <div class="field control">
+                <div class="form-group col-md-2">
                     <label class="label">Tipo de incidencia: </label>
                     <div class="control select is-link">
                         <select name='filtroTipoIncidencia'>
@@ -78,21 +81,23 @@ Incidencias
                     </div>
                     <p class="is-danger help"><?=session('errors.filtroTipoIncidencia')?></p>
                 </div>
-                <div class="field is-grouped">
+                <div class="form-group col-md-2">
                     <div class="control">
                         <button class="button is-info">Filtrar</button>
                     </div>
                 </div>
-        </div>
-        </form>
-        <div class="col-2">
+      
+  
+        <div class="col-12">
             <a href="<?=base_url(route_to('addIncidencia'))?>" class="btn btn-primary"> <span class="icon"><i
                         class="fas fa-plus" aria-hidden="true"></i></span>
                 Nueva Incidencia
             </a>
-        </div><br><br>
-        <?php foreach($incidencias as $key):?>
-        <div class="col-3">
+        </div>
+</form>
+ <?php foreach($incidencias as $key):?> 
+
+    <br><div class="col-3">
             <div class="card">
                 <div class="card" style="width: 22rem;">
                     <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
@@ -123,7 +128,9 @@ Incidencias
                 </div>
             </div>
         </div>
+        
         <?php endforeach; ?>
     </div>
-
-    <?=$this->endSection()?>
+</div>   
+</section>
+<?=$this->endSection()?>
