@@ -4,8 +4,7 @@
 Filtrar Incidencia
 <?=$this->endSection()?>
 <?=$this->section('css')?>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css
-">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <link rel="stylesheet" href="/assets/css/style_admin.css">
 <?=$this->endSection()?>
 <?=$this->section('content')?>
@@ -19,11 +18,9 @@ Filtrar Incidencia
     <?php endif; ?>
     <br>
     <div class="container">
-
         <div class="row">
-            <div class="col-10"><br><br>
                 <?php foreach($incidencias as $key):?>
-                <div class="col-3">
+                <div class="col-3"><br>
                     <div class="card">
                         <div class="card" style="width: 22rem;">
                             <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
@@ -49,16 +46,16 @@ Filtrar Incidencia
                                     <?php endif;?>
                                     <?php if($key->estado == 1): ?>
                                     <a href="<?=base_url(route_to('viewIncidencia'))?>?id=<?=password_hash($key->idIncidencia,PASSWORD_DEFAULT)?>"
-                                        class="btn btn-primary">Resolver</a>
+                                        class="btn btn-primary">Resolver    </a>
                                     <?php endif;?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+               
                 <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-    </div>
 </section>
 <?=$this->endSection()?>

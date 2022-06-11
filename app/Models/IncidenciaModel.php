@@ -33,9 +33,9 @@ class IncidenciaModel extends Model{
     }
 
     public function agregarUnNivel(string $idTipoIncidencia){
-        if($idTipoIncidencia == '2' || $idTipoIncidencia == '4'){
+        if($idTipoIncidencia == '1' || $idTipoIncidencia == '2'){
             $this->asignarNivel = 'Alto';
-        }elseif($idTipoIncidencia == '1' || $idTipoIncidencia == '3' || $idTipoIncidencia == '5'){
+        }elseif($idTipoIncidencia == '3' || $idTipoIncidencia == '4' || $idTipoIncidencia == '5'){
             $this->asignarNivel = 'Medio';
         }elseif($idTipoIncidencia == '6'){
             $this->asignarNivel = 'Bajo';

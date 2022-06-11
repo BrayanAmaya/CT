@@ -65,7 +65,7 @@ Agregar incidencia
                                 Subir imagen…
                             </span>
                         </span>
-                        <img style="border: none;" width="210" height="50" id="imagenPrevisualizacion">
+                        <img style="border: none;" id="imagenPrevisualizacion">
                         <p class="is-danger help"><?=session('errorImg.imagen')?></p>
                     </label>
                 </div>

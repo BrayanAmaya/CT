@@ -98,8 +98,7 @@ Incidencias
             </form>
             <?php foreach($incidencias as $key):?>
 
-            <br>
-            <div class="col-3">
+            <div class="col-3"><br>
                 <div class="card">
                     <div class="card" style="width: 22rem;">
                         <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
@@ -142,7 +141,7 @@ Incidencias
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="title">Incidencia</h1>
+                    <h3 class="title"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>

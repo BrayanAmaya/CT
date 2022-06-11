@@ -21,7 +21,7 @@ Agregar incidencia
     <h2 class="subtitle">
         Llena los siguientes datos para reportar una incidencia.
     </h2>
-    <form action="<?=base_url('user/reportar-incidencia')?>" method="POST" enctype="multipart/form-data">
+    <form class="border p-3 form" action="<?=base_url('user/reportar-incidencia')?>" method="POST" enctype="multipart/form-data">
 
         <div class="form-row">
             <div class="form-group col-md-5">
@@ -64,7 +64,7 @@ Agregar incidencia
                                 Subir imagen…
                             </span>
                         </span>
-                        <img style="border: none;" width="210" height="50" id="imagenPrevisualizacion">
+                        <img style="border: none;" id="imagenPrevisualizacion">
                         <p class="is-danger help"><?=session('errorImg.imagen')?></p>
                     </label>
                 </div>
