@@ -323,6 +323,13 @@ class Registro extends BaseController{
         $valorUsuario= $filtroUsuario;
         $valorTipoIncidencia = $filtroTipoIncidencia;
         $estados = ['0','1','all']; 
+
+        if($fechaInicio == $fechaFinal){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Las fechas no pueden ser iguales!.'
+            ]);
+        }
         
         if(!in_array($filtroEstado,$estados)){
             return redirect()->back()->withInput()->with('msg',[
