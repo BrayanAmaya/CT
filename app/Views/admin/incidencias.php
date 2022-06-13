@@ -136,9 +136,9 @@ Incidencias
     </div>
 
     <?php foreach($incidencias as $key): ?>
-    <div class="modal fade" id="Modal<?=$key->idIncidencia?>" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-lg" id="Modal<?=$key->idIncidencia?>" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="title"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></h3>
@@ -148,11 +148,15 @@ Incidencias
                 </div>
                 <div class="modal-body">
                     <form class="form-row" action="#" method="POST">
+
+                       <div class="form-group col-md-12">
                         <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
-                        <img src="<?=$key->imagen?>" class="card-img-top">
+                        <img class="mx-auto d-block" src="<?=$key->imagen?>" class="">
                         <?php else: ?>
                         <img src="/img/imagesIncidencias/default.jpg" class="card-img-top">
                         <?php endif;?>
+                        </div>
+
                         <div class="form-group col-md-6">
                             <label class="label has-text-centered">Quien reporto</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarUsuario($key->idUsuario)?></h6>
