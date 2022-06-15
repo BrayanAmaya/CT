@@ -58,9 +58,9 @@ Mis Incidencias
     </div>
 
     <?php foreach($incidencias as $key): ?>
-    <div class="modal fade" id="Modal<?=$key->idIncidencia?>" tabindex="-1" role="dialog"
+    <div class="modal bd-example-modal-lg" id="Modal<?=$key->idIncidencia?>" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="title"><?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></h1>
@@ -70,36 +70,36 @@ Mis Incidencias
                 </div>
                 <div class="modal-body">
                     <form class="form-row" action="#" method="POST">
+
+                    <div class="form-group col-md-12">
                         <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
-                        <img src="<?=$key->imagen?>" class="card-img-top">
+                        <img class="mx-auto d-block" src="<?=$key->imagen?>" >
                         <?php else: ?>
-                        <img src="/img/imagesIncidencias/default.jpg" class="card-img-top">
+                        <img class="mx-auto d-block" src="/img/imagesIncidencias/default.jpg">
                         <?php endif;?>
-                        <div class="form-group col-md-6">
+                        </div>
+
+                        <div class="form-group col-md-4">
                             <label class="label has-text-centered">Quien reporto</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarUsuario($key->idUsuario)?>
                             </h6>
                         </div>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label class="label has-text-centered">Tipo de inidencia</label>
                             <h6 class="subtitle is-6 has-text-centered">
                                 <?=$key->mostrarTipoIncidencia($key->idTipoIncidencia)?></h6>
                         </div>
 
-                        <div class="form-group col-md-6">
-                            <label class="label has-text-centered">De que centro de tecnología es</label>
-                            <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarCt($key->idCt)?></h6>
-                        </div>
-
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label class="label has-text-centered">Nivel</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->nivel?></h6>
                         </div>
 
+
                         <div class="form-group col-md-6">
-                            <label class="label has-text-centered">Descripción de la incidencia</label>
-                            <h6 class="subtitle is-6 has-text-centered"><?=$key->descripcion?></h6>
+                            <label class="label has-text-centered">De que centro de tecnología es</label>
+                            <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarCt($key->idCt)?></h6>
                         </div>
 
                         <div class="form-group col-md-6">
@@ -111,25 +111,30 @@ Mis Incidencias
                             <?php endif;?>
                         </div>
 
+                        <div class="form-group col-md-6">
+                            <label class="label has-text-centered">Descripción de la incidencia</label>
+                            <h6 class="subtitle is-6 has-text-centered"><?=$key->descripcion?></h6>
+                        </div>
 
                         <?php if($key->estado == 0): ?>
-                        <div class="form-group col-md-6">
-                            <label class="label has-text-centered">Resuelto por</label>
-                            <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarUsuario($key->idUsuario)?>
-                            </h6>
-                        </div>
                         <div class="form-group col-md-6">
                             <label class="label has-text-centered">Comentario resolución</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->comentarioPor?></h6>
                         </div>
+
+                        <div class="form-group col-md-4">
+                            <label class="label has-text-centered">Resuelto por</label>
+                            <h6 class="subtitle is-6 has-text-centered"><?=$key->mostrarUsuario($key->idUsuario)?>
+                            </h6>
+                        </div>
                         <?php endif;?>
 
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label class="label has-text-centered">Reportada</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->date_create->humanize()?></h6>
                         </div>
                         <?php if($key->estado == 0): ?>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-4">
                             <label class="label has-text-centered">Resuelta</label>
                             <h6 class="subtitle is-6 has-text-centered"><?=$key->date_update->humanize()?></h6>
                         </div>
