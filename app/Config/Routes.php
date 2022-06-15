@@ -55,8 +55,15 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
 
     $routes->get('buscar-usuario', 'Vistas::buscarUsuario',['as'=>'search']);
     $routes->get('buscar-ct', 'Vistas::buscarCt',['as'=>'searchCt']);
+
+    $routes->post('generar-report', 'Registro::generarReport',['as'=>'generarReport']);
     
+    $routes->get('agregar-tipo-dispositivo', 'Vistas::agregarTipoDispositivo',['as'=>'addTipoDispositivo']);
+    $routes->get('agregar-tipo-incidencia', 'Vistas::agregarTipoIncidencia',['as'=>'addTipoIncidencia']);
     $routes->get('agregar-dispositivo', 'Vistas::agregarDispositivo',['as'=>'addDispositivo']);
+    $routes->post('addDispositivos', 'Registro::agregarDispositivo');
+    $routes->post('addTipoDispositivos', 'Registro::agregarTipoDispositivo');
+    $routes->post('addTipoIncidencias', 'Registro::agregarTipoIncidencia');
     
     $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfil']);
     $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfil']);

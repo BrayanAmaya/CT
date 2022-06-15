@@ -13,11 +13,24 @@ class IncidenciaModel extends Model{
     protected $returnType     = 'object';
     protected $useSoftDeletes = true;
 
-    protected $allowedFields = ['numeroDeSerie','estado','detalle', 'cantidad','idTipoDispositivo','idCt'];
+    protected $allowedFields = ['nombreDispositivo','numeroDeSerie','estado','detalle', 'cantidad','idTipoDispositivo','idCt'];
 
     protected $useTimestamps = true;
     protected $createdField  = 'date_create';
     protected $updatedField  = 'date_update';
     protected $deletedField  = 'date_delete';
+
+    protected $beforeInsert = ['agregarEstado'];
+
+    protected $asignarEstado;
+
+    protected function agregarEstado($data){
+        $data['data']['estado'] = $this->asignarEstado;
+        return $data;
+    }
+
+    public function agregarUnEstado(){
+        $this->asignarEstado = 1;
+    }
 
 }

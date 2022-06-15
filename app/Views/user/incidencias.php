@@ -71,12 +71,12 @@ Mis Incidencias
                 <div class="modal-body">
                     <form class="form-row" action="#" method="POST">
 
-                    <div class="form-group col-md-12">
-                        <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
-                        <img class="mx-auto d-block" src="<?=$key->imagen?>" >
-                        <?php else: ?>
-                        <img class="mx-auto d-block" src="/img/imagesIncidencias/default.jpg">
-                        <?php endif;?>
+                        <div class="form-group col-md-12">
+                            <?php if(file_exists("C:/laragon/www/ct/public".$key->imagen)): ?>
+                            <img class="mx-auto d-block" src="<?=$key->imagen?>">
+                            <?php else: ?>
+                            <img class="mx-auto d-block" src="/img/imagesIncidencias/default.jpg">
+                            <?php endif;?>
                         </div>
 
                         <div class="form-group col-md-4">

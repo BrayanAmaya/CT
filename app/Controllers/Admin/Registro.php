@@ -5,6 +5,8 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Entities\Usuario;
 
+use Dompdf\Dompdf;
+
 class Registro extends BaseController{
     protected $configs;
     
@@ -378,7 +380,216 @@ class Registro extends BaseController{
             'filtroTipoIncidencia'=>$valorTipoIncidencia
         ]);
     }
+/*-------------------------------------------------------------------------------------------------------------------*/
 
+    public function agregarDispositivo(){
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'nombreDispositivo'=>'required|alpha_space',
+            'numeroDeSerie'=>'required|alpha_numeric_punct',
+            'detalle'=>'required|alpha_numeric_punct',
+            'td'=>'required',
+            'ct'=>'required'
+        ],
+        [
+            'nombreDispositivo' => [
+                    'required' => 'Digite un nombre para el dispositivo',
+                    'alpha_space' => 'Caracteres no permitidos',
+            ],
+            'numeroDeSerie' => [
+                'required' => 'Digite un número de serie',
+                'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+            'detalle' => [
+                'required' => 'Digite un detalle',
+                'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+            'td' => [
+                'required' => 'Seleccione un tipo de dispositivo',
+            ],
+            'ct' => [
+                'required' => 'Seleccione un centro de tecnología',
+            ],
+        ]
+        );
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        $modelDispositivo = model('DispositivoModel');
+        $modelTipoDispositivo = model('TipoDispositivoModel');
+        $modelCt = model('CtModel');
+
+        $modelDispositivo->agregarUnEstado();
+
+        $nombreDispostivo = trim($this->request->getVar('nombreDispositivo'));
+        $numeroDeSerie = trim($this->request->getVar('numeroDeSerie'));
+        $detalle = trim($this->request->getVar('detalle'));
+        $td = trim($this->request->getVar('td'));
+        $ct = trim($this->request->getVar('ct'));
+        $agregarTd=null;
+        $agregarCt=null;
+        $buscarTd = $modelTipoDispositivo->findAll();
+        $buscarCt = $modelCt->findAll();
+        
+        foreach ($buscarTd as $key) {
+            if(password_verify($key->idTipoDispositivo,$td)){
+                $agregarTd = $key->idTipoDispositivo;
+                break;
+            }
+        }
+        if($agregarTd == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Tipo de dispositivo no valido!'
+            ]);
+        }
+        foreach ($buscarCt as $key) {
+            if(password_verify($key->idCt,$ct)){
+                $agregarCt = $key->idCt;
+                break;
+            }
+        }
+        if($agregarCt == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Centro de tecnología no valido!'
+            ]);
+        }
+
+        $data=[
+            'nombreDispositivo' => $nombreDispostivo,
+            'numeroDeSerie' => $numeroDeSerie,
+            'detalle' => $detalle,
+            'idTipoDispositivo' => $agregarTd,
+            'idCt' => $agregarCt
+        ];
+        if(!$modelDispositivo->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al registrar el dispositivo.'
+            ]);
+        }
+
+        return redirect()->route('addDispositivo')->with('msg',[
+            'type'=>'success',
+            'body'=>'Dispositivo registrado correctamente'
+        ]);
+        
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function agregarTipoDispositivo(){
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'tipoDispositivo'=>'required|alpha_numeric_punct',
+        ],
+        [
+            'tipoDispositivo' => [
+                    'required' => 'Digite un nombre para el tipo de dispositivo',
+                    'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+        ]
+        );
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        $modelTipoDispositivo = model('TipoDispositivoModel');
+        $tipoDispositivo = trim($this->request->getVar('tipoDispositivo'));
+
+        $data = [
+            'dispositivo' => $tipoDispositivo,
+        ];
+
+        if(!$modelTipoDispositivo->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al registrar el tipo de dispositivo.'
+            ]);
+        }
+
+        return redirect()->route('addTipoDispositivo')->with('msg',[
+            'type'=>'success',
+            'body'=>'Tipo de dispositivo registrado correctamente'
+        ]);
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function agregarTipoIncidencia(){
+        $validar = service('validation');
+        
+        $validar->setRules([
+            'tipoIncidencia'=>'required|alpha_numeric_punct',
+        ],
+        [
+            'tipoIncidencia' => [
+                    'required' => 'Digite un nombre para el tipo de incidencia',
+                    'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+        ]
+        );
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $tipoIncidencia = trim($this->request->getVar('tipoIncidencia'));
+
+        $data = [
+            'incidencia' => $tipoIncidencia,
+        ];
+
+        if(!$modelTipoIncidencia->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al registrar el tipo de incidencia.'
+            ]);
+        }
+
+        return redirect()->route('addTipoIncidencia')->with('msg',[
+            'type'=>'success',
+            'body'=>'Tipo de incidencia registrado correctamente'
+        ]);
+    }
+
+    public function generarReport(){
+        $dompdf = new Dompdf();
+        //$dompdf->loadHTML('<h1>Hola Mundo</h1><br><p>Otro contenido</p>');
+
+        $modelIncidencia = model('IncidenciaModel');
+        $modelUsuario = model('UsuarioModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $modelCt = model('CtModel');
+        /*return view ('admin/incidencias',[
+            'incidencias' => $modelIncidencia->orderBy('estado','desc')->findAll(),
+            'usuarios' => $modelUsuario->findAll(),
+            'tipoIncidencia' => $modelTipoIncidencia->findAll()
+        ]);*/
+
+        /*$html = view('admin/incidencias',[
+            'incidencias' => $modelIncidencia->orderBy('estado','desc')->findAll(),
+            'usuarios' => $modelUsuario->findAll(),
+            'tipoIncidencia' => $modelTipoIncidencia->findAll()
+        ]);*/
+        /*return view ('admin/buscarCt',[
+            'cts' => $modelCt->where('estado',$estatus)->findAll()
+        ]);*/
+
+        $html = view('admin/generarReporte',[
+            'cts' => $modelCt->findAll()
+        ]);
+
+        $dompdf->loadHTML($html);
+        $dompdf->setPaper('A4','landscape');
+        $dompdf->render();
+        $dompdf->stream('Reporte',['Attachment'=> 0]);
+    }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function cerrar(){
         session()->destroy();
