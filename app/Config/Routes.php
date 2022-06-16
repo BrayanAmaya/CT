@@ -55,8 +55,15 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
 
     $routes->get('buscar-usuario', 'Vistas::buscarUsuario',['as'=>'search']);
     $routes->get('buscar-ct', 'Vistas::buscarCt',['as'=>'searchCt']);
+
+    $routes->post('generar-reporte', 'Registro::generarReport',['as'=>'generarReport']);
     
+    $routes->get('agregar-tipo-dispositivo', 'Vistas::agregarTipoDispositivo',['as'=>'addTipoDispositivo']);
+    $routes->get('agregar-tipo-incidencia', 'Vistas::agregarTipoIncidencia',['as'=>'addTipoIncidencia']);
     $routes->get('agregar-dispositivo', 'Vistas::agregarDispositivo',['as'=>'addDispositivo']);
+    $routes->post('addDispositivos', 'Registro::agregarDispositivo');
+    $routes->post('addTipoDispositivos', 'Registro::agregarTipoDispositivo');
+    $routes->post('addTipoIncidencias', 'Registro::agregarTipoIncidencia');
     
     $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfil']);
     $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfil']);
@@ -75,20 +82,13 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
 });
 
 $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Usuario'],function($routes){
-    //$routes->get('incidencia', 'User::index', ['as'=>'user']);
     $routes->get('incidencia', 'Vistas::index', ['as'=>'user']);
-    //$routes->get('agregar-incidencia', 'User::incidencia',['as'=>'addIncidenciaUser']);
     $routes->get('agregar-incidencia', 'Vistas::incidencia',['as'=>'addIncidenciaUser']);
-    //$routes->post('reportar-incidencia','User::reportarIncidencia');
     $routes->post('reportar-incidencia','Registro::reportarIncidencia');
 
-    //$routes->get('perfil', 'User::miPerfil',['as'=>'perfilUser']);
     $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfilUser']);
-    //$routes->get('actualizar-perfil', 'User::actualizarPerfil',['as'=>'updatePerfilUser']);
     $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfilUser']);
-    //$routes->post('actualizarPerfil', 'User::updatePerfil');
     $routes->post('actualizarPerfil', 'Registro::updatePerfil');
-    //$routes->get('cerrar', 'User::cerrar',['as'=>'logoutU']);
     $routes->get('cerrar', 'Vistas::cerrar',['as'=>'logoutU']);
 });
 

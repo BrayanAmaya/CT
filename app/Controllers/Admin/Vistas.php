@@ -19,7 +19,7 @@ class Vistas extends BaseController{
         $modelUsuario = model('UsuarioModel');
         $modelTipoIncidencia = model('TipoIncidenciaModel');
         return view ('admin/incidencias',[
-            'incidencias' => $modelIncidencia->findAll(),
+            'incidencias' => $modelIncidencia->orderBy('estado','desc')->findAll(),
             'usuarios' => $modelUsuario->findAll(),
             'tipoIncidencia' => $modelTipoIncidencia->findAll()
         ]);
@@ -91,7 +91,12 @@ class Vistas extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function report(){
-        return view ('admin/reportes');
+        $modelUsuario = model('UsuarioModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        return view ('admin/reportes',[
+            'usuarios' => $modelUsuario->findAll(),
+            'tipoIncidencia' => $modelTipoIncidencia->findAll()
+        ]);
     }    
     
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -125,7 +130,20 @@ class Vistas extends BaseController{
 
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function agregarDispositivo(){
-        return view ('admin/agregarDispositivo');
+        $modelCt = model('CtModel');
+        $modelTipoDispositivo = model('TipoDispositivoModel');
+        return view ('admin/agregarDispositivo',[
+            'td' => $modelTipoDispositivo->findAll(),
+            'ct' => $modelCt->where('estado',1)->findAll()
+        ]);
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function agregarTipoDispositivo(){
+        return view ('admin/agregarTipoDispositivo');
+    }
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function agregarTipoIncidencia(){
+        return view ('admin/agregarTipoIncidencia');
     }
     
 /*-------------------------------------------------------------------------------------------------------------------*/

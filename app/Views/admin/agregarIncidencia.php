@@ -31,7 +31,9 @@ Agregar incidencia
                     <select name='incidencia'>
                         <option value="">...</option>
                         <?php foreach ($incidencia as $key): ?>
-                        <option value="<?=password_hash($key->idTipoIncidencia,PASSWORD_DEFAULT)?>">
+                        <option value="<?=password_hash($key->idTipoIncidencia,PASSWORD_DEFAULT)?>"
+                            <?php if(password_verify($key->idTipoIncidencia,old('incidencia'))):?>selected
+                            <?php endif;?>>
                             <?=$key->incidencia?></option>
                         <?php endforeach;?>
                     </select>
@@ -45,7 +47,8 @@ Agregar incidencia
                     <select name='ct'>
                         <option value="">...</option>
                         <?php foreach ($ct as $key): ?>
-                        <option value="<?=password_hash($key->idCt,PASSWORD_DEFAULT)?>">
+                        <option value="<?=password_hash($key->idCt,PASSWORD_DEFAULT)?>"
+                            <?php if(password_verify($key->idCt,old('ct'))):?>selected<?php endif;?>>
                             <?=$key->nombreCt?></option>
                         <?php endforeach;?>
                     </select>

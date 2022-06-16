@@ -66,18 +66,22 @@
                 </a>
                 <div class="navbar-dropdown is-boxed">
                     <a style=" text-decoration: none;"
-                        class="navbar-item <?=service('request')->uri->getPath() == '' ? 'is-active' : '' ?>"
-                        href="<?=base_url(route_to('register'))?>">
+                        class="navbar-item <?=service('request')->uri->getPath() == 'admin/agregar-tipo-dispositivo' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('addTipoDispositivo'))?>">
                         <span class="icon"><i class="fas fa-keyboard" aria-hidden="true"></i></span>
                         <span>Tipo de dispositivos</span>
                     </a>
-                    <a style=" text-decoration: none;" class="navbar-item" href="#">
+                    <a style=" text-decoration: none;"
+                        class="navbar-item <?=service('request')->uri->getPath() == 'admin/agregar-tipo-incidencia' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('addTipoIncidencia'))?>">
+                        <span class="icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
+                        <span>Agregar Tipo incidencia</span>
+                    </a>
+                    <a style=" text-decoration: none;"
+                        class="navbar-item <?=service('request')->uri->getPath() == 'admin/agregar-dispositivo' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('addDispositivo'))?>">
                         <span class="icon"><i class="fa fa-computer" aria-hidden="true"></i></span>
                         <span>Agregar dispositvios</span>
-                    </a>
-                    <a style=" text-decoration: none;" class="navbar-item" href="#">
-                        <span class="icon"><i class="fas fa-desktop" aria-hidden="true"></i></span>
-                        <span>Agregar dispositivo a CT</span>
                     </a>
                 </div>
             </div>

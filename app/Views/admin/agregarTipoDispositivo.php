@@ -1,0 +1,46 @@
+<?=$this->extend('admin/main')?>
+
+<?=$this->section('title')?>
+Agregar tipo dispositivo
+<?=$this->endSection()?>
+<?=$this->section('css')?>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css
+">
+<link rel="stylesheet" href="/assets/css/style_admin.css">
+<?=$this->endSection()?>
+<?=$this->section('content')?>
+
+<section class="container">
+    <?php if(session('msg')):?>
+    <article class="message is-<?=session('msg.type')?>">
+        <div class="message-body">
+            <?=session('msg.body')?>
+        </div>
+    </article>
+    <?php endif;?>
+    <h1 class="title">Agregar un tipo de dispositivo</h1>
+    <h2 class="subtitle">
+        Llena los siguientes datos para agregar un nuevo tipo de dispositivo.
+    </h2>
+    <form class="border p-3 form" action="<?=base_url('admin/addTipoDispositivos')?>" method="POST"
+        enctype="multipart/form-data">
+
+        <div class="form-group col-md-12">
+            <label class="label">Tipo de dispositivo</label>
+            <div class="control">
+                <input name='tipoDispositivo' value='<?=old('tipoDispositivo')?>' class="input" type="text"
+                    placeholder="">
+            </div>
+            <p class="is-danger help"><?=session('errors.tipoDispositivo')?></p>
+        </div>
+
+        <div class="field is-grouped">
+            <div class="control">
+                <button class="button is-primary">Agregar</button>
+            </div>
+        </div>
+        </div>
+    </form>
+</section>
+
+<?=$this->endSection()?>

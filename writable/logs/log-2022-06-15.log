@@ -1,0 +1,259 @@
+ERROR - 2022-06-15 11:47:10 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: YES)
+CRITICAL - 2022-06-15 11:47:10 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+#0 C:\laragon\www\CT\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
+#1 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 C:\laragon\www\CT\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
+#3 C:\laragon\www\CT\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
+#4 C:\laragon\www\CT\app\Models\UsuarioModel.php(51): CodeIgniter\BaseModel->first()
+#5 C:\laragon\www\CT\app\Filters\Roles.php(23): App\Models\UsuarioModel->buscarUsuario('idUsuario', '17')
+#6 C:\laragon\www\CT\system\Filters\Filters.php(173): App\Filters\Roles->before(Object(CodeIgniter\HTTP\IncomingRequest), Array)
+#7 C:\laragon\www\CT\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('admin/incidenci...', 'before')
+#8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-15 12:36:17 --> Undefined property: stdClass::$idTipoIncidencia
+#0 C:\laragon\www\CT\app\Views\admin\agregarDispositivo.php(60): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/agregarDi...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(132): view('admin/agregarDi...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->agregarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-15 12:39:59 --> Undefined property: stdClass::$idDipositivo
+#0 C:\laragon\www\CT\app\Views\admin\agregarDispositivo.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 61, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/agregarDi...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(132): view('admin/agregarDi...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->agregarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-15 12:40:11 --> Undefined property: stdClass::$idTipoDipositivo
+#0 C:\laragon\www\CT\app\Views\admin\agregarDispositivo.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 61, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/agregarDi...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(132): view('admin/agregarDi...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->agregarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-15 12:41:55 --> Undefined property: stdClass::$idTipoDipositivo
+#0 C:\laragon\www\CT\app\Views\admin\agregarDispositivo.php(61): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 61, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/agregarDi...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(132): view('admin/agregarDi...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->agregarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-15 13:02:25 --> Invalid argument supplied for foreach()
+#0 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(447): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Invalid argumen...', 'C:\\laragon\\www\\...', 447, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->agregarDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-15 13:02:44 --> Undefined variable: model
+#0 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(467): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 467, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->agregarDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-15 14:24:53 --> Undefined variable: modelTipoDispositivo
+#0 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(546): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 546, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->agregarTipoIncidencia()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-15 14:37:05 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:48:18 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:48:24 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:49:26 --> Class 'dompdf\dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:49:31 --> Class 'dompdf\dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:49:45 --> Class 'dompdf\dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:49:50 --> Class 'dompdf\dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 14:54:28 --> CodeIgniter\Autoloader\Autoloader::main(): Failed opening required 'dompdf/autoload.inc.php' (include_path='.;C:/laragon/etc/php/pear')
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-15 14:54:57 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 15:18:06 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 15:20:04 --> Class 'Dompdf\Dompdf' not found
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-15 15:45:13 --> syntax error, unexpected '}', expecting end of file
+#0 C:\laragon\www\CT\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-15 15:54:29 --> Undefined variable: modelUsuario
+#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(29): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 29, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(585): view('admin/generarRe...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-15 18:01:20 --> Frame not found in cellmap
+#0 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\TableCell.php(43): Dompdf\Cellmap->get_frame_position(Object(Dompdf\FrameDecorator\TableCell))
+#1 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\TableCell->reflow(Object(Dompdf\FrameDecorator\TableCell))
+#2 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\Inline.php(159): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\TableCell))
+#3 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\Inline->reflow(Object(Dompdf\FrameDecorator\TableCell))
+#4 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\TableCell.php(95): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\TableCell))
+#5 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\TableCell->reflow(NULL)
+#6 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\TableRow.php(57): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#7 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\TableRow->reflow(NULL)
+#8 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\TableRowGroup.php(48): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#9 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\TableRowGroup->reflow(NULL)
+#10 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\Table.php(418): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#11 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+#12 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\Block.php(865): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+#13 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\Block->reflow(NULL)
+#14 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameReflower\Page.php(143): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#15 C:\laragon\www\CT\vendor\dompdf\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(891): Dompdf\FrameReflower\Page->reflow(NULL)
+#16 C:\laragon\www\CT\vendor\dompdf\dompdf\src\Dompdf.php(820): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+#17 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(597): Dompdf\Dompdf->render()
+#18 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#19 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#20 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#21 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#22 {main}
+CRITICAL - 2022-06-15 18:01:33 --> Allowed memory size of 536870912 bytes exhausted (tried to allocate 268439552 bytes)
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-06-15 18:17:10 --> Undefined variable: tipoIncidencia
+#0 C:\laragon\www\CT\app\Views\admin\reportes.php(77): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 77, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/reportes', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(98): view('admin/reportes', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+ERROR - 2022-06-15 19:30:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+CRITICAL - 2022-06-15 19:30:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+#0 C:\laragon\www\CT\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(579): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#8 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#9 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-06-15 19:32:08 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+CRITICAL - 2022-06-15 19:32:08 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+#0 C:\laragon\www\CT\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(579): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#8 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#9 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+ERROR - 2022-06-15 19:35:26 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+CRITICAL - 2022-06-15 19:35:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `date_create` <
+AND `tbl_incidencias`.`date_delete` IS NULL' at line 4
+#0 C:\laragon\www\CT\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(579): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#8 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#9 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-06-15 19:35:49 --> syntax error, unexpected 'public' (T_PUBLIC)
+#0 C:\laragon\www\CT\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
