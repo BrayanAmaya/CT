@@ -560,35 +560,97 @@ class Registro extends BaseController{
 
     public function generarReport(){
         $dompdf = new Dompdf();
-        //$dompdf->loadHTML('<h1>Hola Mundo</h1><br><p>Otro contenido</p>');
 
         $modelIncidencia = model('IncidenciaModel');
-        $modelUsuario = model('UsuarioModel');
         $modelTipoIncidencia = model('TipoIncidenciaModel');
-        $modelCt = model('CtModel');
-        /*return view ('admin/incidencias',[
-            'incidencias' => $modelIncidencia->orderBy('estado','desc')->findAll(),
-            'usuarios' => $modelUsuario->findAll(),
-            'tipoIncidencia' => $modelTipoIncidencia->findAll()
-        ]);*/
+        $modelUsuario = model('UsuarioModel');
+        $td = null;
+        $usuario=null;
+        $buscarTd = $modelTipoIncidencia->findAll();
+        $buscarUsuario = $modelUsuario->findAll();
 
-        /*$html = view('admin/incidencias',[
-            'incidencias' => $modelIncidencia->orderBy('estado','desc')->findAll(),
-            'usuarios' => $modelUsuario->findAll(),
-            'tipoIncidencia' => $modelTipoIncidencia->findAll()
-        ]);*/
-        /*return view ('admin/buscarCt',[
-            'cts' => $modelCt->where('estado',$estatus)->findAll()
-        ]);*/
+        $fechaInicio = trim($this->request->getVar('fechaInicio'));
+        $fechaFinal = trim($this->request->getVar('fechaFinal'));
+        $filtroEstado = trim($this->request->getVar('filtroEstado'));
+        $filtroUsuario = trim($this->request->getVar('filtroUsuario'));
+        $filtroTipoIncidencia = trim($this->request->getVar('filtroTipoIncidencia'));
 
-        $html = view('admin/generarReporte',[
-            'cts' => $modelCt->findAll()
-        ]);
+        foreach ($buscarTd as $key) {
+            if(password_verify($key->idTipoIncidencia,$filtroTipoIncidencia)){
+                $filtroTipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        if($filtroTipoIncidencia == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Tipo de incidencia no valido!'
+            ]);
+        }
+        foreach ($buscarUsuario as $key) {
+            if(password_verify($key->idUsuario,$filtroUsuario)){
+                $filtroUsuario = $key->idUsuario;
+                break;
+            }
+        }
+        if($filtroUsuario == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Usuario no valido!'
+            ]);
+        }
+
+        if($filtroEstado == 'all'){
+            if($filtroUsuario == 'all'){
+                if($filtroTipoIncidencia == 'all'){
+                    $html = view('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }else{
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }
+            }else{
+                if($filtroTipoIncidencia =='all'){
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idUsuario',$filtroUsuario)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }else{
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('idUsuario',$filtroUsuario)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }
+            }
+        }else{
+            if($filtroUsuario == 'all'){
+                if($filtroTipoIncidencia =='all'){
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }else{
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }
+            }else{
+                if($filtroTipoIncidencia =='all'){
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idUsuario',$filtroUsuario)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }else{
+                    $html = view ('admin/generarReporte',[
+                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('idUsuario',$filtroUsuario)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
+                    ]);
+                }
+            }
+        }
 
         $dompdf->loadHTML($html);
         $dompdf->setPaper('A4','landscape');
         $dompdf->render();
         $dompdf->stream('Reporte',['Attachment'=> 0]);
+        
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function cerrar(){

@@ -91,7 +91,12 @@ class Vistas extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function report(){
-        return view ('admin/reportes');
+        $modelUsuario = model('UsuarioModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        return view ('admin/reportes',[
+            'usuarios' => $modelUsuario->findAll(),
+            'tipoIncidencia' => $modelTipoIncidencia->findAll()
+        ]);
     }    
     
 /*-------------------------------------------------------------------------------------------------------------------*/
