@@ -3,6 +3,7 @@
 namespace App\Controllers\User;
 
 use App\Controllers\BaseController;
+use Dompdf\Dompdf;
 
 class Registro extends BaseController{
 /*-------------------------------------------------------------------------------------------------------------------*/
@@ -299,4 +300,100 @@ class Registro extends BaseController{
             'type'=>'success',
             'body'=>'Datos del usuario actualizado correctamente.']);
     }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function generarReport(){
+        $dompdf = new Dompdf();
+
+        $modelIncidencia = model('IncidenciaModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        //$modelUsuario = model('UsuarioModel');
+        $td = null;
+        $usuario=null;
+        $buscarTd = $modelTipoIncidencia->findAll();
+        //$buscarUsuario = $modelUsuario->findAll();
+
+        $fechaInicio = trim($this->request->getVar('fechaInicio'));
+        $fechaFinal = trim($this->request->getVar('fechaFinal'));
+        $filtroEstado = trim($this->request->getVar('filtroEstado'));
+        //$filtroUsuario = trim($this->request->getVar('filtroUsuario'));
+        $filtroTipoIncidencia = trim($this->request->getVar('filtroTipoIncidencia'));
+
+        $arrayEstado = [];
+        $arrayTd = [];
+        $arrayUser = [];
+
+        if($fechaInicio > $fechaFinal){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'La fecha de inicio no puede ser mayor a la final!'
+            ]);
+        }
+
+        foreach ($buscarTd as $key) {
+            if(password_verify($key->idTipoIncidencia,$filtroTipoIncidencia)){
+                $filtroTipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        if($filtroTipoIncidencia == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Tipo de incidencia no valido!'
+            ]);
+        }
+        /*foreach ($buscarUsuario as $key) {
+            if(password_verify($key->idUsuario,$filtroUsuario)){
+                $filtroUsuario = $key->idUsuario;
+                break;
+            }
+        }
+        if($filtroUsuario == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Usuario no valido!'
+            ]);
+        }*/
+        if($filtroEstado == 'all'){
+            $arrayEstado = ['1','0'];
+        }else{
+            $arrayEstado[] = $filtroEstado;
+        }
+
+        /*if($filtroUsuario == 'all'){
+            $arrayUser = $modelIncidencia->findColumn('idUsuario');
+        }else{
+            $arrayUser[] = $filtroUsuario;
+        }*/
+
+        if($filtroTipoIncidencia == 'all'){
+            $arrayTd = $modelIncidencia->findColumn('idTipoIncidencia');
+        }else{
+            $arrayTd[] = $filtroTipoIncidencia;
+        }
+
+        if($fechaInicio == $fechaFinal){
+            $html = view('user/generarReporte',[
+                'incidencias' => $modelIncidencia->where('idUsuario',session('idUsuario'))->where('date_create >', $fechaInicio.' 00:00:00')->where('date_create <', $fechaInicio. ' 23:59:59')->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                'fechaInicio' => $fechaInicio,
+                'fechaFinal' => $fechaFinal,
+                'filtroEstado' => $filtroEstado,
+                'filtroTd' => $filtroTipoIncidencia
+            ]);                                         
+        }else{
+            $html = view('user/generarReporte',[
+                'incidencias' => $modelIncidencia->where('idUsuario',session('idUsuario'))->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                'fechaInicio' => $fechaInicio,
+                'fechaFinal' => $fechaFinal,
+                'filtroEstado' => $filtroEstado,
+                'filtroTd' => $filtroTipoIncidencia
+            ]);
+        }
+
+        $dompdf->loadHTML($html);
+        $dompdf->setPaper('A4','landscape');
+        $dompdf->render();
+        $dompdf->stream('Reporte',['Attachment'=> 0]);
+    }
+
 }

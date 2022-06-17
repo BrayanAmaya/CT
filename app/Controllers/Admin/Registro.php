@@ -99,22 +99,6 @@ class Registro extends BaseController{
 
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function registrarCentroTecnologia(){
-        /*$dispositivos = $_POST['dispositivos'];
-        $chekeado = $_POST['check'];
-
-        //dd($chekeado);
-
-        foreach ($chekeado as $key) {
-            if($key == null){
-            echo $key."<br>";
-            }
-        }
-        //dd($dispositivos);
-        for ($i=0; $i < count($dispositivos) ; $i++) { 
-            //if(isset($chekeado[$i])){
-                echo ("Si es ".$i." ".$dispositivos[$i]."<br>"); 
-            //}
-        }*/
         
         $modelCt = model('CtModel');
         $validar = service('validation');
@@ -647,56 +631,6 @@ class Registro extends BaseController{
                 'filtroTd' => $filtroTipoIncidencia
             ]);
         }
-        
-        /*if($filtroEstado == 'all'){
-            if($filtroUsuario == 'all'){
-                if($filtroTipoIncidencia == 'all'){
-                    $html = view('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }else{
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }
-            }else{
-                if($filtroTipoIncidencia =='all'){
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idUsuario',$filtroUsuario)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }else{
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('idUsuario',$filtroUsuario)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }
-            }
-        }else{
-            if($filtroUsuario == 'all'){
-                if($filtroTipoIncidencia =='all'){
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }else{
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }
-            }else{
-                if($filtroTipoIncidencia =='all'){
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idUsuario',$filtroUsuario)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }else{
-                    $html = view ('admin/generarReporte',[
-                        'incidencias' => $modelIncidencia->where('idTipoIncidencia',$filtroTipoIncidencia)->where('idUsuario',$filtroUsuario)->where('estado',$filtroEstado)->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->findAll()
-                    ]);
-                }
-            }
-        }*/
-        //$direccion = 'C:/laragon/www/ct/public/img/reportes/';
-        //$reporte = 'https://quickchart.io/chart?c={type:%27bar%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}';
-        //$newName=$reporte->getRandomName();
-        //$reporte->move($direccion,$newName);
 
         $dompdf->loadHTML($html);
         $dompdf->setPaper('A4','landscape');

@@ -24,6 +24,7 @@ Filtrar Incidencia
                 <div class="form-row">
 
 
+
                     <?php foreach($incidencias as $key):?>
                     <div class="col-3"><br>
                         <div class="card">

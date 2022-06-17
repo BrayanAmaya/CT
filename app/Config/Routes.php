@@ -93,10 +93,15 @@ $routes->group('user',['namespace'=>'App\Controllers\User','filter' => 'roles:Us
     $routes->get('agregar-incidencia', 'Vistas::incidencia',['as'=>'addIncidenciaUser']);
     $routes->post('reportar-incidencia','Registro::reportarIncidencia');
 
+    $routes->post('generar-reporte', 'Registro::generarReport');
+
     $routes->get('perfil', 'Vistas::miPerfil',['as'=>'perfilUser']);
     $routes->get('actualizar-perfil', 'Vistas::actualizarPerfil',['as'=>'updatePerfilUser']);
     $routes->post('actualizarPerfil', 'Registro::updatePerfil');
+
+    $routes->get('reportes', 'Vistas::report',['as'=>'reportUser']);
     $routes->get('cerrar', 'Vistas::cerrar',['as'=>'logoutU']);
+
 });
 
 /*

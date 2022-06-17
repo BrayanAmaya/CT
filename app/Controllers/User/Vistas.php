@@ -39,6 +39,14 @@ class Vistas extends BaseController{
             'usuario' => $model->find(session('idUsuario'))
         ]);
     }
+    
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function report(){
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        return view ('user/reportes',[
+            'tipoIncidencia' => $modelTipoIncidencia->findAll(),
+        ]);
+    }
 
 /*-------------------------------------------------------------------------------------------------------------------*/  
     public function cerrar(){

@@ -18,8 +18,8 @@
             </a>
 
             <a style=" text-decoration: none;"
-                class="navbar-item <?=service('request')->uri->getPath() == '' ? 'is-active' : '' ?>"
-                href="<?=base_url(route_to('user'))?>">
+                class="navbar-item <?=service('request')->uri->getPath() == 'user/reportes' ? 'is-active' : '' ?>"
+                href="<?=base_url(route_to('reportUser'))?>">
                 <span class="icon"><i class="fa fa-chart-column" aria-hidden="true"></i></span>
                 <span>Reportes</span>
             </a>

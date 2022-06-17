@@ -133,3 +133,47 @@ CRITICAL - 2022-06-17 12:03:26 --> Undefined variable: model
 #3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #5 {main}
+CRITICAL - 2022-06-17 12:08:53 --> Undefined variable: usuarios
+#0 C:\laragon\www\CT\app\Views\admin\filtrarIncidencia.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/filtrarIn...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(116): view('admin/filtrarIn...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->filtrarIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 12:09:07 --> Undefined variable: usuarios
+#0 C:\laragon\www\CT\app\Views\admin\filtrarIncidencia.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/filtrarIn...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(116): view('admin/filtrarIn...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->filtrarIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 12:09:46 --> Undefined variable: usuarios
+#0 C:\laragon\www\CT\app\Views\admin\filtrarIncidencia.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/filtrarIn...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(116): view('admin/filtrarIn...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->filtrarIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 12:09:50 --> Undefined variable: usuarios
+#0 C:\laragon\www\CT\app\Views\admin\filtrarIncidencia.php(63): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 63, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/filtrarIn...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(116): view('admin/filtrarIn...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->filtrarIncidencia()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
