@@ -31,8 +31,8 @@ Incidencias
                             max="2022-12-12">
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <label class="label">Estado: </label>
+                    <div class="form-group col-md-1">
+                        <label class="label">Estado: 
                         <div class="control select is-link">
                             <select name='filtroEstado'>
                                 <option value="all" selected>Ambos</option>
@@ -40,11 +40,12 @@ Incidencias
                                 <option value="0">Resueltas</option>
                             </select>
                         </div>
+                     </label>
                         <p class="is-danger help"><?=session('errors.filtroEstado')?></p>
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <label class="label">Usuarios: </label>
+                    <div class="form-group col-md-1">
+                        <label class="label">Usuarios:
                         <div class="control select is-link">
                             <select name='filtroUsuario'>
                                 <?php if(old('filtroUsuario')!=null):?>
@@ -65,11 +66,12 @@ Incidencias
                                 <?php endif; ?>
                             </select>
                         </div>
+                    </label>
                         <p class="is-danger help"><?=session('errors.filtroUsuario')?></p>
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <label class="label">Tipo de incidencia: </label>
+                    <div class="form-group col-md-1">
+                        <label class="label">Tipo: 
                         <div class="control select is-link">
                             <select name='filtroTipoIncidencia'>
                                 <option value="all" selected>Todas</option>
@@ -80,16 +82,19 @@ Incidencias
                                 <?php endforeach;?>
                             </select>
                         </div>
+                    </label>
                         <p class="is-danger help"><?=session('errors.filtroTipoIncidencia')?></p>
                     </div>
-                    <div class="form-group col-md-2">
+
+                    <div class="form-group col-3">
+                    <label >.
                         <div class="control">
                             <button class="button is-info">Filtrar</button>
                         </div>
-                    </div>
+                    </label>
+                </div>
 
-
-                    <div class="col-12">
+                    <div class="col-1">
                         <a href="<?=base_url(route_to('addIncidencia'))?>" class="btn btn-primary"> <span
                                 class="icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
                             Nueva Incidencia

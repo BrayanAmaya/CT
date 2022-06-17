@@ -30,7 +30,7 @@ Buscar CT
         <p class="control">
             <a style=" text-decoration: none;" class="button is-link has-text-black is-boxed"
                 href="<?=base_url(route_to('searchCt'))?>?estado=1">
-                <span class="has-text-white">Avtivos</span>
+                <span class="has-text-white">Activos</span>
             </a>
         </p>
         <p class="control">
