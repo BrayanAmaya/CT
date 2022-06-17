@@ -12,7 +12,7 @@
 
 <body>
     <?php $Date = date('d-m-Y');
-          $Time = date('h:i:s');
+          $Time = date('h:i:s a');
     ?>  
     <h5>
         <img src="assets/img/DigiTechLogo.png" width="170" height="50">
