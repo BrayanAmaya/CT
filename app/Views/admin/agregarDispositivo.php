@@ -25,30 +25,31 @@ Agregar dispositivo
     <form class="border p-3 form" action="<?=base_url('admin/addDispositivos')?>" method="POST"
         enctype="multipart/form-data">
         <div class="form-row">
-        <div class="form-group col-md-4">
-            <label class="label">Nombre del dispositivo</label>
-            <div class="control">
-                <input name='nombreDispositivo' value='<?=old('nombreDispositivo')?>' class="input" type="text"
-                    placeholder="">
+            <div class="form-group col-md-4">
+                <label class="label">Nombre del dispositivo</label>
+                <div class="control">
+                    <input name='nombreDispositivo' value='<?=old('nombreDispositivo')?>' class="input" type="text"
+                        placeholder="">
+                </div>
+                <p class="is-danger help"><?=session('errors.nombreDispositivo')?></p>
             </div>
-            <p class="is-danger help"><?=session('errors.nombreDispositivo')?></p>
-        </div>
 
-        <div class="form-group col-md-4">
-            <label class="label">Número de serie</label>
-            <div class="control">
-                <input name='numeroDeSerie' value='<?=old('numeroDeSerie')?>' class="input" type="text" placeholder="">
+            <div class="form-group col-md-4">
+                <label class="label">Número de serie</label>
+                <div class="control">
+                    <input name='numeroDeSerie' value='<?=old('numeroDeSerie')?>' class="input" type="text"
+                        placeholder="">
+                </div>
+                <p class="is-danger help"><?=session('errors.numeroDeSerie')?></p>
             </div>
-            <p class="is-danger help"><?=session('errors.numeroDeSerie')?></p>
-        </div>
 
-        <div class="form-group col-md-4">
-            <label class="label">Detalle</label>
-            <div class="control">
-                <input name='detalle' value='<?=old('detalle')?>' class="input" type="text" placeholder="">
+            <div class="form-group col-md-4">
+                <label class="label">Detalle</label>
+                <div class="control">
+                    <input name='detalle' value='<?=old('detalle')?>' class="input" type="text" placeholder="">
+                </div>
+                <p class="is-danger help"><?=session('errors.detalle')?></p>
             </div>
-            <p class="is-danger help"><?=session('errors.detalle')?></p>
-        </div>
 
             <div class="form-group col-md-2">
                 <label class="label">Tipo de dispositivo</label>
@@ -80,13 +81,13 @@ Agregar dispositivo
                 <p class="is-danger help"><?=session('errors.ct')?></p>
             </div>
 
-        <div class="form-group col-md-12">
-            <div class="field is-grouped">
-                <div class="control">
-                    <button class="button is-primary">Agregar</button>
+            <div class="form-group col-md-12">
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-primary">Agregar</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </form>
 </section>

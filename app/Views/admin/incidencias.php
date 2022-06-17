@@ -18,7 +18,7 @@ Incidencias
     <?php endif; ?>
     <div class="container">
         <div class="row">
-            <form action="<?=base_url('admin/filtroIncidencia')?>" method="POST">
+            <form action="<?=base_url('admin/filtro-incidencia')?>" method="POST">
                 <div class="form-row">
 
                     <div class="form-group col-md-4">

@@ -45,8 +45,9 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->post('reportar-incidencia','Registro::reportarIncidencia');
     $routes->get('resolver-incidencia', 'Vistas::resolverIncidencia',['as'=>'viewIncidencia']);
     $routes->post('resuelveIncidencia','UpdateDelete::resuelveIncidencia');
-    $routes->get('filtro-incidencia', 'Vistas::filtrarIncidencia',['as'=>'filtrarIncidencia']);
+    //$routes->get('filtro-incidencia', 'Vistas::filtrarIncidencia',['as'=>'filtrarIncidencia']);
     $routes->post('filtroIncidencia','Registro::filtrarIncidencias');
+    $routes->post('filtro-incidencia', 'Vistas::filtrarIncidencia');
     
     $routes->get('registrar-usuario', 'Vistas::register',['as'=>'register']);
     $routes->post('registrar', 'Registro::registrarUsuario');
@@ -55,6 +56,7 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
 
     $routes->get('buscar-usuario', 'Vistas::buscarUsuario',['as'=>'search']);
     $routes->get('buscar-ct', 'Vistas::buscarCt',['as'=>'searchCt']);
+    $routes->get('buscar-dispositivo', 'Vistas::buscarDispositivo',['as'=>'searchDispositivo']);
 
     $routes->post('generar-reporte', 'Registro::generarReport',['as'=>'generarReport']);
     
@@ -76,6 +78,11 @@ $routes->group('admin',['namespace'=>'App\Controllers\Admin','filter' => 'roles:
     $routes->post('actualizarCt', 'UpdateDelete::actualizarCt');
     $routes->get('deleteCt', 'UpdateDelete::darDeBajaCt',['as'=>'deleteCt']);
     $routes->get('backCt', 'UpdateDelete::volverCt',['as'=>'backCt']);
+
+    $routes->get('actualizar-dispositivo', 'Vistas::actualizarDispositivo',['as'=>'updateDispositivo']);
+    $routes->post('actualizarDispositivo', 'UpdateDelete::actualizarDispositivo');
+    $routes->get('deleteDispositivo', 'UpdateDelete::darDeBajaDispositivo',['as'=>'deleteDispositivo']);
+    $routes->get('backDispositivo', 'UpdateDelete::volverDispositivo',['as'=>'backDispositivo']);
     
     $routes->get('reportes', 'Vistas::report',['as'=>'report']);
     $routes->get('cerrar', 'Registro::cerrar',['as'=>'logout']);

@@ -1,42 +1,6 @@
-ERROR - 2022-06-16 09:51:58 --> Error connecting to the database: Access denied for user '****'@'localhost' (using password: NO)
-CRITICAL - 2022-06-16 09:51:59 --> Unable to connect to the database.
-Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
-#0 C:\laragon\www\CT\system\Database\BaseConnection.php(577): CodeIgniter\Database\BaseConnection->initialize()
-#1 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
-#2 C:\laragon\www\CT\system\Model.php(210): CodeIgniter\Database\BaseBuilder->get()
-#3 C:\laragon\www\CT\system\BaseModel.php(622): CodeIgniter\Model->doFirst()
-#4 C:\laragon\www\CT\app\Models\UsuarioModel.php(51): CodeIgniter\BaseModel->first()
-#5 C:\laragon\www\CT\app\Controllers\Auth\Login.php(37): App\Models\UsuarioModel->buscarUsuario('usuario', 'DTbryanamaya1')
-#6 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Auth\Login->signin()
-#7 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth\Login))
-#8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#10 {main}
-CRITICAL - 2022-06-16 12:38:02 --> Undefined variable: incidencia
-#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(16): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 16, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-16 13:13:21 --> Undefined variable: DateTime
-#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 17, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-16 14:29:03 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time('h:i:s a')
+CRITICAL - 2022-06-16 00:14:26 --> file_get_contents(/img/imagesIncidencias/default.jpg): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 59, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(59): file_get_contents('/img/imagesInci...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -46,9 +10,9 @@ CRITICAL - 2022-06-16 14:29:03 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:29:17 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time('h:i:s a')
+CRITICAL - 2022-06-16 00:15:33 --> file_get_contents(/img/imagesIncidencias/default.jpg): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(60): file_get_contents('/img/imagesInci...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -58,9 +22,9 @@ CRITICAL - 2022-06-16 14:29:17 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:29:28 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time('h:i:s')
+CRITICAL - 2022-06-16 00:16:18 --> file_get_contents(C:laragon/wwww/CT/public/img/imagesIncidencias/default.jpg): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(60): file_get_contents('C:laragon/wwww/...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -70,9 +34,9 @@ CRITICAL - 2022-06-16 14:29:28 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:29:36 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time('h:i:s')
+CRITICAL - 2022-06-16 00:16:34 --> file_get_contents(C:/laragon/wwww/CT/public/img/imagesIncidencias/default.jpg): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(60): file_get_contents('C:/laragon/wwww...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -82,9 +46,9 @@ CRITICAL - 2022-06-16 14:29:36 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:29:44 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time('h:i:s a')
+CRITICAL - 2022-06-16 00:19:24 --> file_get_contents(/img/imagesIncidencias/1654970902_318941c38c2a669171f9.png): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(60): file_get_contents('/img/imagesInci...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -94,9 +58,9 @@ CRITICAL - 2022-06-16 14:29:44 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:34:36 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time(' h:i:s a')
+CRITICAL - 2022-06-16 00:21:24 --> file_get_contents(C:/laragon/www/CT/public/img/imagesIncidencias/1654970902_318941c38c2a669171f9.png): failed to open stream: No such file or directory
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_conten...', 'C:\\laragon\\www\\...', 60, Array)
+#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(60): file_get_contents('C:/laragon/www/...')
 #2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
 #3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
 #4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
@@ -106,57 +70,115 @@ CRITICAL - 2022-06-16 14:34:36 --> time() expects exactly 0 parameters, 1 given
 #8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #10 {main}
-CRITICAL - 2022-06-16 14:35:04 --> time() expects exactly 0 parameters, 1 given
-#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'time() expects ...', 'C:\\laragon\\www\\...', 15, Array)
-#1 C:\laragon\www\CT\app\Views\admin\generarReporte.php(15): time(' h:i:s')
-#2 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#3 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#4 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#5 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#6 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#7 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#10 {main}
-CRITICAL - 2022-06-16 14:40:36 --> Undefined variable: key
-#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(19): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 19, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-16 14:45:20 --> Undefined variable: usuario
-#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 21, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-16 14:46:27 --> Undefined variable: usuario
-#0 C:\laragon\www\CT\app\Views\admin\generarReporte.php(21): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 21, Array)
-#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
-#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#4 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
-#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
-#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
-#9 {main}
-CRITICAL - 2022-06-16 14:47:25 --> syntax error, unexpected end of file
+CRITICAL - 2022-06-16 00:33:56 --> Call to a member function move() on string
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-16 00:37:03 --> Call to a member function move() on string
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-16 00:38:09 --> Call to a member function getRandomName() on string
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-16 16:09:03 --> syntax error, unexpected '1' (T_LNUMBER), expecting ')'
 #0 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
-#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
-#2 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(607): view('admin/generarRe...', Array)
-#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
-#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/reportes', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(100): view('admin/reportes', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-16 16:09:31 --> syntax error, unexpected '1' (T_LNUMBER), expecting ')'
+#0 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/reportes', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(100): view('admin/reportes', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-16 16:10:16 --> Array to string conversion
+#0 C:\laragon\www\CT\app\Views\admin\reportes.php(109): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Array to string...', 'C:\\laragon\\www\\...', 109, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/reportes', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(100): view('admin/reportes', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-16 16:14:14 --> Call to undefined method App\Models\IncidenciaModel::havingCount
+#0 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('havingCount', Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-16 16:14:33 --> Call to undefined method App\Models\IncidenciaModel::count
+#0 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('count', Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-16 16:18:07 --> Call to a member function count_all_results() on array
+#0 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#1 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#2 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-06-16 16:18:25 --> Call to undefined method App\Models\IncidenciaModel::count_all_results
+#0 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('count_all_resul...', Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+ERROR - 2022-06-16 16:18:46 --> Unknown column 'idUsuario' in 'having clause'
+CRITICAL - 2022-06-16 16:18:47 --> Unknown column 'idUsuario' in 'having clause'
+#0 C:\laragon\www\CT\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\laragon\www\CT\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\laragon\www\CT\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\laragon\www\CT\system\Database\BaseBuilder.php(1539): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\laragon\www\CT\system\Model.php(509): CodeIgniter\Database\BaseBuilder->countAllResults(true)
+#5 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->countAllResults()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#7 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#8 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-16 16:34:23 --> whereIn() expects $values to be of type array or closure
+#0 C:\laragon\www\CT\system\Database\BaseBuilder.php(731): CodeIgniter\Database\BaseBuilder->_whereIn('idTipoIncidenci...', 1, false, 'AND ', NULL)
+#1 C:\laragon\www\CT\system\Model.php(728): CodeIgniter\Database\BaseBuilder->whereIn('idTipoIncidenci...', 1)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('whereIn', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-16 16:34:39 --> Call to undefined method App\Models\IncidenciaModel::inWhere
+#0 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('inWhere', Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-16 16:37:07 --> whereIn() expects $values to be of type array or closure
+#0 C:\laragon\www\CT\system\Database\BaseBuilder.php(731): CodeIgniter\Database\BaseBuilder->_whereIn('idTipoIncidenci...', 1, false, 'AND ', NULL)
+#1 C:\laragon\www\CT\system\Model.php(728): CodeIgniter\Database\BaseBuilder->whereIn('idTipoIncidenci...', 1)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(95): CodeIgniter\Model->__call('whereIn', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->report()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
 #5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
 #6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #7 {main}

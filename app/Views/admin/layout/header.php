@@ -3,8 +3,8 @@
 <nav class="navbar is-link">
     <div class="navbar-brand">
         <a class="navbar-item" href="http://ct.test/">
-                <img src="/assets/img/DigiTechLogo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112"
-                    height="28">
+            <img src="/assets/img/DigiTechLogo.png" alt="Bulma: a modern CSS framework based on Flexbox" width="112"
+                height="28">
         </a>
     </div>
 
@@ -55,6 +55,12 @@
                         href="<?=base_url(route_to('searchCt'))?>">
                         <span class="icon"><i class="fas fa-tv" aria-hidden="true"></i></span>
                         <span>CT</span>
+                    </a>
+                    <a style=" text-decoration: none;"
+                        class="navbar-item <?=service('request')->uri->getPath() == 'admin/buscar-dispositivo' ? 'is-active' : '' ?>"
+                        href="<?=base_url(route_to('searchDispositivo'))?>">
+                        <span class="icon"><i class="fa fa-computer" aria-hidden="true"></i></span>
+                        <span>Dispositivos</span>
                     </a>
                 </div>
             </div>

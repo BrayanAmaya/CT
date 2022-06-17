@@ -575,6 +575,17 @@ class Registro extends BaseController{
         $filtroUsuario = trim($this->request->getVar('filtroUsuario'));
         $filtroTipoIncidencia = trim($this->request->getVar('filtroTipoIncidencia'));
 
+        $arrayEstado = [];
+        $arrayTd = [];
+        $arrayUser = [];
+
+        if($fechaInicio > $fechaFinal){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'La fecha de inicio no puede ser mayor a la final!'
+            ]);
+        }
+
         foreach ($buscarTd as $key) {
             if(password_verify($key->idTipoIncidencia,$filtroTipoIncidencia)){
                 $filtroTipoIncidencia = $key->idTipoIncidencia;
@@ -599,8 +610,45 @@ class Registro extends BaseController{
                 'body'=>'Usuario no valido!'
             ]);
         }
-
         if($filtroEstado == 'all'){
+            $arrayEstado = ['1','0'];
+        }else{
+            $arrayEstado[] = $filtroEstado;
+        }
+
+        if($filtroUsuario == 'all'){
+            $arrayUser = $modelIncidencia->findColumn('idUsuario');
+        }else{
+            $arrayUser[] = $filtroUsuario;
+        }
+
+        if($filtroTipoIncidencia == 'all'){
+            $arrayTd = $modelIncidencia->findColumn('idTipoIncidencia');
+        }else{
+            $arrayTd[] = $filtroTipoIncidencia;
+        }
+
+        if($fechaInicio == $fechaFinal){
+            $html = view('admin/generarReporte',[
+                'incidencias' => $modelIncidencia->where('date_create >', $fechaInicio.' 00:00:00')->where('date_create <', $fechaInicio. ' 23:59:59')->whereIn('idUsuario',$arrayUser)->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                'fechaInicio' => $fechaInicio,
+                'fechaFinal' => $fechaFinal,
+                'filtroEstado' => $filtroEstado,
+                'filtroUsuario' => $filtroUsuario,
+                'filtroTd' => $filtroTipoIncidencia
+            ]);                                         
+        }else{
+            $html = view('admin/generarReporte',[
+                'incidencias' => $modelIncidencia->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->whereIn('idUsuario',$arrayUser)->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                'fechaInicio' => $fechaInicio,
+                'fechaFinal' => $fechaFinal,
+                'filtroEstado' => $filtroEstado,
+                'filtroUsuario' => $filtroUsuario,
+                'filtroTd' => $filtroTipoIncidencia
+            ]);
+        }
+        
+        /*if($filtroEstado == 'all'){
             if($filtroUsuario == 'all'){
                 if($filtroTipoIncidencia == 'all'){
                     $html = view('admin/generarReporte',[
@@ -644,7 +692,11 @@ class Registro extends BaseController{
                     ]);
                 }
             }
-        }
+        }*/
+        //$direccion = 'C:/laragon/www/ct/public/img/reportes/';
+        //$reporte = 'https://quickchart.io/chart?c={type:%27bar%27,data:{labels:[2012,2013,2014,2015,2016],datasets:[{label:%27Users%27,data:[120,60,50,180,120]}]}}';
+        //$newName=$reporte->getRandomName();
+        //$reporte->move($direccion,$newName);
 
         $dompdf->loadHTML($html);
         $dompdf->setPaper('A4','landscape');

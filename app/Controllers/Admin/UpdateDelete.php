@@ -442,7 +442,7 @@ class UpdateDelete extends BaseController{
             'body'=>'Usuario actualizado correctamente.']);
     }
 
-    /*-------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------------*/
     public function actualizarCt(){
         if(!isset($_GET['id'])){
             return redirect()->back()->withInput()->with('msg',[
@@ -557,6 +557,139 @@ class UpdateDelete extends BaseController{
 
     }
 
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function actualizarDispositivo(){
+        if(!isset($_GET['id'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        
+        $valorRecibido = $_GET['id'];
+
+
+        $modelDispositivo = model('DispositivoModel');
+        $modelTipoDispositivo = model('TipoDispositivoModel');
+        $modelCt  = model('CtModel');
+        //$modelUsuario = model('UsuarioModel');
+        $valorMostar = null;
+        //$ctComparar = null;
+        $buscar = $modelDispositivo->findAll();
+        
+        foreach ($buscar as $key) {
+            if(password_verify($key->idDispositivo,$valorRecibido)){
+                $valorMostar = $key->idDispositivo;
+                break;
+            }
+        }
+        if($valorMostar == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+
+        $validar = service('validation');
+
+        $nombreDispostivo = trim($this->request->getVar('nombreDispositivo'));
+        $numeroDeSerie = trim($this->request->getVar('numeroDeSerie'));
+        $detalle = trim($this->request->getVar('detalle'));
+        $td = trim($this->request->getVar('Td'));
+        $ct = trim($this->request->getVar('Ct'));
+        $estado = trim($this->request->getVar('estado'));
+        $agregarTd=null;
+        $agregarCt=null;
+        $buscarTd = $modelTipoDispositivo->findAll();
+        $buscarCt = $modelCt->findAll();
+        
+        foreach ($buscarTd as $key) {
+            if(password_verify($key->idTipoDispositivo,$td)){
+                $agregarTd = $key->idTipoDispositivo;
+                break;
+            }
+        }
+        if($agregarTd == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Tipo de dispositivo no valido!'
+            ]);
+        }
+        foreach ($buscarCt as $key) {
+            if(password_verify($key->idCt,$ct)){
+                $agregarCt = $key->idCt;
+                break;
+            }
+        }
+        if($agregarCt == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Centro de tecnología no valido!'
+            ]);
+        }
+        
+        $validar->setRules([
+            'nombreDispositivo'=>'required|alpha_space',
+            'numeroDeSerie'=>'required|alpha_numeric_punct',
+            'detalle'=>'required|alpha_numeric_punct',
+            'Td'=>'required',
+            'Ct'=>'required',
+            'estado'=>'required|in_list[0,1]',
+        ],
+        [
+            'nombreDispositivo' => [
+                'required' => 'Digite un nombre para el dispositivo',
+                'alpha_space' => 'Caracteres no permitidos',
+            ],
+            'numeroDeSerie' => [
+                'required' => 'Digite un número de serie',
+                'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+            'detalle' => [
+                'required' => 'Digite un detalle',
+                'alpha_numeric_punct' => 'Caracteres no permitidos',
+            ],
+            'Td' => [
+                'required' => 'Seleccione un tipo de dispositivo',
+            ],
+            'Ct' => [
+                'required' => 'Seleccione un centro de tecnología',
+            ],
+            'estado' => [
+                'required' => 'Seleccione un estado valido',
+                'in_list' => 'Estado no valido'
+               
+            ],
+        ]
+        ); 
+
+        if(!$validar->withRequest($this->request)->run()){
+            return redirect()->back()->withInput()->with('errors',$validar->getErrors());
+        }
+        
+        $agregarEstado = (int)$estado;
+
+        $dataActualizada= [
+            'idDispositivo' => $valorMostar,
+            'nombreDispositivo' => $nombreDispostivo,
+            'numeroDeSerie' => $numeroDeSerie,
+            'detalle' => $detalle,
+            'idTipoDispositivo' => $agregarTd,
+            'idCt' => $agregarCt,
+            'estado' => $agregarEstado,
+        ];  
+
+        if(!$modelDispositivo->save($dataActualizada)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al actualizar los datos.'
+            ]);
+        }
+        return redirect()->route('searchDispositivo')->with('msg',[
+            'type'=>'success',
+            'body'=>'Dispositivo actualizado correctamente.']);
+
+    }
     /*-------------------------------------------------------------------------------------------------------------------*/
     public function darDeBaja(){
         if(!isset($_GET['estado'])){
@@ -676,6 +809,67 @@ class UpdateDelete extends BaseController{
             'type'=>'success',
             'body'=>'El centro de tecnología se dio de baja.']);
     }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function darDeBajaDispositivo(){
+
+        if(!isset($_GET['estado'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        if(!isset($_GET['id'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+
+        $valorRecibidoEstado = $_GET['estado'];
+        $valorRecibidoId = $_GET['id'];
+        $modelDispositivo = model('DispositivoModel');
+        $valorMostar = null;
+        $buscar = $modelDispositivo->findAll();
+        $estados = ['0','1']; 
+
+        if(!in_array($valorRecibidoEstado,$estados)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!.'
+            ]);
+        }
+
+        foreach ($buscar as $key) {
+            if(password_verify($key->idDispositivo,$valorRecibidoId)){
+                $valorMostar = $key->idDispositivo;
+                break;
+            }
+        }
+        if($valorMostar == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        $agregarEstado = (int)$valorRecibidoEstado;
+
+        $data = [
+         'estado' => $agregarEstado,
+         'idDispositivo'  => $valorMostar,
+        ];
+        
+        if(!$modelDispositivo->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al dar de baja.'
+            ]);
+        }
+
+        return redirect()->route('searchDispositivo')->with('msg',[
+            'type'=>'success',
+            'body'=>'Dispositivo se dio de baja.']);
+    }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function volverUsuario(){
         if(!isset($_GET['estado'])){
@@ -720,7 +914,7 @@ class UpdateDelete extends BaseController{
         $agregarEstado = (int)$valorRecibidoEstado;
 
         $data = [
-         'estado' => 1,
+         'estado' => $agregarEstado,
          'idUsuario'  => $valorMostar,
         ];
         
@@ -792,6 +986,65 @@ class UpdateDelete extends BaseController{
         return redirect()->route('searchCt')->with('msg',[
             'type'=>'success',
             'body'=>'El centro de tecnología se dio de alta.']);
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function volverDispositivo(){
+        if(!isset($_GET['id'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        if(!isset($_GET['estado'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        $valorRecibidoEstado = $_GET['estado'];
+        $valorRecibidoId = $_GET['id'];
+        $modelDispositivo = model('DispositivoModel');
+        $valorMostar = null;
+        $buscar = $modelDispositivo->findAll();
+        $estados = ['0','1']; 
+
+        if(!in_array($valorRecibidoEstado,$estados)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!.'
+            ]);
+        }
+
+        foreach ($buscar as $key) {
+            if(password_verify($key->idDispositivo,$valorRecibidoId)){
+                $valorMostar = $key->idDispositivo;
+                break;
+            }
+        }
+        if($valorMostar == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        $agregarEstado = (int)$valorRecibidoEstado;
+        
+        $data = [
+        'estado' => $agregarEstado,
+        'idDispositivo'  => $valorMostar,
+        ];
+        
+        if(!$modelDispositivo->save($data)){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error al dar de alta.'
+            ]);
+        }
+
+        return redirect()->route('searchDispositivo')->with('msg',[
+            'type'=>'success',
+            'body'=>'El dispositivo se dio de alta.']);
     }
 
 /*-------------------------------------------------------------------------------------------------------------------*/ 

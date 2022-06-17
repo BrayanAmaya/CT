@@ -1,0 +1,135 @@
+CRITICAL - 2022-06-17 08:57:18 --> syntax error, unexpected '*'
+#0 C:\laragon\www\CT\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-06-17 08:57:34 --> syntax error, unexpected '$html' (T_VARIABLE)
+#0 C:\laragon\www\CT\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\laragon\\www\\...')
+#1 C:\laragon\www\CT\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers...')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers...')
+#3 [internal function]: spl_autoload_call('App\\Controllers...')
+#4 C:\laragon\www\CT\system\CodeIgniter.php(797): class_exists('\\App\\Controller...', true)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(406): CodeIgniter\CodeIgniter->startController()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+ERROR - 2022-06-17 09:01:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`=` = '2022-06-08'
+AND `idUsuario` IN ('17','17','17','17','23','23','23','17','' at line 3
+CRITICAL - 2022-06-17 09:01:28 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '`=` = '2022-06-08'
+AND `idUsuario` IN ('17','17','17','17','23','23','23','17','' at line 3
+#0 C:\laragon\www\CT\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\laragon\www\CT\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\laragon\www\CT\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\laragon\www\CT\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\laragon\www\CT\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\laragon\www\CT\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(644): CodeIgniter\BaseModel->findAll()
+#7 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#8 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#9 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-06-17 10:45:40 --> syntax error, unexpected 'endif' (T_ENDIF), expecting end of file
+#0 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/generarRe...', Array, true)
+#2 C:\laragon\www\CT\app\Controllers\Admin\Registro.php(647): view('admin/generarRe...', Array)
+#3 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Registro->generarReport()
+#4 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Registro))
+#5 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-06-17 11:12:28 --> Undefined property: stdClass::$idDispositivo
+#0 C:\laragon\www\CT\app\Views\admin\buscarDispositivo.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 64, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarDis...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(231): view('admin/buscarDis...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->buscarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 11:13:12 --> Undefined variable: modelCt
+#0 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(231): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 231, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->buscarDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-17 11:13:30 --> Undefined property: stdClass::$nombreCt
+#0 C:\laragon\www\CT\app\Views\admin\buscarDispositivo.php(56): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 56, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/buscarDis...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(231): view('admin/buscarDis...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->buscarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 11:25:32 --> Undefined variable: td
+#0 C:\laragon\www\CT\app\Views\admin\actualizarDispositivo.php(87): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 87, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(390): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->actualizarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 11:28:51 --> Undefined variable: Ct
+#0 C:\laragon\www\CT\app\Views\admin\actualizarDispositivo.php(114): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 114, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(390): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->actualizarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 11:29:11 --> Undefined property: stdClass::$nombeCt
+#0 C:\laragon\www\CT\app\Views\admin\actualizarDispositivo.php(118): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\laragon\\www\\...', 118, Array)
+#1 C:\laragon\www\CT\system\View\View.php(210): include('C:\\laragon\\www\\...')
+#2 C:\laragon\www\CT\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\laragon\www\CT\system\Common.php(1089): CodeIgniter\View\View->render('admin/actualiza...', Array, true)
+#4 C:\laragon\www\CT\app\Controllers\Admin\Vistas.php(390): view('admin/actualiza...', Array)
+#5 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\Vistas->actualizarDispositivo()
+#6 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Vistas))
+#7 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-06-17 11:49:09 --> Undefined variable: modelTipoDispositivo
+#0 C:\laragon\www\CT\app\Controllers\Admin\UpdateDelete.php(601): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 601, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\UpdateDelete->actualizarDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateDelete))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-17 12:01:51 --> Undefined variable: model
+#0 C:\laragon\www\CT\app\Controllers\Admin\UpdateDelete.php(862): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 862, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\UpdateDelete->darDeBajaDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateDelete))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-17 12:03:13 --> Undefined variable: model
+#0 C:\laragon\www\CT\app\Controllers\Admin\UpdateDelete.php(1009): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 1009, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\UpdateDelete->volverDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateDelete))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-06-17 12:03:26 --> Undefined variable: model
+#0 C:\laragon\www\CT\app\Controllers\Admin\UpdateDelete.php(1009): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\laragon\\www\\...', 1009, Array)
+#1 C:\laragon\www\CT\system\CodeIgniter.php(832): App\Controllers\Admin\UpdateDelete->volverDispositivo()
+#2 C:\laragon\www\CT\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\UpdateDelete))
+#3 C:\laragon\www\CT\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\laragon\www\CT\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

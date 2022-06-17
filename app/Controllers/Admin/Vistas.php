@@ -37,7 +37,90 @@ class Vistas extends BaseController{
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function filtrarIncidencia(){
+
         $modelIncidencia = model('IncidenciaModel');
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $modelUsuario = model('UsuarioModel');
+        $td = null;
+        $usuario=null;
+        $buscarTd = $modelTipoIncidencia->findAll();
+        $buscarUsuario = $modelUsuario->findAll();
+
+        $fechaInicio = trim($this->request->getVar('fechaInicio'));
+        $fechaFinal = trim($this->request->getVar('fechaFinal'));
+        $filtroEstado = trim($this->request->getVar('filtroEstado'));
+        $filtroUsuario = trim($this->request->getVar('filtroUsuario'));
+        $filtroTipoIncidencia = trim($this->request->getVar('filtroTipoIncidencia'));
+
+        $arrayEstado = [];
+        $arrayTd = [];
+        $arrayUser = [];
+
+        if($fechaInicio > $fechaFinal){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'La fecha de inicio no puede ser mayor a la final!'
+            ]);
+        }
+
+        foreach ($buscarTd as $key) {
+            if(password_verify($key->idTipoIncidencia,$filtroTipoIncidencia)){
+                $filtroTipoIncidencia = $key->idTipoIncidencia;
+                break;
+            }
+        }
+        if($filtroTipoIncidencia == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Tipo de incidencia no valido!'
+            ]);
+        }
+        foreach ($buscarUsuario as $key) {
+            if(password_verify($key->idUsuario,$filtroUsuario)){
+                $filtroUsuario = $key->idUsuario;
+                break;
+            }
+        }
+        if($filtroUsuario == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Usuario no valido!'
+            ]);
+        }
+        if($filtroEstado == 'all'){
+            $arrayEstado = ['1','0'];
+        }else{
+            $arrayEstado[] = $filtroEstado;
+        }
+
+        if($filtroUsuario == 'all'){
+            $arrayUser = $modelIncidencia->findColumn('idUsuario');
+        }else{
+            $arrayUser[] = $filtroUsuario;
+        }
+
+        if($filtroTipoIncidencia == 'all'){
+            $arrayTd = $modelIncidencia->findColumn('idTipoIncidencia');
+        }else{
+            $arrayTd[] = $filtroTipoIncidencia;
+        }
+
+        if($fechaInicio == $fechaFinal){
+            return view('admin/filtrarIncidencia',[
+                'incidencias' => $modelIncidencia->where('date_create >', $fechaInicio.' 00:00:00')->where('date_create <', $fechaInicio. ' 23:59:59')->whereIn('idUsuario',$arrayUser)->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                //'usuarios' => $modelUsuario->findAll(),
+                //'tipoIncidencia' => $modelTipoIncidencia->findAll()
+            ]);                                         
+        }else{
+            return view('admin/filtrarIncidencia',[
+                'incidencias' => $modelIncidencia->where('date_create >',$fechaInicio)->where('date_create <',$fechaFinal)->whereIn('idUsuario',$arrayUser)->whereIn('idTipoIncidencia',$arrayTd)->whereIn('estado',$arrayEstado)->findAll(),
+                //'usuarios' => $modelUsuario->findAll(),
+                //'tipoIncidencia' => $modelTipoIncidencia->findAll()
+            ]);
+        }
+
+
+        /*$modelIncidencia = model('IncidenciaModel');
 
         if(session('data.filtroEstado') == 'all'){
             if(session('data.filtroUsuario') == 'all'){
@@ -83,7 +166,7 @@ class Vistas extends BaseController{
                     ]);
                 }
             }
-        }
+        }*/
     }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function register(){
@@ -93,9 +176,11 @@ class Vistas extends BaseController{
     public function report(){
         $modelUsuario = model('UsuarioModel');
         $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $modelIncidencia = model('IncidenciaModel');
         return view ('admin/reportes',[
             'usuarios' => $modelUsuario->findAll(),
-            'tipoIncidencia' => $modelTipoIncidencia->findAll()
+            'tipoIncidencia' => $modelTipoIncidencia->findAll(),
+            'incidencias' => $modelIncidencia->findAll()
         ]);
     }    
     
@@ -124,6 +209,19 @@ class Vistas extends BaseController{
         $modelCt = model('CtModel');
         return view ('admin/buscarCt',[
             'cts' => $modelCt->where('estado',$estatus)->findAll()
+        ]);
+
+    }
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function buscarDispositivo(){
+        $estatus = trim($this->request->getVar('estado'));
+        if($estatus == null) {
+            $estatus = 1;
+        }
+        $modelDispositivo = model('DispositivoModel');
+        return view ('admin/buscarDispositivo',[
+            'dispositivos' => $modelDispositivo->where('estado',$estatus)->findAll()
         ]);
 
     }
@@ -251,6 +349,40 @@ class Vistas extends BaseController{
         ]);
     }
 
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+    public function actualizarDispositivo(){
+        if(!isset($_GET['id'])){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        $valorRecibido = $_GET['id'];
+        $modelDispositivo = model('DispositivoModel');
+        $modelTipoDispositivo = model('TipoDispositivoModel');
+        $modelCt = model('CtModel');
+        $valorMostar = null;
+        $buscar = $modelDispositivo->findAll();
+        foreach ($buscar as $key) {
+            if(password_verify($key->idDispositivo,$valorRecibido)){
+                $valorMostar = $key->idDispositivo;
+                break;
+            }
+        }
+        if($valorMostar == null){
+            return redirect()->back()->withInput()->with('msg',[
+                'type'=>'danger',
+                'body'=>'Error!'
+            ]);
+        }
+        
+        return view ('admin/actualizarDispositivo',[
+            'mostrar' => $modelDispositivo->find($valorMostar),
+            'Td' => $modelTipoDispositivo->findAll(),
+            'Ct' => $modelCt->where('estado',1)->findAll()
+        ]);
+    }
 /*-------------------------------------------------------------------------------------------------------------------*/
     public function resolverIncidencia(){
         if(!isset($_GET['id'])){

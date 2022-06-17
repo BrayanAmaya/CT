@@ -23,4 +23,9 @@ class Incidencia extends Entity{
         $row = $modelCt->where('idCt',$idCt)->get()->getFirstRow();
         return $row->nombreCt;
     }
+    public function mostrarIncidencia(string $idIncidencia){
+        $modelTipoIncidencia = model('TipoIncidenciaModel');
+        $row = $modelTipoIncidencia->where('idTipoIncidencia',$idIncidencia)->get()->getFirstRow();
+        return $row->incidencia;
+    }
 }
